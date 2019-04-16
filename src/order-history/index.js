@@ -1,5 +1,13 @@
 import ConnectedOrderHistoryPage from './OrderHistoryPage';
+import reducers from './reducers';
+import sagas from './sagas';
+import { configureServices } from './services';
+import { storeName } from './selectors';
 
-export { // eslint-disable-line object-curly-newline
-  ConnectedOrderHistoryPage, // eslint-disable-line import/prefer-default-export
+export {
+  ConnectedOrderHistoryPage,
+  reducers,
+  sagas,
+  configureServices,
+  storeName,
 };

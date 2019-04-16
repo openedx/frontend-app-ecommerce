@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux';
 import { userAccount } from '@edx/frontend-auth';
 import { connectRouter } from 'connected-react-router';
+import {
+  reducers as orderHistoryReducers,
+  storeName as orderHistoryStoreName,
+} from './order-history';
+
 
 const identityReducer = (state) => {
   const newState = { ...state };
@@ -14,6 +19,7 @@ const createRootReducer = history =>
     authentication: identityReducer,
     configuration: identityReducer,
     userAccount,
+    [orderHistoryStoreName]: orderHistoryReducers,
     router: connectRouter(history),
   });
 
