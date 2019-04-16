@@ -1,5 +1,5 @@
-import OrderHistoryPage from './OrderHistoryPage';
+import ConnectedOrderHistoryPage from './OrderHistoryPage';
 
 export { // eslint-disable-line object-curly-newline
-  OrderHistoryPage, // eslint-disable-line import/prefer-default-export
+  ConnectedOrderHistoryPage, // eslint-disable-line import/prefer-default-export
 };

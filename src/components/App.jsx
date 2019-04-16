@@ -10,7 +10,7 @@ import SiteFooter from '@edx/frontend-component-footer';
 import { getLocale, getMessages } from '@edx/frontend-i18n'; // eslint-disable-line
 
 import { PageLoading, fetchUserAccount } from '../common';
-import { OrderHistoryPage } from '../order-history';
+import { ConnectedOrderHistoryPage } from '../order-history';
 
 import FooterLogo from '../assets/edx-footer.png';
 import HeaderLogo from '../assets/logo.svg';
@@ -98,7 +98,7 @@ function PageContent({
       />
       <main>
         <Switch>
-          <Route path="/" component={OrderHistoryPage} />
+          <Route path="/" component={ConnectedOrderHistoryPage} />
           <Route path="/error" component={ErrorPage} />
           <Route path="/notfound" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />
