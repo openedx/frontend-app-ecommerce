@@ -3,7 +3,7 @@
 frontend-app-ecommerce
 =========================
 
-Please tag **@edx/arch-team** on any PRs or issues.
+Please tag **@edx/arch-team** on any PRs or issues.  Thanks.
 
 Introduction
 ------------
