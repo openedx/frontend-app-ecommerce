@@ -1,12 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // eslint-disable-line no-unused-vars
+import { injectIntl, intlShape } from 'react-intl';
 
-function OrderHistory() {
+import messages from './OrderHistoryPage.messages';
+
+
+function OrderHistoryPage({ intl }) {
   return (
     <div className="container-fluid py-5">
-      <h1>Order History</h1>
-      <p>Orders you place with edX will appear here.</p>
+      <h1>
+        {intl.formatMessage(messages['ecommerce.order.history.page.heading'])}
+      </h1>
+      <p>
+        {intl.formatMessage(messages['ecommerce.order.history.no.orders'])}
+      </p>
     </div>
   );
 }
 
-export default OrderHistory;
+
+OrderHistoryPage.propTypes = {
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(OrderHistoryPage);
