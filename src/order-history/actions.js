@@ -14,9 +14,9 @@ export const fetchOrdersBegin = () => ({
   type: FETCH_ORDERS.BEGIN,
 });
 
-export const fetchOrdersSuccess = orders => ({
+export const fetchOrdersSuccess = result => ({
   type: FETCH_ORDERS.SUCCESS,
-  payload: { orders },
+  payload: result,
 });
 
 export const fetchOrdersFailure = error => ({
