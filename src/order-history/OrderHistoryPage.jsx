@@ -34,7 +34,13 @@ class OrderHistoryPage extends React.Component {
 
   renderError() {
     if (this.props.loadingOrdersError === null) return null;
-    return (<div><strong>Error: </strong>{this.props.loadingOrdersError}</div>);
+    return (
+      <div>
+        {this.props.intl.formatMessage(messages['ecommerce.order.history.loading.error'], {
+          error: this.props.loadingOrdersError,
+        })}
+      </div>
+    );
   }
 
   renderLoading() {
