@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { injectIntl, intlShape } from 'react-intl';
-import { Table } from '@edx/paragon';
+import { injectIntl, intlShape, FormattedNumber, FormattedDate } from 'react-intl';
+import { Table, Hyperlink } from '@edx/paragon';
 
 import messages from './OrderHistoryPage.messages';
 
@@ -16,27 +16,56 @@ class OrderHistoryPage extends React.Component {
     this.props.fetchOrders();
   }
 
-  renderOrder(order) {
-    return (
-      <div key={order.id}>ORDER ID: {order.id}</div>
-    );
+  getTableData() {
+    return this.props.orders.map(({
+      lineItems,
+      orderDate,
+      total,
+      currency,
+      orderId,
+      receiptUrl,
+    }) => ({
+      description: this.renderLineItems(lineItems),
+      order_date: <FormattedDate value={new Date(orderDate)} />,
+      // eslint-disable-next-line react/style-prop-object
+      total: <FormattedNumber value={total} style="currency" currency={currency} />,
+      receiptUrl: <Hyperlink destination={receiptUrl}>View Order Details</Hyperlink>,
+      orderId,
+    }), this);
   }
 
-  renderOrders() {
-    if (this.props.orders.length === 0) {
+  renderLineItems(lineItems) {
+    return lineItems.map(({
+      itemId,
+      description,
+      quantity,
+    }) => (
+      <p className="d-flex" key={itemId}>
+        <span className="mr-3">{quantity}x</span>
+        <span>{description}</span>
+      </p>
+    ));
+  }
+
+  renderOrdersTable() {
+    if (!this.props.loading && this.props.orders.length === 0) {
       return (
         <p>
           {this.props.intl.formatMessage(messages['ecommerce.order.history.no.orders'])}
         </p>
       );
     }
+
     return (
       <Table
-        data={this.props.orders}
+        className="order-history"
+        data={this.getTableData()}
         columns={[
-          { label: 'Order Id', key: 'id' },
-          { label: 'Order Date', key: 'order_date' },
-          { label: 'Total', key: 'total' },
+          { label: 'Items', key: 'description' },
+          { label: 'Date placed', key: 'order_date' },
+          { label: 'Total cost', key: 'total' },
+          { label: 'Order number', key: 'orderId' },
+          { label: '', key: 'receiptUrl' },
         ]}
       />
     );
@@ -54,6 +83,7 @@ class OrderHistoryPage extends React.Component {
   }
 
   renderLoading() {
+    if (!this.props.loading) return null;
     return (
       <div className="spinner-border text-primary" role="status">
         <span className="sr-only">
@@ -65,12 +95,13 @@ class OrderHistoryPage extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid py-5">
+      <div className="page__order-history container-fluid py-5">
         <h1>
           {this.props.intl.formatMessage(messages['ecommerce.order.history.page.heading'])}
         </h1>
         {this.renderError()}
-        {this.props.loading ? this.renderLoading() : this.renderOrders()}
+        {this.renderOrdersTable()}
+        {this.renderLoading()}
       </div>
     );
   }
@@ -80,7 +111,19 @@ class OrderHistoryPage extends React.Component {
 OrderHistoryPage.propTypes = {
   intl: intlShape.isRequired,
   orders: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
+    orderDate: PropTypes.string,
+    total: PropTypes.string,
+    orderId: PropTypes.string,
+    receiptUrl: PropTypes.string,
+    currency: PropTypes.string,
+    lineItems: PropTypes.arrayOf(PropTypes.shape({
+      itemId: PropTypes.number,
+      status: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      expires: PropTypes.string,
+      quantity: PropTypes.number,
+    })),
   })),
   loading: PropTypes.bool,
   loadingError: PropTypes.string,
