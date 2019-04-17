@@ -1,0 +1,193 @@
+{
+  "count": 3,
+  "next": "https://ecommerce.stage.edx.org/api/v2/orders/?page=2&page_size=1&username=nasthagiriEdX",
+  "previous": null,
+  "results": [
+    {
+      "billing_address": null,
+      "currency": "USD",
+      "date_placed": "2016-01-26T22:26:50Z",
+      "discount": "0",
+      "lines": [
+        {
+          "title": "Seat in Introduction to Urology with honor certificate",
+          "quantity": 1,
+          "description": "Seat in Introduction to Urology with honor certificate",
+          "status": "Complete",
+          "line_price_excl_tax": "0.00",
+          "unit_price_excl_tax": "0.00",
+          "product": {
+            "id": 6928,
+            "url": "https://ecommerce.stage.edx.org/api/v2/products/6928/",
+            "structure": "child",
+            "product_class": "Seat",
+            "title": "Seat in Introduction to Urology with honor certificate",
+            "price": "0.00",
+            "expires": null,
+            "attribute_values": [
+              {
+                "name": "certificate_type",
+                "code": "certificate_type",
+                "value": "honor"
+              },
+              {
+                "name": "course_key",
+                "code": "course_key",
+                "value": "course-v1:KIx+KIUrologyx+2015_T3"
+              },
+              {
+                "name": "id_verification_required",
+                "code": "id_verification_required",
+                "value": false
+              }
+            ],
+            "is_available_to_buy": true,
+            "stockrecords": [
+              {
+                "id": 3026,
+                "product": 6928,
+                "partner": 1,
+                "partner_sku": "34BDD19",
+                "price_currency": "USD",
+                "price_excl_tax": "0.00"
+              }
+            ]
+          }
+        }
+      ],
+      "number": "EDX-101706",
+      "payment_processor": null,
+      "status": "Complete",
+      "total_excl_tax": "0.00",
+      "user": {
+        "email": "nasthagiri@edx.org",
+        "username": "nasthagiriEdX"
+      },
+      "vouchers": []
+    },
+    {
+      "billing_address": null,
+      "currency": "USD",
+      "date_placed": "2015-12-02T21:43:08Z",
+      "discount": "0",
+      "lines": [
+        {
+          "title": "Seat in \"Dracula\" by Stoker: BerkeleyX Book Club with honor certificate",
+          "quantity": 1,
+          "description": "Seat in \"Dracula\" by Stoker: BerkeleyX Book Club with honor certificate",
+          "status": "Complete",
+          "line_price_excl_tax": "0.00",
+          "unit_price_excl_tax": "0.00",
+          "product": {
+            "id": 6767,
+            "url": "https://ecommerce.stage.edx.org/api/v2/products/6767/",
+            "structure": "child",
+            "product_class": "Seat",
+            "title": "Seat in \"Dracula\" by Stoker: BerkeleyX Book Club with honor certificate",
+            "price": "0.00",
+            "expires": null,
+            "attribute_values": [
+              {
+                "name": "certificate_type",
+                "code": "certificate_type",
+                "value": "honor"
+              },
+              {
+                "name": "course_key",
+                "code": "course_key",
+                "value": "course-v1:BerkeleyX+ColWri.3.6x+3T2015"
+              },
+              {
+                "name": "id_verification_required",
+                "code": "id_verification_required",
+                "value": false
+              }
+            ],
+            "is_available_to_buy": true,
+            "stockrecords": [
+              {
+                "id": 2947,
+                "product": 6767,
+                "partner": 1,
+                "partner_sku": "806498F",
+                "price_currency": "USD",
+                "price_excl_tax": "0.00"
+              }
+            ]
+          }
+        }
+      ],
+      "number": "EDX-101403",
+      "payment_processor": null,
+      "status": "Complete",
+      "total_excl_tax": "0.00",
+      "user": {
+        "email": "nasthagiri@edx.org",
+        "username": "nasthagiriEdX"
+      },
+      "vouchers": []
+    },
+    {
+      "billing_address": null,
+      "currency": "USD",
+      "date_placed": "2015-09-30T16:18:10Z",
+      "discount": "0",
+      "lines": [
+        {
+          "title": "Seat in Demo Course with honor certificate",
+          "quantity": 1,
+          "description": "Seat in Demo Course with honor certificate",
+          "status": "Complete",
+          "line_price_excl_tax": "0.00",
+          "unit_price_excl_tax": "0.00",
+          "product": {
+            "id": 7268,
+            "url": "https://ecommerce.stage.edx.org/api/v2/products/7268/",
+            "structure": "child",
+            "product_class": "Seat",
+            "title": "Seat in Demo Course with honor certificate",
+            "price": "0.00",
+            "expires": null,
+            "attribute_values": [
+              {
+                "name": "certificate_type",
+                "code": "certificate_type",
+                "value": "honor"
+              },
+              {
+                "name": "course_key",
+                "code": "course_key",
+                "value": "edX/DemoX.1/2014"
+              },
+              {
+                "name": "id_verification_required",
+                "code": "id_verification_required",
+                "value": false
+              }
+            ],
+            "is_available_to_buy": true,
+            "stockrecords": [
+              {
+                "id": 3197,
+                "product": 7268,
+                "partner": 1,
+                "partner_sku": "D8B53D8",
+                "price_currency": "USD",
+                "price_excl_tax": "0.00"
+              }
+            ]
+          }
+        }
+      ],
+      "number": "EDX-100784",
+      "payment_processor": null,
+      "status": "Complete",
+      "total_excl_tax": "0.00",
+      "user": {
+        "email": "nasthagiri@edx.org",
+        "username": "nasthagiriEdX"
+      },
+      "vouchers": null
+    }
+  ]
+}
