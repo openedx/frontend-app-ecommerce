@@ -30,15 +30,6 @@ export async function getOrders(page = 1, pageSize = 100) {
     },
   });
 
-  // const data = await new Promise((resolve, reject) => { // eslint-disable-line no-unused-vars
-  //   // reject(new Error('test error'));
-
-  //   // Temp delay
-  //   setTimeout(() => {
-  //     resolve(require('./mockOrdersResponse.json'));
-  //   }, 500);
-  // });
-
   const transformedResults = data.results.map(({
     total_excl_tax, // eslint-disable-line camelcase
     lines,
