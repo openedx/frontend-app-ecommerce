@@ -1,13 +1,13 @@
 import ConnectedOrderHistoryPage from './OrderHistoryPage';
-import reducers from './reducers';
-import sagas from './sagas';
-import { configureServices } from './services';
+import reducer from './reducer';
+import saga from './saga';
+import { configureApiService } from './service';
 import { storeName } from './selectors';
 
 export {
   ConnectedOrderHistoryPage,
-  reducers,
-  sagas,
-  configureServices,
+  reducer,
+  saga,
+  configureApiService,
   storeName,
 };

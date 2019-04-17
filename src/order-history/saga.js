@@ -10,7 +10,7 @@ import {
 } from './actions';
 
 // Services
-import * as OrdersApiService from './services';
+import * as OrdersApiService from './service';
 
 export function* handleFetchOrders() {
   try {

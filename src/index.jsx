@@ -9,7 +9,7 @@ import { configuration } from './environment';
 import { handleRtl } from './i18n/i18n-loader';
 import configureStore from './store';
 import { configureUserAccountApiService } from './common';
-import { configureServices as configureOrderHistoryServices } from './order-history';
+import { configureApiService as configureOrderHistoryApiService } from './order-history';
 
 import './index.scss';
 import App from './components/App';
@@ -37,7 +37,7 @@ function createInitialState() {
 function configure() {
   const { store, history } = configureStore(createInitialState(), configuration.ENVIRONMENT);
 
-  configureOrderHistoryServices({ configuration, apiClient });
+  configureOrderHistoryApiService(configuration, apiClient);
   configureUserAccountApiService(configuration, apiClient);
   initializeSegment(configuration.SEGMENT_KEY);
   configureAnalytics({

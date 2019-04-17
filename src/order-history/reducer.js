@@ -1,8 +1,8 @@
 import { FETCH_ORDERS } from './actions';
 
 export const initialState = {
-  loadingOrders: false,
-  loadingOrdersError: null,
+  loading: false,
+  loadingError: null,
   orders: [],
 };
 
@@ -11,26 +11,26 @@ const orderHistoryPage = (state = initialState, action) => {
     case FETCH_ORDERS.BEGIN:
       return {
         ...state,
-        loadingOrdersError: null,
-        loadingOrders: true,
+        loadingError: null,
+        loading: true,
       };
     case FETCH_ORDERS.SUCCESS:
       return {
         ...state,
         orders: action.payload.orders,
-        loadingOrders: false,
+        loading: false,
       };
     case FETCH_ORDERS.FAILURE:
       return {
         ...state,
-        loadingOrdersError: action.payload.error,
-        loadingOrders: false,
+        loadingError: action.payload.error,
+        loading: false,
       };
     case FETCH_ORDERS.RESET:
       return {
         ...state,
-        loadingOrdersError: null,
-        loadingOrders: false,
+        loadingError: null,
+        loading: false,
       };
     default:
       return state;

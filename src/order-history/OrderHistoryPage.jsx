@@ -33,11 +33,11 @@ class OrderHistoryPage extends React.Component {
   }
 
   renderError() {
-    if (this.props.loadingOrdersError === null) return null;
+    if (this.props.loadingError === null) return null;
     return (
       <div>
         {this.props.intl.formatMessage(messages['ecommerce.order.history.loading.error'], {
-          error: this.props.loadingOrdersError,
+          error: this.props.loadingError,
         })}
       </div>
     );
@@ -60,7 +60,7 @@ class OrderHistoryPage extends React.Component {
           {this.props.intl.formatMessage(messages['ecommerce.order.history.page.heading'])}
         </h1>
         {this.renderError()}
-        {this.props.loadingOrders ? this.renderLoading() : this.renderOrders()}
+        {this.props.loading ? this.renderLoading() : this.renderOrders()}
       </div>
     );
   }
@@ -72,15 +72,15 @@ OrderHistoryPage.propTypes = {
   orders: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
   })),
-  loadingOrders: PropTypes.bool,
-  loadingOrdersError: PropTypes.string,
+  loading: PropTypes.bool,
+  loadingError: PropTypes.string,
   fetchOrders: PropTypes.func.isRequired,
 };
 
 OrderHistoryPage.defaultProps = {
   orders: [],
-  loadingOrdersError: null,
-  loadingOrders: false,
+  loadingError: null,
+  loading: false,
 };
 
 

@@ -15,7 +15,7 @@ function validateConfiguration(newConfig) {
   });
 }
 
-export function configureServices({ configuration: newConfig, apiClient: newApiClient }) {
+export function configureApiService(newConfig, newApiClient) {
   validateConfiguration(newConfig);
   config = pick(newConfig, Object.keys(config));
   apiClient = newApiClient;
