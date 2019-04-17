@@ -30,9 +30,30 @@ export async function getOrders() {
     // Temp delay
     setTimeout(() => {
       resolve([
-        { id: 2 },
-        { id: 3 },
-        { id: 4 },
+        {
+          id: 2,
+          order_date: 'date',
+          total: 41.65,
+          currency: 'USD',
+          detailsUrl: 'http://edx.org',
+          description: 'Seat in Introduction to Animal Behaviour with verified certificate (and ID verification)',
+        },
+        {
+          id: 3,
+          order_date: 'date',
+          total: 41.65,
+          currency: 'USD',
+          detailsUrl: 'http://edx.org',
+          description: 'Seat in Introduction to Animal Behaviour with verified certificate (and ID verification)',
+        },
+        {
+          id: 4,
+          order_date: 'date',
+          total: 41.65,
+          currency: 'USD',
+          detailsUrl: 'http://edx.org',
+          description: 'Seat in Introduction to Animal Behaviour with verified certificate (and ID verification)',
+        },
       ]);
     }, 500);
   });

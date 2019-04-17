@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { injectIntl, intlShape } from 'react-intl';
+import { Table } from '@edx/paragon';
 
 import messages from './OrderHistoryPage.messages';
 
@@ -29,7 +30,16 @@ class OrderHistoryPage extends React.Component {
         </p>
       );
     }
-    return this.props.orders.map(this.renderOrder);
+    return (
+      <Table
+        data={this.props.orders}
+        columns={[
+          { label: 'Order Id', key: 'id' },
+          { label: 'Order Date', key: 'order_date' },
+          { label: 'Total', key: 'total' },
+        ]}
+      />
+    );
   }
 
   renderError() {
