@@ -29,7 +29,11 @@ class OrderHistoryPage extends React.Component {
       order_date: <FormattedDate value={new Date(orderDate)} />,
       // eslint-disable-next-line react/style-prop-object
       total: <FormattedNumber value={total} style="currency" currency={currency} />,
-      receiptUrl: <Hyperlink destination={receiptUrl}>View Order Details</Hyperlink>,
+      receiptUrl: (
+        <Hyperlink destination={receiptUrl}>
+          {this.props.intl.formatMessage(messages['ecommerce.order.history.view.order.detail'])}
+        </Hyperlink>
+      ),
       orderId,
     }), this);
   }
@@ -61,11 +65,26 @@ class OrderHistoryPage extends React.Component {
         className="order-history"
         data={this.getTableData()}
         columns={[
-          { label: 'Items', key: 'description' },
-          { label: 'Date placed', key: 'order_date' },
-          { label: 'Total cost', key: 'total' },
-          { label: 'Order number', key: 'orderId' },
-          { label: '', key: 'receiptUrl' },
+          {
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
+            key: 'description',
+          },
+          {
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
+            key: 'order_date',
+          },
+          {
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
+            key: 'total',
+          },
+          {
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
+            key: 'orderId',
+          },
+          {
+            label: '',
+            key: 'receiptUrl',
+          },
         ]}
       />
     );
