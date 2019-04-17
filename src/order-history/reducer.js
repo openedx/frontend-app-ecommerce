@@ -4,6 +4,9 @@ export const initialState = {
   loading: false,
   loadingError: null,
   orders: [],
+  count: 0,
+  next: null,
+  previous: null,
 };
 
 const orderHistoryPage = (state = initialState, action) => {
@@ -18,6 +21,9 @@ const orderHistoryPage = (state = initialState, action) => {
       return {
         ...state,
         orders: action.payload.orders,
+        count: action.payload.count,
+        next: action.payload.next,
+        previous: action.payload.previous,
         loading: false,
       };
     case FETCH_ORDERS.FAILURE:

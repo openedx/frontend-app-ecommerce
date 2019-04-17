@@ -19,14 +19,14 @@ class OrderHistoryPage extends React.Component {
   getTableData() {
     return this.props.orders.map(({
       lineItems,
-      orderDate,
+      datePlaced,
       total,
       currency,
       orderId,
       receiptUrl,
     }) => ({
       description: this.renderLineItems(lineItems),
-      order_date: <FormattedDate value={new Date(orderDate)} />,
+      datePlaced: <FormattedDate value={new Date(datePlaced)} />,
       // eslint-disable-next-line react/style-prop-object
       total: <FormattedNumber value={total} style="currency" currency={currency} />,
       receiptUrl: (
@@ -52,6 +52,7 @@ class OrderHistoryPage extends React.Component {
   }
 
   renderOrdersTable() {
+    if (this.props.loadingError !== null) return null;
     if (!this.props.loading && this.props.orders.length === 0) {
       return (
         <p>
@@ -71,7 +72,7 @@ class OrderHistoryPage extends React.Component {
           },
           {
             label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
-            key: 'order_date',
+            key: 'datePlaced',
           },
           {
             label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
@@ -130,18 +131,16 @@ class OrderHistoryPage extends React.Component {
 OrderHistoryPage.propTypes = {
   intl: intlShape.isRequired,
   orders: PropTypes.arrayOf(PropTypes.shape({
-    orderDate: PropTypes.string,
+    datePlaced: PropTypes.string,
     total: PropTypes.string,
     orderId: PropTypes.string,
     receiptUrl: PropTypes.string,
     currency: PropTypes.string,
     lineItems: PropTypes.arrayOf(PropTypes.shape({
       itemId: PropTypes.number,
-      status: PropTypes.string,
       title: PropTypes.string,
-      description: PropTypes.string,
-      expires: PropTypes.string,
       quantity: PropTypes.number,
+      description: PropTypes.string,
     })),
   })),
   loading: PropTypes.bool,

@@ -1,6 +1,7 @@
 export const configuration = {
   BASE_URL: process.env.BASE_URL,
   LMS_BASE_URL: process.env.LMS_BASE_URL,
+  ECOMMERCE_BASE_URL: process.env.ECOMMERCE_BASE_URL,
   CREDENTIALS_BASE_URL: process.env.CREDENTIALS_BASE_URL,
   LOGIN_URL: process.env.LOGIN_URL,
   LOGOUT_URL: process.env.LOGOUT_URL,
@@ -34,6 +35,7 @@ export const configuration = {
   PREFERENCES_API_BASE_URL: `${process.env.LMS_BASE_URL}/api/user/v1/preferences`,
   CERTIFICATES_API_BASE_URL: `${process.env.LMS_BASE_URL}/api/certificates/v0/certificates`,
   VIEW_MY_RECORDS_URL: `${process.env.CREDENTIALS_BASE_URL}/records`,
+  ECOMMERCE_API_BASE_URL: `${process.env.ECOMMERCE_BASE_URL}/api/v2`,
 };
 
 export const features = {};
