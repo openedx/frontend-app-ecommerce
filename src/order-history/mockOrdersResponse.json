@@ -1,6 +1,6 @@
 {
   "count": 3,
-  "next": "https://ecommerce.stage.edx.org/api/v2/orders/?page=2&page_size=1&username=nasthagiriEdX",
+  "next": "https://ecommerce.stage.edx.org/api/v2/orders/?page=2&page_size=1&username=strong_bad",
   "previous": null,
   "results": [
     {
@@ -60,8 +60,8 @@
       "status": "Complete",
       "total_excl_tax": "0.00",
       "user": {
-        "email": "nasthagiri@edx.org",
-        "username": "nasthagiriEdX"
+        "email": "strongbad@homestarrunner.com",
+        "username": "strong_bad"
       },
       "vouchers": []
     },
@@ -122,8 +122,8 @@
       "status": "Complete",
       "total_excl_tax": "0.00",
       "user": {
-        "email": "nasthagiri@edx.org",
-        "username": "nasthagiriEdX"
+        "email": "strongbad@homestarrunner.com",
+        "username": "strong_bad"
       },
       "vouchers": []
     },
@@ -184,8 +184,8 @@
       "status": "Complete",
       "total_excl_tax": "0.00",
       "user": {
-        "email": "nasthagiri@edx.org",
-        "username": "nasthagiriEdX"
+        "email": "strongbad@homestarrunner.com",
+        "username": "strong_bad"
       },
       "vouchers": null
     }
