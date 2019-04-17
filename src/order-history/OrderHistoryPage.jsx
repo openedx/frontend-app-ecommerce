@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { injectIntl, intlShape, FormattedNumber, FormattedDate } from 'react-intl';
-import { Table, Hyperlink } from '@edx/paragon';
+import { Table, Hyperlink, Pagination } from '@edx/paragon';
 
 import messages from './OrderHistoryPage.messages';
 
@@ -12,8 +12,14 @@ import { pageSelector } from './selectors';
 
 
 class OrderHistoryPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handlePageSelect = this.handlePageSelect.bind(this);
+  }
   componentDidMount() {
-    this.props.fetchOrders();
+    // TODO: We should fetch based on the route (ex: /orders/list/page/1)
+    this.props.fetchOrders(1);
   }
 
   getTableData() {
@@ -38,6 +44,29 @@ class OrderHistoryPage extends React.Component {
     }), this);
   }
 
+  handlePageSelect(page) {
+    // TODO: We should update the url and trigger this fetching based on the route
+    this.props.fetchOrders(page);
+  }
+
+  renderPagination() {
+    const {
+      pageCount,
+      currentPage,
+    } = this.props;
+
+    if (pageCount <= 1) return null;
+
+    return (
+      <Pagination
+        paginationLabel="pagination navigation"
+        pageCount={pageCount}
+        currentPage={currentPage}
+        onPageSelect={this.handlePageSelect}
+      />
+    );
+  }
+
   renderLineItems(lineItems) {
     return lineItems.map(({
       itemId,
@@ -52,47 +81,48 @@ class OrderHistoryPage extends React.Component {
   }
 
   renderOrdersTable() {
-    if (this.props.loadingError !== null) return null;
-    if (!this.props.loading && this.props.orders.length === 0) {
-      return (
-        <p>
-          {this.props.intl.formatMessage(messages['ecommerce.order.history.no.orders'])}
-        </p>
-      );
-    }
-
     return (
-      <Table
-        className="order-history"
-        data={this.getTableData()}
-        columns={[
-          {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
-            key: 'description',
-          },
-          {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
-            key: 'datePlaced',
-          },
-          {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
-            key: 'total',
-          },
-          {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
-            key: 'orderId',
-          },
-          {
-            label: '',
-            key: 'receiptUrl',
-          },
-        ]}
-      />
+      <React.Fragment>
+        <Table
+          className="order-history"
+          data={this.getTableData()}
+          columns={[
+            {
+              label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
+              key: 'description',
+            },
+            {
+              label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
+              key: 'datePlaced',
+            },
+            {
+              label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
+              key: 'total',
+            },
+            {
+              label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
+              key: 'orderId',
+            },
+            {
+              label: '',
+              key: 'receiptUrl',
+            },
+          ]}
+        />
+        {this.renderPagination()}
+      </React.Fragment>
+    );
+  }
+
+  renderEmptyMessage() {
+    return (
+      <p>
+        {this.props.intl.formatMessage(messages['ecommerce.order.history.no.orders'])}
+      </p>
     );
   }
 
   renderError() {
-    if (this.props.loadingError === null) return null;
     return (
       <div>
         {this.props.intl.formatMessage(messages['ecommerce.order.history.loading.error'], {
@@ -103,7 +133,6 @@ class OrderHistoryPage extends React.Component {
   }
 
   renderLoading() {
-    if (!this.props.loading) return null;
     return (
       <div className="spinner-border text-primary" role="status">
         <span className="sr-only">
@@ -114,14 +143,21 @@ class OrderHistoryPage extends React.Component {
   }
 
   render() {
+    const {
+      loading,
+      loadingError,
+      orders,
+    } = this.props;
+    const loaded = !loading;
     return (
       <div className="page__order-history container-fluid py-5">
         <h1>
           {this.props.intl.formatMessage(messages['ecommerce.order.history.page.heading'])}
         </h1>
-        {this.renderError()}
-        {this.renderOrdersTable()}
-        {this.renderLoading()}
+        {loadingError ? this.renderError() : null}
+        {loaded && orders.length > 0 ? this.renderOrdersTable() : null}
+        {loaded && orders.length === 0 ? this.renderEmptyMessage() : null}
+        {loading ? this.renderLoading() : null}
       </div>
     );
   }
@@ -143,6 +179,8 @@ OrderHistoryPage.propTypes = {
       description: PropTypes.string,
     })),
   })),
+  pageCount: PropTypes.number,
+  currentPage: PropTypes.number,
   loading: PropTypes.bool,
   loadingError: PropTypes.string,
   fetchOrders: PropTypes.func.isRequired,
@@ -152,6 +190,8 @@ OrderHistoryPage.defaultProps = {
   orders: [],
   loadingError: null,
   loading: false,
+  pageCount: 0,
+  currentPage: null,
 };
 
 

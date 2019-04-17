@@ -22,7 +22,7 @@ export function configureApiService(newConfig, newApiClient) {
   apiClient = newApiClient;
 }
 
-export async function getOrders(page = 1, pageSize = 100) {
+export async function getOrders(page = 1, pageSize = 20) {
   const { data } = await apiClient.get(`${config.ECOMMERCE_API_BASE_URL}/orders/`, {
     params: {
       page,
@@ -61,6 +61,8 @@ export async function getOrders(page = 1, pageSize = 100) {
 
   return {
     count: data.count,
+    pageCount: Math.ceil(data.count / pageSize),
+    currentPage: page,
     next: data.next,
     previous: data.previous,
     orders: transformedResults,

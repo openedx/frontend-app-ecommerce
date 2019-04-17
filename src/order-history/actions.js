@@ -6,8 +6,9 @@ export const FETCH_ORDERS = new AsyncActionType('ORDER_HISTORY', 'FETCH_ORDERS')
 
 // FETCH ORDERS ACTIONS
 
-export const fetchOrders = () => ({
+export const fetchOrders = pageToFetch => ({
   type: FETCH_ORDERS.BASE,
+  payload: { pageToFetch },
 });
 
 export const fetchOrdersBegin = () => ({
