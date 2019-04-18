@@ -26,3 +26,12 @@ $fa-font-path: "~font-awesome/fonts";
     text-decoration: underline;
   }
 }
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  & > main {
+    flex-grow: 1;
+  }
+}

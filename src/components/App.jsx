@@ -84,7 +84,7 @@ function PageContent({
   ];
 
   return (
-    <div>
+    <div id="app">
       <SiteHeader
         logo={HeaderLogo}
         loggedIn
