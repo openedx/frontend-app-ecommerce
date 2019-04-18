@@ -148,15 +148,17 @@ class OrderHistoryPage extends React.Component {
       loadingError,
       orders,
     } = this.props;
-    const loaded = !loading;
+    const loaded = !loading && !loadingError;
+    const hasOrders = orders.length > 0;
+
     return (
       <div className="page__order-history container-fluid py-5">
         <h1>
           {this.props.intl.formatMessage(messages['ecommerce.order.history.page.heading'])}
         </h1>
         {loadingError ? this.renderError() : null}
-        {loaded && orders.length > 0 ? this.renderOrdersTable() : null}
-        {loaded && orders.length === 0 ? this.renderEmptyMessage() : null}
+        {loaded && hasOrders ? this.renderOrdersTable() : null}
+        {loaded && !hasOrders ? this.renderEmptyMessage() : null}
         {loading ? this.renderLoading() : null}
       </div>
     );
