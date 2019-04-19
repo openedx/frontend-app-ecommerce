@@ -98,7 +98,7 @@ function PageContent({
       />
       <main>
         <Switch>
-          <Route path="/" component={ConnectedOrderHistoryPage} />
+          <Route path="/orders" component={ConnectedOrderHistoryPage} />
           <Route path="/error" component={ErrorPage} />
           <Route path="/notfound" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />
