@@ -7,5 +7,12 @@
   "siteheader.user.menu.account.settings": "Account",
   "siteheader.user.menu.logout": "Logout",
   "siteheader.user.menu.login": "Login",
-  "siteheader.user.menu.register": "Sign Up"
+  "siteheader.user.menu.register": "Sign Up",
+  "error.unexpected.message": "An unexpected error occurred.",
+  "error.notfound.message": "The page you're looking for is unavailable or there's an error in the URL. Please check the URL and try again.",
+  "root.page": "Congratulations!  You have a new micro-frontend.",
+  "ecommerce.order.history.page.heading": "Order History",
+  "ecommerce.order.history.no.orders": "Orders you place with edX will appear here.",
+  "ecommerce.order.history.loading.orders": "Loading orders...",
+  "ecommerce.order.history.loading.error": "Error: {error}"
 }
