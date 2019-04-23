@@ -9,6 +9,7 @@ import messages from './OrderHistoryPage.messages';
 // Actions
 import { fetchOrders } from './actions';
 import { pageSelector } from './selectors';
+import { PageLoading } from '../common';
 
 
 class OrderHistoryPage extends React.Component {
@@ -134,11 +135,7 @@ class OrderHistoryPage extends React.Component {
 
   renderLoading() {
     return (
-      <div className="spinner-border text-primary" role="status">
-        <span className="sr-only">
-          {this.props.intl.formatMessage(messages['ecommerce.order.history.loading.orders'])}
-        </span>
-      </div>
+      <PageLoading srMessage={this.props.intl.formatMessage(messages['ecommerce.order.history.loading.orders'])} />
     );
   }
 

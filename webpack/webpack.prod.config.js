@@ -8,6 +8,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackNewRelicPlugin = require('html-webpack-new-relic-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const WebpackRTLPlugin = require('webpack-rtl-plugin');
 
 module.exports = Merge.smart(commonConfig, {
@@ -68,10 +69,7 @@ module.exports = Merge.smart(commonConfig, {
         issuer: {
           test: /\.jsx?$/,
         },
-        exclude: [
-          path.resolve(__dirname, '../src/assets/logo.svg'),
-        ],
-        use: ['@svgr/webpack', 'url-loader'],
+        loader: '@svgr/webpack',
       },
       // Webpack, by default, uses the url-loader for images and fonts that are required/included by
       // files it processes, which just base64 encodes them and inlines them in the javascript
@@ -161,6 +159,7 @@ module.exports = Merge.smart(commonConfig, {
       REDDIT_URL: null,
       APPLE_APP_STORE_URL: null,
       GOOGLE_PLAY_URL: null,
+      NEW_RELIC_ADMIN_KEY: null,
       NEW_RELIC_APP_ID: null,
       NEW_RELIC_LICENSE_KEY: null,
     }),
