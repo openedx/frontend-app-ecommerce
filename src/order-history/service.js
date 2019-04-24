@@ -56,7 +56,7 @@ export async function getOrders(username, page = 1, pageSize = 20) {
       orderId: number,
       currency,
       lineItems,
-      receiptUrl: 'https://edx.org',
+      receiptUrl: `${config.ECOMMERCE_RECEIPT_BASE_URL}?order_number=${number}`,
     };
   });
 
