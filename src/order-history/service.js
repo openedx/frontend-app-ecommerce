@@ -3,6 +3,7 @@ import pick from 'lodash.pick';
 let config = {
   ACCOUNTS_API_BASE_URL: null,
   ECOMMERCE_API_BASE_URL: null,
+  ECOMMERCE_RECEIPT_BASE_URL: null,
   LMS_BASE_URL: null,
 };
 
