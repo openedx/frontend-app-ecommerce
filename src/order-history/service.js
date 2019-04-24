@@ -22,9 +22,10 @@ export function configureApiService(newConfig, newApiClient) {
   apiClient = newApiClient;
 }
 
-export async function getOrders(page = 1, pageSize = 20) {
+export async function getOrders(username, page = 1, pageSize = 20) {
   const { data } = await apiClient.get(`${config.ECOMMERCE_API_BASE_URL}/orders/`, {
     params: {
+      username,
       page,
       page_size: pageSize,
     },

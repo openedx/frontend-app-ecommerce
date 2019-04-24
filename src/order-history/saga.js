@@ -14,10 +14,11 @@ import * as OrdersApiService from './service';
 
 
 export function* handleFetchOrders(action) {
+  const { username } = action.payload;
   try {
     yield put(fetchOrdersBegin());
 
-    const result = yield call(OrdersApiService.getOrders, action.payload.pageToFetch);
+    const result = yield call(OrdersApiService.getOrders, username, action.payload.pageToFetch);
     yield put(fetchOrdersSuccess(result));
     yield put(fetchOrdersReset());
   } catch (e) {
