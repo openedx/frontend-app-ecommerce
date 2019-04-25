@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { injectIntl, intlShape, FormattedNumber, FormattedDate } from 'react-intl';
 import { Table, Hyperlink, Pagination } from '@edx/paragon';
+import MediaQuery from 'react-responsive';
 
 import messages from './OrderHistoryPage.messages';
 
@@ -115,6 +116,34 @@ class OrderHistoryPage extends React.Component {
     );
   }
 
+  renderMobileOrdersTable() {
+    return this.getTableData().map(({
+      description, datePlaced, total, orderId, receiptUrl,
+    }) => (
+      <div className="border-bottom py-3">
+        <dl>
+          <dt>
+            {this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items'])}
+          </dt>
+          <dd>{description}</dd>
+          <dt>
+            {this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed'])}
+          </dt>
+          <dd>{datePlaced}</dd>
+          <dt>
+            {this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost'])}
+          </dt>
+          <dd>{total}</dd>
+          <dt>
+            {this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number'])}
+          </dt>
+          <dd>{orderId}</dd>
+        </dl>
+        <p>{receiptUrl}</p>
+      </div>
+    ));
+  }
+
   renderEmptyMessage() {
     return (
       <p>
@@ -154,7 +183,16 @@ class OrderHistoryPage extends React.Component {
           {this.props.intl.formatMessage(messages['ecommerce.order.history.page.heading'])}
         </h1>
         {loadingError ? this.renderError() : null}
-        {loaded && hasOrders ? this.renderOrdersTable() : null}
+        {loaded && hasOrders ? (
+          <React.Fragment>
+            <MediaQuery query="(max-width: 768px)">
+              {this.renderMobileOrdersTable()}
+            </MediaQuery>
+            <MediaQuery query="(min-width: 769px)">
+              {this.renderOrdersTable()}
+            </MediaQuery>
+          </React.Fragment>
+        ) : null}
         {loaded && !hasOrders ? this.renderEmptyMessage() : null}
         {loading ? this.renderLoading() : null}
       </div>
