@@ -40,12 +40,10 @@ export async function getOrders(username, page = 1, pageSize = 20) {
     date_placed, // eslint-disable-line camelcase
   }) => {
     const lineItems = lines.map(({
-      product,
       title,
       quantity,
       description,
     }) => ({
-      itemId: product.id,
       title,
       quantity,
       description,

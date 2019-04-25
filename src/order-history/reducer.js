@@ -30,12 +30,6 @@ const orderHistoryPage = (state = initialState, action) => {
         currentPage: action.payload.currentPage,
         loading: false,
       };
-    case FETCH_ORDERS.FAILURE:
-      return {
-        ...state,
-        loadingError: action.payload.error,
-        loading: false,
-      };
     case FETCH_ORDERS.RESET:
       return {
         ...state,
