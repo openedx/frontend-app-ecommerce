@@ -7,7 +7,6 @@ import {
   FETCH_ORDERS,
   fetchOrdersBegin,
   fetchOrdersSuccess,
-  // fetchOrdersFailure,
   fetchOrdersReset,
 } from './actions';
 
