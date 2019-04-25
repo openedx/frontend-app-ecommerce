@@ -120,7 +120,7 @@ class OrderHistoryPage extends React.Component {
     return this.getTableData().map(({
       description, datePlaced, total, orderId, receiptUrl,
     }) => (
-      <div className="border-bottom py-3">
+      <div className="border-bottom py-3" key={orderId}>
         <dl>
           <dt>
             {this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items'])}
