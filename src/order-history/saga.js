@@ -1,11 +1,13 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
+import { push } from 'connected-react-router';
+import LoggingService from '@edx/frontend-logging';
 
 // Actions
 import {
   FETCH_ORDERS,
   fetchOrdersBegin,
   fetchOrdersSuccess,
-  fetchOrdersFailure,
+  // fetchOrdersFailure,
   fetchOrdersReset,
 } from './actions';
 
@@ -17,13 +19,12 @@ export function* handleFetchOrders(action) {
   const { username } = action.payload;
   try {
     yield put(fetchOrdersBegin());
-
     const result = yield call(OrdersApiService.getOrders, username, action.payload.pageToFetch);
     yield put(fetchOrdersSuccess(result));
     yield put(fetchOrdersReset());
   } catch (e) {
-    // LoggingService.logAPIErrorResponse(e);
-    yield put(fetchOrdersFailure(e.message));
+    LoggingService.logAPIErrorResponse(e);
+    yield put(push('/error'));
   }
 }
 
