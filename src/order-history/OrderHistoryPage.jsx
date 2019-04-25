@@ -71,11 +71,10 @@ class OrderHistoryPage extends React.Component {
 
   renderLineItems(lineItems) {
     return lineItems.map(({
-      itemId,
       description,
       quantity,
     }) => (
-      <p className="d-flex" key={itemId}>
+      <p className="d-flex" key={description}>
         <span className="mr-3">{quantity}x</span>
         <span>{description}</span>
       </p>
@@ -211,7 +210,6 @@ OrderHistoryPage.propTypes = {
     receiptUrl: PropTypes.string,
     currency: PropTypes.string,
     lineItems: PropTypes.arrayOf(PropTypes.shape({
-      itemId: PropTypes.number,
       title: PropTypes.string,
       quantity: PropTypes.number,
       description: PropTypes.string,
