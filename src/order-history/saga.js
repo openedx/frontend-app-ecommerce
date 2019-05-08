@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
-import LoggingService from '@edx/frontend-logging';
+import { logAPIErrorResponse } from '@edx/frontend-logging';
 
 // Actions
 import {
@@ -22,7 +22,7 @@ export function* handleFetchOrders(action) {
     yield put(fetchOrdersSuccess(result));
     yield put(fetchOrdersReset());
   } catch (e) {
-    LoggingService.logAPIErrorResponse(e);
+    logAPIErrorResponse(e);
     yield put(push('/error'));
   }
 }
