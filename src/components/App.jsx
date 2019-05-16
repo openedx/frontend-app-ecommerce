@@ -11,6 +11,7 @@ import { getLocale, getMessages } from '@edx/frontend-i18n'; // eslint-disable-l
 
 import { PageLoading, fetchUserAccount } from '../common';
 import { ConnectedOrderHistoryPage } from '../order-history';
+import { ConnectedPaymentsPage } from '../payments';
 
 import FooterLogo from '../assets/edx-footer.png';
 import HeaderLogo from '../assets/logo.svg';
@@ -104,6 +105,8 @@ function PageContent({
       <main>
         <Switch>
           <Route path="/orders" component={ConnectedOrderHistoryPage} />
+          {/* TODO: Rename "payments" to "payment". */}
+          <Route path="/wip-payments" component={ConnectedPaymentsPage} />
           <Route path="/error" component={ErrorPage} />
           <Route path="/notfound" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />

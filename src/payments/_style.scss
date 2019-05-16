@@ -1,0 +1,13 @@
+.page__payments {
+  table.payments {
+    thead th,
+    tbody td {
+      width: 4em;
+    }
+
+    thead tr th:first-child,
+    tbody tr td:first-child {
+      width: 12em;
+    }
+  }
+}
