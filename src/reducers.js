@@ -5,6 +5,10 @@ import {
   reducer as orderHistoryReducer,
   storeName as orderHistoryStoreName,
 } from './order-history';
+import {
+  reducer as paymentsReducer,
+  storeName as paymentsStoreName,
+} from './payments';
 
 
 const identityReducer = (state) => {
@@ -20,6 +24,7 @@ const createRootReducer = history =>
     configuration: identityReducer,
     userAccount,
     [orderHistoryStoreName]: orderHistoryReducer,
+    [paymentsStoreName]: paymentsReducer,
     router: connectRouter(history),
   });
 
