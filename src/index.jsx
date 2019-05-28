@@ -10,6 +10,8 @@ import { handleRtl } from './i18n/i18n-loader';
 import configureStore from './store';
 import { configureUserAccountApiService } from './common';
 import { configureApiService as configureOrderHistoryApiService } from './order-history';
+import { configureApiService as configurePaymentsApiService } from './payments';
+
 
 import './index.scss';
 import App from './components/App';
@@ -40,6 +42,7 @@ function configure() {
 
   configureLoggingService(NewRelicLoggingService);
   configureOrderHistoryApiService(configuration, apiClient);
+  configurePaymentsApiService(configuration, apiClient);
   configureUserAccountApiService(configuration, apiClient);
   initializeSegment(configuration.SEGMENT_KEY);
   configureAnalytics({
