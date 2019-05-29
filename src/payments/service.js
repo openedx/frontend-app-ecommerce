@@ -24,7 +24,7 @@ export function configureApiService(newConfig, newApiClient) {
 }
 
 export async function getPayments() {
-  const { data } = await apiClient.get(`${config.ECOMMERCE_API_BASE_URL}/basket/`);
+  const { data } = await apiClient.get(`${config.ECOMMERCE_API_BASE_URL}/baskets/wip-api`);
   const transformedResults = {
     total: data.order_total.excl_tax,
   };
