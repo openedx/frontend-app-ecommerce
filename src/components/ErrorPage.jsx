@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from '@edx/frontend-i18n';
+import { FormattedMessage } from 'react-intl';
 
 export default function ErrorPage() {
   return (
