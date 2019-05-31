@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OrderHistoryPage /> Renders correctly in various states app loading 1`] = `
+<div
+  className="page__order-history container-fluid py-5"
+>
+  <h1>
+    Order History
+  </h1>
+  <nav
+    aria-label="pagination navigation"
+    className={undefined}
+  >
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      aria-relevant="text"
+      className="sr-only"
+    >
+      Page 2, Current Page, of 10
+    </div>
+    <ul
+      className="pagination"
+    >
+      <li
+        className="page-item"
+      >
+        <button
+          aria-label="Previous, Page 1"
+          className="btn previous page-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={undefined}
+          type="button"
+        >
+          <div>
+            <span
+              aria-hidden={true}
+              className="fa fa-chevron-left mr-2"
+              id="pagination-3"
+            />
+            Previous
+          </div>
+        </button>
+      </li>
+      <li
+        className="page-item"
+      >
+        <button
+          aria-label="Next, Page 3"
+          className="btn next page-link"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={undefined}
+          type="button"
+        >
+          <div>
+            Next
+            <span
+              aria-hidden={true}
+              className="fa fa-chevron-right ml-2"
+              id="pagination-5"
+            />
+          </div>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
