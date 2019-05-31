@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OrderHistoryPage /> Renders correctly in various states app loading 1`] = `
+exports[`<OrderHistoryPage /> Renders correctly in various states renders orders table with pagination 1`] = `
 <div
   className="page__order-history container-fluid py-5"
 >
