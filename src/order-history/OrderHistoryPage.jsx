@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { injectIntl, intlShape, FormattedNumber, FormattedDate } from 'react-intl';
+import { injectIntl, intlShape, FormattedDate, FormattedNumber } from '@edx/frontend-i18n';
 import { Table, Hyperlink, Pagination } from '@edx/paragon';
 import MediaQuery from 'react-responsive';
 
@@ -83,35 +83,32 @@ class OrderHistoryPage extends React.Component {
 
   renderOrdersTable() {
     return (
-      <React.Fragment>
-        <Table
-          className="order-history"
-          data={this.getTableData()}
-          columns={[
-            {
-              label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
-              key: 'description',
-            },
-            {
-              label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
-              key: 'datePlaced',
-            },
-            {
-              label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
-              key: 'total',
-            },
-            {
-              label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
-              key: 'orderId',
-            },
-            {
-              label: '',
-              key: 'receiptUrl',
-            },
-          ]}
-        />
-        {this.renderPagination()}
-      </React.Fragment>
+      <Table
+        className="order-history"
+        data={this.getTableData()}
+        columns={[
+          {
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
+            key: 'description',
+          },
+          {
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
+            key: 'datePlaced',
+          },
+          {
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
+            key: 'total',
+          },
+          {
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
+            key: 'orderId',
+          },
+          {
+            label: '',
+            key: 'receiptUrl',
+          },
+        ]}
+      />
     );
   }
 
@@ -190,6 +187,7 @@ class OrderHistoryPage extends React.Component {
             <MediaQuery query="(min-width: 769px)">
               {this.renderOrdersTable()}
             </MediaQuery>
+            {this.renderPagination()}
           </React.Fragment>
         ) : null}
         {loaded && !hasOrders ? this.renderEmptyMessage() : null}
