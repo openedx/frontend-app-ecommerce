@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { injectIntl, intlShape, FormattedNumber, FormattedDate } from 'react-intl';
+import { injectIntl, intlShape, FormattedNumber, FormattedDate } from '@edx/frontend-i18n';
 import { Table, Hyperlink, Pagination } from '@edx/paragon';
 import MediaQuery from 'react-responsive';
 
