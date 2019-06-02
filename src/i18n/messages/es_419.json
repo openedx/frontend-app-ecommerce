@@ -20,5 +20,9 @@
   "ecommerce.order.history.table.column.items": "Items",
   "ecommerce.order.history.table.column.date.placed": "Date placed",
   "ecommerce.order.history.table.column.total.cost": "Total cost",
-  "ecommerce.order.history.table.column.order.number": "Order number"
+  "ecommerce.order.history.table.column.order.number": "Order number",
+  "ecommerce.payments.page.heading": "Payments",
+  "ecommerce.payments.empty.basket": "Payments you place with edX will appear here.",
+  "ecommerce.payments.loading.payments": "Loading payments...",
+  "ecommerce.payments.loading.error": "Error: {error}"
 }
