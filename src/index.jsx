@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { identifyAuthenticatedUser, sendPageEvent, configureAnalytics, initializeSegment } from '@edx/frontend-analytics';
 import { configureLoggingService, NewRelicLoggingService } from '@edx/frontend-logging';
 import { getAuthenticatedAPIClient } from '@edx/frontend-auth';
-import { handleRtl, configure as configureI18n } from '@edx/frontend-i18n';
+import { configure as configureI18n } from '@edx/frontend-i18n';
 
 import { configuration } from './environment';
 import messages from './i18n';
@@ -53,10 +53,6 @@ function configure() {
     authApiClient: apiClient,
     analyticsApiBaseUrl: configuration.LMS_BASE_URL,
   });
-
-  if (configuration.ENVIRONMENT === 'production') {
-    handleRtl();
-  }
 
   return {
     store,
