@@ -21,4 +21,4 @@ pull_translations:
 	make -f node_modules/.bin/transifex-Makefile pull_translations
 
 detect_changed_source_translations:
-  make -f node_modules/.bin/transifex-Makefile detect_changed_source_translations
+	make -f node_modules/.bin/transifex-Makefile detect_changed_source_translations
