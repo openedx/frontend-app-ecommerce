@@ -16,13 +16,12 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { ReloadOnError, fetchUserAccount } from '../common';
+import { ErrorBoundary, fetchUserAccount } from '../common';
 import { ConnectedOrderHistoryPage } from '../order-history';
 import { ConnectedPaymentsPage } from '../payments';
 
 import FooterLogo from '../assets/edx-footer.png';
 import HeaderLogo from '../assets/logo.svg';
-import ErrorPage from './ErrorPage';
 import NotFoundPage from './NotFoundPage';
 
 import messages from './App.messages';
@@ -149,7 +148,6 @@ function PageContent({
           <Route path="/orders" component={ConnectedOrderHistoryPage} />
           {/* TODO: Rename "payments" to "payment". */}
           <Route path="/wip-payments" component={ConnectedPaymentsPage} />
-          <Route path="/error" component={ErrorPage} />
           <Route path="/notfound" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
@@ -209,7 +207,7 @@ class App extends Component {
 
   render() {
     return (
-      <ReloadOnError>
+      <ErrorBoundary>
         <IntlProvider locale={getLocale()} messages={getMessages()}>
           <Provider store={this.props.store}>
             <ConnectedRouter history={this.props.history}>
@@ -221,7 +219,7 @@ class App extends Component {
             </ConnectedRouter>
           </Provider>
         </IntlProvider>
-      </ReloadOnError>
+      </ErrorBoundary>
     );
   }
 }
