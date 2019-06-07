@@ -1,4 +1,6 @@
 {
+  "unexpected.error.message.text": "An unexpected error occurred. Please click the button below to return to refresh the page.",
+  "unexpected.error.button.text": "Try Again",
   "siteheader.links.courses": "Courses",
   "siteheader.links.programs": "Programs & Degrees",
   "siteheader.links.schools": "Schools & Partners",
@@ -10,7 +12,6 @@
   "siteheader.user.menu.login": "Login",
   "siteheader.user.menu.register": "Sign Up",
   "app.loading.message": "Loading",
-  "error.unexpected.message": "An unexpected error occurred.",
   "error.notfound.message": "The page you're looking for is unavailable or there's an error in the URL. Please check the URL and try again.",
   "ecommerce.order.history.page.heading": "Order History",
   "ecommerce.order.history.no.orders": "Orders you place with edX will appear here.",
