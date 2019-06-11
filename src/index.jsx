@@ -11,7 +11,6 @@ import messages from './i18n';
 import configureStore from './store';
 import { configureUserAccountApiService } from './common';
 import { configureApiService as configureOrderHistoryApiService } from './order-history';
-import { configureApiService as configurePaymentsApiService } from './payments';
 
 
 import './index.scss';
@@ -45,7 +44,6 @@ function configure() {
 
   configureLoggingService(NewRelicLoggingService);
   configureOrderHistoryApiService(configuration, apiClient);
-  configurePaymentsApiService(configuration, apiClient);
   configureUserAccountApiService(configuration, apiClient);
   initializeSegment(configuration.SEGMENT_KEY);
   configureAnalytics({
