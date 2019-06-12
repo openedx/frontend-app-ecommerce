@@ -136,11 +136,6 @@ module.exports = {
     next: null,
     previous: null
   },
-  payments: {
-    loading: false,
-    loadingError: null,
-    payments: {}
-  },
   router: {
     location: {
       pathname: '/orders',
