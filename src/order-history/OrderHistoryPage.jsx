@@ -84,7 +84,7 @@ class OrderHistoryPage extends React.Component {
   renderOrdersTable() {
     return (
       <Table
-        className="order-history"
+        className="order-history table-bordered"
         data={this.getTableData()}
         columns={[
           {
