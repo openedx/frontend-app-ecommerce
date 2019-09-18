@@ -39,7 +39,7 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders orders
             <span
               aria-hidden={true}
               className="fa fa-chevron-left mr-2"
-              id="pagination-3"
+              id="pagination-2"
             />
             Previous
           </div>
@@ -63,7 +63,7 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders orders
             <span
               aria-hidden={true}
               className="fa fa-chevron-right ml-2"
-              id="pagination-5"
+              id="pagination-4"
             />
           </div>
         </button>
