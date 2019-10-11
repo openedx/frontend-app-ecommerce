@@ -17,10 +17,9 @@ import messages from './i18n';
 import configureStore from './store';
 import { configureUserAccountApiService } from './common';
 import { configureApiService as configureOrderHistoryApiService } from './order-history';
-
+import App from './components/App';
 
 import './index.scss';
-import App from './components/App';
 import './assets/favicon.ico';
 
 const apiClient = getAuthenticatedAPIClient({
@@ -32,7 +31,6 @@ const apiClient = getAuthenticatedAPIClient({
   refreshAccessTokenEndpoint: configuration.REFRESH_ACCESS_TOKEN_ENDPOINT,
   accessTokenCookieName: configuration.ACCESS_TOKEN_COOKIE_NAME,
   userInfoCookieName: configuration.USER_INFO_COOKIE_NAME,
-  csrfCookieName: configuration.CSRF_COOKIE_NAME,
   loggingService: NewRelicLoggingService,
 });
 
