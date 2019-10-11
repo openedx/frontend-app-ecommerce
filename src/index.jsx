@@ -21,6 +21,7 @@ import { configureApiService as configureOrderHistoryApiService } from './order-
 
 import './index.scss';
 import App from './components/App';
+import './assets/favicon.ico';
 
 const apiClient = getAuthenticatedAPIClient({
   appBaseUrl: configuration.BASE_URL,
