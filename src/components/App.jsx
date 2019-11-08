@@ -185,6 +185,11 @@ PageContent.propTypes = {
     REDDIT_URL: PropTypes.string.isRequired,
     APPLE_APP_STORE_URL: PropTypes.string.isRequired,
     GOOGLE_PLAY_URL: PropTypes.string.isRequired,
+    ENTERPRISE_MARKETING_URL: PropTypes.string.isRequired,
+    ENTERPRISE_MARKETING_UTM_CAMPAIGN: PropTypes.string.isRequired,
+    ENTERPRISE_MARKETING_UTM_SOURCE: PropTypes.string.isRequired,
+    ENTERPRISE_MARKETING_FOOTER_UTM_MEDIUM: PropTypes.string.isRequired,
+    LMS_BASE_URL: PropTypes.string.isRequired,
   }).isRequired,
   intl: intlShape.isRequired,
 };
@@ -241,6 +246,11 @@ App.propTypes = {
     REDDIT_URL: PropTypes.string.isRequired,
     APPLE_APP_STORE_URL: PropTypes.string.isRequired,
     GOOGLE_PLAY_URL: PropTypes.string.isRequired,
+    ENTERPRISE_MARKETING_URL: PropTypes.string.isRequired,
+    ENTERPRISE_MARKETING_UTM_CAMPAIGN: PropTypes.string.isRequired,
+    ENTERPRISE_MARKETING_UTM_SOURCE: PropTypes.string.isRequired,
+    ENTERPRISE_MARKETING_FOOTER_UTM_MEDIUM: PropTypes.string.isRequired,
+    LMS_BASE_URL: PropTypes.string.isRequired,
   }).isRequired,
 };
 

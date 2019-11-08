@@ -7,19 +7,21 @@
     "url": "git+https://github.com/edx/frontend-app-ecommerce.git"
   },
   "scripts": {
-    "build": "NODE_ENV=production BABEL_ENV=production webpack --config=webpack/webpack.prod.config.js",
-    "i18n_extract": "BABEL_ENV=i18n babel src --quiet > /dev/null",
+    "build": "fedx-scripts webpack",
+    "i18n_extract": "BABEL_ENV=i18n fedx-scripts babel src --quiet > /dev/null",
     "is-es5": "es-check es5 ./dist/*.js",
-    "lint": "eslint --ext .js --ext .jsx .",
-    "precommit": "npm run lint",
-    "start": "NODE_ENV=development BABEL_ENV=development webpack-dev-server --config=webpack/webpack.dev.config.js --progress",
-    "test": "jest --coverage --passWithNoTests"
+    "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
+    "start": "fedx-scripts webpack-dev-server --progress",
+    "test": "fedx-scripts jest --coverage"
   },
   "author": "edX",
   "license": "AGPL-3.0",
   "homepage": "https://github.com/edx/frontend-app-ecommerce#readme",
   "publishConfig": {
     "access": "public"
+  },
+  "husky": {
+    "pre-commit": "npm run lint"
   },
   "dependencies": {
     "@cospired/i18n-iso-languages": "^2.0.2",
@@ -68,77 +70,18 @@
     "universal-cookie": "^3.1.0"
   },
   "devDependencies": {
-    "@svgr/webpack": "^4.2.0",
-    "autoprefixer": "^9.4.2",
+    "@edx/frontend-build": "^2.0.0",
     "axios-mock-adapter": "^1.15.0",
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.2.2",
-    "babel-jest": "^22.4.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-react-intl": "^3.0.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-imports": "^1.5.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.19",
-    "codecov": "^3.0.0",
-    "copy-webpack-plugin": "^4.6.0",
-    "css-loader": "^0.28.9",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "es-check": "^5.0.0",
-    "eslint-config-edx": "^4.0.3",
     "fetch-mock": "^6.3.0",
-    "file-loader": "^1.1.9",
-    "html-webpack-harddisk-plugin": "^0.2.0",
-    "html-webpack-new-relic-plugin": "^1.1.0",
-    "html-webpack-plugin": "^3.0.3",
-    "husky": "^0.14.3",
-    "identity-obj-proxy": "^3.0.0",
-    "image-webpack-loader": "^4.2.0",
-    "jest": "^22.4.0",
-    "mini-css-extract-plugin": "^0.4.0",
-    "new-relic-source-map-webpack-plugin": "1.1.0",
-    "node-sass": "^4.12.0",
-    "postcss-loader": "^3.0.0",
-    "postcss-rtl": "^1.3.3",
-    "purgecss-webpack-plugin": "^1.5.0",
+    "husky": "^3.0.9",
     "react-dev-utils": "^5.0.0",
     "react-test-renderer": "^16.8.6",
     "reactifex": "1.1.1",
-    "redux-mock-store": "^1.5.3",
-    "sass-loader": "^6.0.6",
-    "source-map-loader": "^0.2.4",
-    "style-loader": "^0.20.2",
-    "url-loader": "^1.1.2",
-    "webpack": "^4.25.1",
-    "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.0",
-    "webpack-merge": "^4.1.1"
-  },
-  "jest": {
-    "testURL": "http://localhost/",
-    "setupFiles": [
-      "./src/setupTest.js"
-    ],
-    "moduleNameMapper": {
-      "\\.svg": "<rootDir>/__mocks__/svgrMock.js",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|scss)$": "identity-obj-proxy"
-    },
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "src/setupTest.js",
-      "src/index.js",
-      "/tests/"
-    ],
-    "transformIgnorePatterns": [
-      "/node_modules/(?!(@edx/paragon)/).*/"
-    ]
+    "redux-mock-store": "^1.5.3"
   }
 }
