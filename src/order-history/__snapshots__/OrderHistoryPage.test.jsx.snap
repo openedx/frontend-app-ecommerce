@@ -9,7 +9,6 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders orders
   </h1>
   <nav
     aria-label="pagination navigation"
-    className={undefined}
   >
     <div
       aria-atomic={true}
@@ -32,7 +31,6 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders orders
           onBlur={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
-          tabIndex={undefined}
           type="button"
         >
           <div>
@@ -55,7 +53,6 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders orders
           onBlur={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
-          tabIndex={undefined}
           type="button"
         >
           <div>
