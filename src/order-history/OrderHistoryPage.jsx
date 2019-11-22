@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { injectIntl, intlShape, FormattedDate, FormattedNumber } from '@edx/frontend-i18n';
+import { injectIntl, intlShape, FormattedDate, FormattedNumber } from '@edx/frontend-platform/i18n';
 import { Table, Hyperlink, Pagination } from '@edx/paragon';
 import MediaQuery from 'react-responsive';
 
@@ -21,7 +21,7 @@ class OrderHistoryPage extends React.Component {
   }
   componentDidMount() {
     // TODO: We should fetch based on the route (ex: /orders/list/page/1)
-    this.props.fetchOrders(this.props.username, 1);
+    this.props.fetchOrders(1);
   }
 
   getTableData() {
@@ -48,7 +48,7 @@ class OrderHistoryPage extends React.Component {
 
   handlePageSelect(page) {
     // TODO: We should update the url and trigger this fetching based on the route
-    this.props.fetchOrders(this.props.username, page);
+    this.props.fetchOrders(page);
   }
 
   renderPagination() {
@@ -200,7 +200,6 @@ class OrderHistoryPage extends React.Component {
 
 OrderHistoryPage.propTypes = {
   intl: intlShape.isRequired,
-  username: PropTypes.string,
   orders: PropTypes.arrayOf(PropTypes.shape({
     datePlaced: PropTypes.string,
     total: PropTypes.string,
@@ -221,7 +220,6 @@ OrderHistoryPage.propTypes = {
 };
 
 OrderHistoryPage.defaultProps = {
-  username: null,
   orders: [],
   loadingError: null,
   loading: false,

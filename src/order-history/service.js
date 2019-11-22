@@ -1,30 +1,16 @@
-import pick from 'lodash.pick';
+import { getAuthenticatedHttpClient, getAuthenticatedUser } from '@edx/frontend-platform/auth';
+import { getConfig } from '@edx/frontend-platform/config';
 
-let config = {
-  ACCOUNTS_API_BASE_URL: null,
-  ECOMMERCE_API_BASE_URL: null,
-  ECOMMERCE_RECEIPT_BASE_URL: null,
-  LMS_BASE_URL: null,
-};
+const { ECOMMERCE_BASE_URL } = getConfig();
+const ECOMMERCE_API_BASE_URL = `${ECOMMERCE_BASE_URL}/api/v2`;
+const ECOMMERCE_RECEIPT_BASE_URL = `${ECOMMERCE_BASE_URL}/checkout/receipt/`;
 
-let apiClient = null;
+// eslint-disable-next-line import/prefer-default-export
+export async function getOrders(page = 1, pageSize = 20) {
+  const httpClient = getAuthenticatedHttpClient();
+  const { username } = getAuthenticatedUser();
 
-function validateConfiguration(newConfig) {
-  Object.keys(config).forEach((key) => {
-    if (newConfig[key] === undefined) {
-      throw new Error(`Service configuration error: ${key} is required.`);
-    }
-  });
-}
-
-export function configureApiService(newConfig, newApiClient) {
-  validateConfiguration(newConfig);
-  config = pick(newConfig, Object.keys(config));
-  apiClient = newApiClient;
-}
-
-export async function getOrders(username, page = 1, pageSize = 20) {
-  const { data } = await apiClient.get(`${config.ECOMMERCE_API_BASE_URL}/orders/`, {
+  const { data } = await httpClient.get(`${ECOMMERCE_API_BASE_URL}/orders/`, {
     params: {
       username,
       page,
@@ -55,7 +41,7 @@ export async function getOrders(username, page = 1, pageSize = 20) {
       orderId: number,
       currency,
       lineItems,
-      receiptUrl: `${config.ECOMMERCE_RECEIPT_BASE_URL}?order_number=${number}`,
+      receiptUrl: `${ECOMMERCE_RECEIPT_BASE_URL}?order_number=${number}`,
     };
   });
 
