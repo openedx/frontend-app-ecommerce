@@ -3,8 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch } from 'react-router-dom';
 import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
-import { APP_INIT_ERROR, APP_READY, initialize } from '@edx/frontend-platform/init';
-import { subscribe } from '@edx/frontend-platform/pubSub';
+import { APP_INIT_ERROR, APP_READY, initialize, subscribe } from '@edx/frontend-platform';
 
 import Header, { messages as headerMessages } from '@edx/frontend-component-header';
 import Footer, { messages as footerMessages } from '@edx/frontend-component-footer';
