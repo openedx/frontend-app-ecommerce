@@ -1,5 +1,5 @@
 import { getAuthenticatedHttpClient, getAuthenticatedUser } from '@edx/frontend-platform/auth';
-import { getConfig } from '@edx/frontend-platform/config';
+import { getConfig } from '@edx/frontend-platform';
 
 const { ECOMMERCE_BASE_URL } = getConfig();
 const ECOMMERCE_API_BASE_URL = `${ECOMMERCE_BASE_URL}/api/v2`;
