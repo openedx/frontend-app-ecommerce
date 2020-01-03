@@ -3,7 +3,7 @@
 frontend-app-ecommerce
 ======================
 
-This is a micro-frontend application responsible for the display of an authenticated user's order history. Please tag **@edx/arch-fed** on any PRs or issues.
+This is a micro-frontend application responsible for the display of an authenticated user's order history. Please tag **@edx/revenue-squad** on any PRs or issues.
 
 ----------
 
