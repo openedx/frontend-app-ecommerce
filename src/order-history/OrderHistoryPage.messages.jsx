@@ -46,6 +46,11 @@ const messages = defineMessages({
     defaultMessage: 'Order number',
     description: 'The column label for Order number in the order history table.',
   },
+  'ecommerce.order.history.table.column.order.details': {
+    id: 'ecommerce.order.history.table.column.order.details',
+    defaultMessage: 'Order details',
+    description: 'The column label for Order details in the order history table.',
+  },
 });
 
 export default messages;
