@@ -104,7 +104,7 @@ class OrderHistoryPage extends React.Component {
             key: 'orderId',
           },
           {
-            label: '',
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.details']),
             key: 'receiptUrl',
           },
         ]}
