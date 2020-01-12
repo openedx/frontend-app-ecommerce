@@ -8,5 +8,6 @@
   "ecommerce.order.history.table.column.items": "Éléments",
   "ecommerce.order.history.table.column.date.placed": "Date d'émission",
   "ecommerce.order.history.table.column.total.cost": "Coût total",
-  "ecommerce.order.history.table.column.order.number": "Numéro de commande"
+  "ecommerce.order.history.table.column.order.number": "Numéro de commande",
+  "ecommerce.order.history.table.column.order.details": "Order details"
 }
