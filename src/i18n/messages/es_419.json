@@ -9,5 +9,5 @@
   "ecommerce.order.history.table.column.date.placed": "Fecha de la orden",
   "ecommerce.order.history.table.column.total.cost": "Costo total",
   "ecommerce.order.history.table.column.order.number": "Número de orden",
-  "ecommerce.order.history.table.column.order.details": "Order details"
+  "ecommerce.order.history.table.column.order.details": "Detalles de la orden"
 }
