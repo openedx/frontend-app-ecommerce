@@ -42,7 +42,11 @@ class OrderHistoryPage extends React.Component {
           {this.props.intl.formatMessage(messages['ecommerce.order.history.view.order.detail'])}
         </Hyperlink>
       ),
-      orderId,
+      orderId: (
+        <span data-hj-suppress>
+          {orderId}
+        </span>
+      ),
     }), this);
   }
 
