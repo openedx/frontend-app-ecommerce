@@ -14,7 +14,6 @@ import NotFoundPage from './components/NotFoundPage';
 import { ConnectedOrderHistoryPage } from './order-history';
 
 import './index.scss';
-import './assets/favicon.ico';
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
