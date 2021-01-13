@@ -11,7 +11,6 @@ import {
 // Services
 import * as OrdersApiService from './service';
 
-
 export function* handleFetchOrders(action) {
   const { username } = action.payload;
   yield put(fetchOrdersBegin());
@@ -19,7 +18,6 @@ export function* handleFetchOrders(action) {
   yield put(fetchOrdersSuccess(result));
   yield put(fetchOrdersReset());
 }
-
 
 export default function* orderHistorySaga() {
   yield takeEvery(FETCH_ORDERS.BASE, handleFetchOrders);
