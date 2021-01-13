@@ -4,7 +4,10 @@ import ReactDOM from 'react-dom';
 import { Route, Switch } from 'react-router-dom';
 import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
 import {
-  APP_INIT_ERROR, APP_READY, initialize, subscribe,
+  APP_INIT_ERROR,
+  APP_READY,
+  initialize,
+  subscribe,
 } from '@edx/frontend-platform';
 
 import Header, { messages as headerMessages } from '@edx/frontend-component-header';

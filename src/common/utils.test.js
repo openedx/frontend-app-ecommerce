@@ -1,5 +1,10 @@
 import {
-  AsyncActionType, modifyObjectKeys, camelCaseObject, snakeCaseObject, convertKeyNames, keepKeys,
+  AsyncActionType,
+  modifyObjectKeys,
+  camelCaseObject,
+  snakeCaseObject,
+  convertKeyNames,
+  keepKeys,
 } from './utils';
 
 describe('modifyObjectKeys', () => {
