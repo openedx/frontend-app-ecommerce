@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { injectIntl, intlShape, FormattedDate, FormattedNumber } from '@edx/frontend-platform/i18n';
+import {
+  injectIntl,
+  intlShape,
+  FormattedDate,
+  FormattedNumber,
+} from '@edx/frontend-platform/i18n';
 import { Table, Hyperlink, Pagination } from '@edx/paragon';
 import MediaQuery from 'react-responsive';
 
@@ -12,13 +17,13 @@ import { fetchOrders } from './actions';
 import { pageSelector } from './selectors';
 import { PageLoading } from '../common';
 
-
 class OrderHistoryPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.handlePageSelect = this.handlePageSelect.bind(this);
   }
+
   componentDidMount() {
     // TODO: We should fetch based on the route (ex: /orders/list/page/1)
     this.props.fetchOrders(1);
@@ -57,7 +62,7 @@ class OrderHistoryPage extends React.Component {
       currentPage,
     } = this.props;
 
-    if (pageCount <= 1) return null;
+    if (pageCount <= 1) { return null; }
 
     return (
       <Pagination
@@ -180,7 +185,7 @@ class OrderHistoryPage extends React.Component {
         </h1>
         {loadingError ? this.renderError() : null}
         {loaded && hasOrders ? (
-          <React.Fragment>
+          <>
             <MediaQuery query="(max-width: 768px)">
               {this.renderMobileOrdersTable()}
             </MediaQuery>
@@ -188,7 +193,7 @@ class OrderHistoryPage extends React.Component {
               {this.renderOrdersTable()}
             </MediaQuery>
             {this.renderPagination()}
-          </React.Fragment>
+          </>
         ) : null}
         {loaded && !hasOrders ? this.renderEmptyMessage() : null}
         {loading ? this.renderLoading() : null}
@@ -196,7 +201,6 @@ class OrderHistoryPage extends React.Component {
     );
   }
 }
-
 
 OrderHistoryPage.propTypes = {
   intl: intlShape.isRequired,
@@ -226,7 +230,6 @@ OrderHistoryPage.defaultProps = {
   pageCount: 0,
   currentPage: null,
 };
-
 
 export default connect(pageSelector, {
   fetchOrders,

@@ -4,9 +4,8 @@ import {
   storeName as orderHistoryStoreName,
 } from './order-history';
 
-const createRootReducer = () =>
-  combineReducers({
-    [orderHistoryStoreName]: orderHistoryReducer,
-  });
+const createRootReducer = () => combineReducers({
+  [orderHistoryStoreName]: orderHistoryReducer,
+});
 
 export default createRootReducer;
