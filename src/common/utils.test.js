@@ -1,4 +1,11 @@
-import { AsyncActionType, modifyObjectKeys, camelCaseObject, snakeCaseObject, convertKeyNames, keepKeys } from './utils';
+import {
+  AsyncActionType,
+  modifyObjectKeys,
+  camelCaseObject,
+  snakeCaseObject,
+  convertKeyNames,
+  keepKeys,
+} from './utils';
 
 describe('modifyObjectKeys', () => {
   it('should use the provided modify function to change all keys in and object and its children', () => {
@@ -102,7 +109,6 @@ describe('keepKeys', () => {
       8: 'sneaky',
     });
   });
-
 
   describe('AsyncActionType', () => {
     it('should return well formatted action strings', () => {

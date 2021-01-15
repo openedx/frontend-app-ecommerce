@@ -3,7 +3,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch } from 'react-router-dom';
 import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
-import { APP_INIT_ERROR, APP_READY, initialize, subscribe } from '@edx/frontend-platform';
+import {
+  APP_INIT_ERROR,
+  APP_READY,
+  initialize,
+  subscribe,
+} from '@edx/frontend-platform';
 
 import Header, { messages as headerMessages } from '@edx/frontend-component-header';
 import Footer, { messages as footerMessages } from '@edx/frontend-component-footer';
@@ -14,7 +19,6 @@ import NotFoundPage from './components/NotFoundPage';
 import { ConnectedOrderHistoryPage } from './order-history';
 
 import './index.scss';
-import './assets/favicon.ico';
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
