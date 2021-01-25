@@ -1,13 +1,13 @@
 {
-  "error.notfound.message": "The page you're looking for is unavailable or there's an error in the URL. Please check the URL and try again.",
-  "ecommerce.order.history.page.heading": "Order History",
-  "ecommerce.order.history.no.orders": "Orders you place with edX will appear here.",
-  "ecommerce.order.history.loading.orders": "Loading orders...",
-  "ecommerce.order.history.loading.error": "Error: {error}",
-  "ecommerce.order.history.view.order.detail": "View Order Details",
-  "ecommerce.order.history.table.column.items": "Items",
-  "ecommerce.order.history.table.column.date.placed": "Date placed",
-  "ecommerce.order.history.table.column.total.cost": "Total cost",
-  "ecommerce.order.history.table.column.order.number": "Order number",
-  "ecommerce.order.history.table.column.order.details": "Order details"
+  "error.notfound.message": "الصفحة التي تبحث عنها غير متوفرة أو هناك خطأ في نص الرابط. الرجاء التحقق من الرابط والمحاولة مجددا.",
+  "ecommerce.order.history.page.heading": "المشتريات السابقة",
+  "ecommerce.order.history.no.orders": "ستظهر جميع طلباتك في edX هنا",
+  "ecommerce.order.history.loading.orders": "تحميل الطلبات",
+  "ecommerce.order.history.loading.error": "خطأ: {error}",
+  "ecommerce.order.history.view.order.detail": "عرض تفاصيل الطلب",
+  "ecommerce.order.history.table.column.items": "العناصر",
+  "ecommerce.order.history.table.column.date.placed": "تاريخ الطلب",
+  "ecommerce.order.history.table.column.total.cost": "التكلفة الإجمالية:",
+  "ecommerce.order.history.table.column.order.number": "رقم الطلب",
+  "ecommerce.order.history.table.column.order.details": "تفاصيل الطلب"
 }
