@@ -24,7 +24,7 @@ In this project, install requirements and start the development server by runnin
 
 .. code:: bash
 
-   npm install
+   npm ci
    npm start # The server will run on port 1996
 
 Once the dev server is up visit http://localhost:1996.
