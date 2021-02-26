@@ -24,10 +24,12 @@ In this project, install requirements and start the development server by runnin
 
 .. code:: bash
 
-   npm install
+   npm ci
    npm start # The server will run on port 1996
 
 Once the dev server is up visit http://localhost:1996.
+
+Note: ``npm ci`` is recommended over ``npm install`` to match the way CI and production builds work and avoid unintentional changes to ``package_lock.json`` when doing other work.
 
 ----------
 
