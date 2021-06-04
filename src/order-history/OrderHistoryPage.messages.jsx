@@ -8,7 +8,7 @@ const messages = defineMessages({
   },
   'ecommerce.order.history.no.orders': {
     id: 'ecommerce.order.history.no.orders',
-    defaultMessage: 'Orders you place with edX will appear here.',
+    defaultMessage: 'Orders you place with {siteName} will appear here.',
     description: 'The message displayed when there are no orders.',
   },
   'ecommerce.order.history.loading.orders': {
