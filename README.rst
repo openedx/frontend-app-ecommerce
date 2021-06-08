@@ -3,50 +3,55 @@
 frontend-app-ecommerce
 ======================
 
-This is a micro-frontend application responsible for the display of an authenticated user's order history. Please tag **@edx/revenue-squad** on any PRs or issues.
+Please tag **@edx/revenue-squad** on any PRs or issues.
 
-----------
+Introduction
+------------
 
-Development
------------
+This is a micro-frontend application responsible for the display of an authenticated user's order history.
 
-Start Devstack
-^^^^^^^^^^^^^^
+Installation
+------------
 
-To use this application `devstack <https://github.com/edx/devstack>`__ must be running and you must be logged into it.
+This MFE is bundled with `Devstack <https://github.com/edx/devstack>`_, see the `Getting Started <https://github.com/edx/devstack#getting-started>`_ section for setup instructions.
 
--  Start devstack
--  Log in (http://localhost:18000/login)
-Start the development server
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. Install Devstack using the `Getting Started <https://github.com/edx/devstack#getting-started>`_ instructions.
 
-In this project, install requirements and start the development server by running:
+2. Start up Devstack, if it's not already started.
 
-.. code:: bash
+3. Log in to Devstack (http://localhost:18000/login )
 
-   npm ci
-   npm start # The server will run on port 1996
+4. Within this project, install requirements and start the development server:
 
-Once the dev server is up visit http://localhost:1996.
+   .. code-block::
 
-Note: ``npm ci`` is recommended over ``npm install`` to match the way CI and production builds work and avoid unintentional changes to ``package_lock.json`` when doing other work.
+      npm ci
+      npm start # The server will run on port 1996
 
-----------
+   Note: We prefer ``npm ci`` over ``npm install`` to match the way CI and production builds work and avoid unintentional changes to ``package-lock.json`` when doing other work.  Note, however, that using ``npm ci`` can obscure necessary updates to ``package-lock.json`` that may have accidentally been left out of prior commits.  If ``npm install`` changes ``package-lock.json``, those are changes that *should* be checked in.
 
-Configuration and Deployment
-----------------------------
+5. Once the dev server is up, visit http://localhost:1996 to access the MFE
 
-This MFE is configured via node environment variables supplied at build time. See the .env file for the list of required environment variables. Example build syntax with a single environment variable:
+   .. image:: ./docs/images/localhost_preview.png
 
-.. code:: bash
+Environment Variables/Setup Notes
+---------------------------------
 
-   NODE_ENV=development ACCESS_TOKEN_COOKIE_NAME='edx-jwt-cookie-header-payload' npm run build
+This MFE is configured via environment variables supplied at build time.  All micro-frontends have a shared set of required environment variables, as documented in the Open edX Developer Guide under `Required Environment Variables <https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/developers_guide/micro_frontends_in_open_edx.html#required-environment-variables>`__.
 
+This micro-frontend has no additional required environment variables.
 
-For more information see the document: `Micro-frontend applications in Open
-edX <https://github.com/edx/edx-developer-docs/blob/5191e800bf16cf42f25c58c58f983bdaf7f9305d/docs/micro-frontends-in-open-edx.rst>`__.
+Known Issues
+------------
 
-----------
+None
+
+Development Roadmap
+-------------------
+
+This MFE is currently in maintenance mode, as we have no further development planned for it.  However, if we want to pull more ecommerce interfaces out into a micro-frontend, this would be where they should live.  Note that `frontend-app-payment <https://github.com/edx/frontend-app-payment>`_ contains the checkout flow.
+
+==============================
 
 .. |Build Status| image:: https://api.travis-ci.org/edx/frontend-app-ecommerce.svg?branch=master
    :target: https://travis-ci.org/edx/frontend-app-ecommerce

@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
+  getConfig,
+} from '@edx/frontend-platform';
+import {
   injectIntl,
   intlShape,
   FormattedDate,
@@ -148,7 +151,9 @@ class OrderHistoryPage extends React.Component {
   renderEmptyMessage() {
     return (
       <p>
-        {this.props.intl.formatMessage(messages['ecommerce.order.history.no.orders'])}
+        {this.props.intl.formatMessage(messages['ecommerce.order.history.no.orders'], {
+          siteName: getConfig().SITE_NAME,
+        })}
       </p>
     );
   }
