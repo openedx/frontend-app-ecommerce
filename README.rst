@@ -28,6 +28,8 @@ This MFE is bundled with `Devstack <https://github.com/edx/devstack>`_, see the 
       npm ci
       npm start # The server will run on port 1996
 
+   Note: We prefer ``npm ci`` over ``npm install`` to match the way CI and production builds work and avoid unintentional changes to ``package-lock.json`` when doing other work.  Note, however, that using ``npm ci`` can obscure necessary updates to ``package-lock.json`` that may have accidentally been left out of prior commits.  If ``npm install`` changes ``package-lock.json``, those are changes that *should* be checked in.
+
 5. Once the dev server is up, visit http://localhost:1996 to access the MFE
 
    .. image:: ./docs/images/localhost_preview.png
