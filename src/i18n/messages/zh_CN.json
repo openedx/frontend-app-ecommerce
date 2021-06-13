@@ -1,7 +1,7 @@
 {
   "error.notfound.message": "The page you're looking for is unavailable or there's an error in the URL. Please check the URL and try again.",
   "ecommerce.order.history.page.heading": "Order History",
-  "ecommerce.order.history.no.orders": "Orders you place with edX will appear here.",
+  "ecommerce.order.history.no.orders": "Orders you place with {siteName} will appear here.",
   "ecommerce.order.history.loading.orders": "Loading orders...",
   "ecommerce.order.history.loading.error": "Error: {error}",
   "ecommerce.order.history.view.order.detail": "View Order Details",

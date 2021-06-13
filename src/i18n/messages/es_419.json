@@ -1,7 +1,7 @@
 {
   "error.notfound.message": "La página que estas buscando no está disponible o hay un error en la URL. Por favor, comprueba la URL y vuelve a intentarlo.",
   "ecommerce.order.history.page.heading": "Historial de órdenes",
-  "ecommerce.order.history.no.orders": "Los pedidos que realizas con edX aparecerán aquí.",
+  "ecommerce.order.history.no.orders": "Orders you place with {siteName} will appear here.",
   "ecommerce.order.history.loading.orders": "Cargando datos del pedido...",
   "ecommerce.order.history.loading.error": "Error: {error}",
   "ecommerce.order.history.view.order.detail": "Ver detalles del pedido",
