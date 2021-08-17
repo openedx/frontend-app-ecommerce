@@ -51,6 +51,8 @@ Development Roadmap
 
 This MFE is currently in maintenance mode, as we have no further development planned for it.  However, if we want to pull more ecommerce interfaces out into a micro-frontend, this would be where they should live.  Note that `frontend-app-payment <https://github.com/edx/frontend-app-payment>`_ contains the checkout flow.
 
+Anyone merging to this repository is expected to `release and monitor their changes <https://openedx.atlassian.net/wiki/spaces/RS/pages/1835106870/How+to+contribute+to+our+repositories>`__; if you are not able to do this DO NOT MERGE, please coordinate with someone who can to ensure that the changes are released.
+
 ==============================
 
 .. |Build Status| image:: https://api.travis-ci.org/edx/frontend-app-ecommerce.svg?branch=master
