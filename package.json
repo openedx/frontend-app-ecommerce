@@ -20,6 +20,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "browserslist": [
+    "last 2 versions",
+    "ie 11"
+  ],
   "husky": {
     "pre-commit": "npm run lint"
   },
