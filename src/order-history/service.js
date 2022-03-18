@@ -10,13 +10,22 @@ export async function getOrders(page = 1, pageSize = 20) {
   const httpClient = getAuthenticatedHttpClient();
   const { username } = getAuthenticatedUser();
 
-  const { data } = await httpClient.get(`${ECOMMERCE_API_BASE_URL}/orders/`, {
-    params: {
-      username,
-      page,
-      page_size: pageSize,
-    },
-  });
+  let data;
+  if (getConfig().ENABLE_HOIST_ORDER_HISTORY === 'true') {
+    console.log('ENABLE_HOIST_ORDER_HISTORY is true');
+    // TODO: add GET request with Commerce Coordinator URL
+    // and add the URL to edx-internal repo
+  } else {
+    // If ENABLE_HOIST_ORDER_HISTORY is set to anything other than 'true' or is null,
+    // the order history page will fetch order data from ecommerce API
+    data = await httpClient.get(`${ECOMMERCE_API_BASE_URL}/orders/`, {
+      params: {
+        username,
+        page,
+        page_size: pageSize,
+      },
+    }).data;
+  }
 
   const transformedResults = data.results.map(({
     total_excl_tax, // eslint-disable-line camelcase

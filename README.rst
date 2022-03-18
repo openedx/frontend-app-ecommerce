@@ -37,9 +37,15 @@ This MFE is bundled with `Devstack <https://github.com/edx/devstack>`_, see the 
 Environment Variables/Setup Notes
 ---------------------------------
 
-This MFE is configured via environment variables supplied at build time.  All micro-frontends have a shared set of required environment variables, as documented in the Open edX Developer Guide under `Required Environment Variables <https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/developers_guide/micro_frontends_in_open_edx.html#required-environment-variables>`__.
+This MFE is configured via environment variables supplied at build time.  All micro-frontends have a shared set of required environment variables, as documented in the Open edX Developer Guide under `Required Environment Variables <https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/micro_frontends/index.html>`__.
 
-This micro-frontend has no additional required environment variables.
+This micro-frontend also supports the following additional variables:
+
+ENABLE_HOIST_ORDER_HISTORY
+   Enables the switch between the API endpoint for the Order History component queries from the Ecommerce API to the Commerce Coordinator API.
+   The default is to string 'false'. Enable to 'true' to have the Order History component query from the Commerce Coordinator API. If it's set to anything other then 'true' it will default to fetching order data from Ecommerce API.
+   This flag is temporary, and will be removed once Ecommerce replacement project is finalized (https://openedx.atlassian.net/browse/REV-2400).
+
 
 Known Issues
 ------------

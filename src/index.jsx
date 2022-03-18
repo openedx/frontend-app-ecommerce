@@ -7,6 +7,7 @@ import {
   APP_INIT_ERROR,
   APP_READY,
   initialize,
+  mergeConfig,
   subscribe,
 } from '@edx/frontend-platform';
 
@@ -42,6 +43,13 @@ subscribe(APP_INIT_ERROR, (error) => {
 });
 
 initialize({
+  handlers: {
+    config: () => {
+      mergeConfig({
+        ENABLE_HOIST_ORDER_HISTORY: process.env.ENABLE_HOIST_ORDER_HISTORY || null,
+      }, 'OrderHistoryAppConfig');
+    },
+  },
   messages: [
     messages,
     headerMessages,
