@@ -4,7 +4,7 @@ const messages = defineMessages({
   'ecommerce.order.history.page.heading': {
     id: 'ecommerce.order.history.page.heading',
     defaultMessage: 'Order History',
-    description: 'The page heading for order history.',
+    description: 'Page heading for order history.',
   },
   'ecommerce.order.history.no.orders': {
     id: 'ecommerce.order.history.no.orders',
