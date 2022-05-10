@@ -40,10 +40,10 @@ export async function getOrders(page = 1, pageSize = 20) {
   if (data.count > 0) {
     callCC = data.results[0].enable_hoist_order_history;
   }
-  console.log('DKTEMP: enable_hoist_order_history flag is: ', callCC);
+  console.log('REV-2577 LOG: enable_hoist_order_history flag is: ', callCC);
 
   if (callCC) {
-    console.log('DKTEMP: about to call commerce-coordinator');
+    console.log('REV-2577 LOG: about to call commerce-coordinator');
     const newData = await httpClient.get(orderFetchingUrl, {
       params: {
         username,
@@ -52,8 +52,8 @@ export async function getOrders(page = 1, pageSize = 20) {
       },
     });
     data = newData.data;
-    console.log('DKTEMP: CC data.data.results', newData.data.results);
-    console.log('DKTEMP: ecommerce data.results', data.results);
+    console.log('REV-2577 LOG: CC data.data.results', newData.data.results);
+    console.log('REV-2577 LOG: ecommerce data.results', data.results);
   }
   // [END] TEMPORARY CODE for rollout testing/confirmation===========
 
