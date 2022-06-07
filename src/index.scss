@@ -11,6 +11,7 @@ $fa-font-path: "~font-awesome/fonts";
 @import "~@edx/frontend-component-footer/dist/footer";
 
 @import "./order-history/style";
+@import "./receipt/style";
 
 .word-break-all {
   word-break: break-all !important;

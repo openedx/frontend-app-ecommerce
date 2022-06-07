@@ -1,0 +1,63 @@
+#receipt-container {
+    width: 1170px;
+    padding-top: 2rem;
+}
+
+.page__receipt {
+    h2 {
+        margin-bottom: 10px;
+        font-weight: 400;
+    }
+
+    .thank-you {
+        font-size: 38px;
+    }
+
+    .info-item {
+        overflow: hidden;
+    }
+
+    .copy {
+        > div {
+            margin-bottom: 1rem;
+            line-height: 1.5rem;
+        }
+
+        .billing-address {
+            margin: 2rem 0;
+        }
+    }
+
+    .credit-messaging{
+        margin-top: 2rem;
+    }
+
+    .order-total {
+        font-size: 0.875rem;
+        margin-top: 3rem;
+
+        .order-total-item {
+            padding: 1rem;
+            font-weight: bold;
+        }
+
+        .border-divider {
+            border-bottom: 1px solid $gray-200;
+        }
+
+        .enterprise-customer {
+            padding-bottom: 12px;
+            color: $gray-300;
+            text-align: center;
+        }
+    }
+
+    #cta-nav-links {
+        margin: 2rem 0 4rem 0;
+
+        .dashboard-link {
+            margin-right: 2.5rem;
+        }
+    }
+
+}
