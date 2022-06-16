@@ -94,6 +94,7 @@ class OrderHistoryPage extends React.Component {
       <DataTable
         className="order-history table-bordered"
         data={this.getTableData()}
+        itemCount={this.props.orders.length}
         columns={[
           {
             Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
