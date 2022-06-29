@@ -91,30 +91,29 @@ class OrderHistoryPage extends React.Component {
 
   renderOrdersTable() {
     return (
-      <DataTable
+      <DataTable.Table
         className="order-history table-bordered"
         data={this.getTableData()}
-        itemCount={this.props.orders.length}
         columns={[
           {
-            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
-            accessor: 'description',
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
+            key: 'description',
           },
           {
-            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
-            accessor: 'datePlaced',
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
+            key: 'datePlaced',
           },
           {
-            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
-            accessor: 'total',
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
+            key: 'total',
           },
           {
-            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
             accessor: 'orderId',
           },
           {
-            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.details']),
-            accessor: 'receiptUrl',
+            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.details']),
+            key: 'receiptUrl',
           },
         ]}
       />
