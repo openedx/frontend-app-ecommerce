@@ -8,7 +8,7 @@ Please tag **@edx/revenue-squad** on any PRs or issues.
 Introduction
 ------------
 
-This is a micro-frontend application responsible for the display of an authenticated user's order history.
+This is a micro-frontend application responsible for the display of an authenticated user's order history and receipt page.
 
 Installation
 ------------
@@ -38,6 +38,10 @@ Environment Variables/Setup Notes
 ---------------------------------
 
 This MFE is configured via environment variables supplied at build time.  All micro-frontends have a shared set of required environment variables, as documented in the Open edX Developer Guide under `Required Environment Variables <https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/developers_guide/micro_frontends_in_open_edx.html#required-environment-variables>`__.
+
+To have ecommerce send users to this receipt page (instead of its own), there are two items to set in ecommerce: 
+1) Django admin waffle flag: enable_receipts_via_ecommerce_mfe
+2) ECOMMERCE_MICROFRONTEND_URL environment variable
 
 This micro-frontend has no additional required environment variables.
 
