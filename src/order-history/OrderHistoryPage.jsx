@@ -91,32 +91,35 @@ class OrderHistoryPage extends React.Component {
 
   renderOrdersTable() {
     return (
-      <DataTable.Table
+      <DataTable
         className="order-history table-bordered"
         data={this.getTableData()}
+        itemCount={this.props.count}
         columns={[
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
-            key: 'description',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
+            accessor: 'description',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
-            key: 'datePlaced',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
+            accessor: 'datePlaced',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
-            key: 'total',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
+            accessor: 'total',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
             accessor: 'orderId',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.details']),
-            key: 'receiptUrl',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.details']),
+            accessor: 'receiptUrl',
           },
         ]}
-      />
+      >
+        <DataTable.Table />
+      </DataTable>
     );
   }
 
@@ -222,6 +225,7 @@ OrderHistoryPage.propTypes = {
     })),
   })),
   pageCount: PropTypes.number,
+  count: PropTypes.number,
   currentPage: PropTypes.number,
   loading: PropTypes.bool,
   loadingError: PropTypes.string,
@@ -233,6 +237,7 @@ OrderHistoryPage.defaultProps = {
   loadingError: null,
   loading: false,
   pageCount: 0,
+  count: 0,
   currentPage: null,
 };
 
