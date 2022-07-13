@@ -53,7 +53,9 @@ export async function getOrders(page = 1, pageSize = 20) {
       },
     });
     data = newData.data;
-    console.log('REV-2577 LOG: CC data.data.results', data.results);
+    console.log('REV-2577 LOG: CC response', newData);
+    console.log('REV-2577 LOG: CC response.data', data);
+    console.log('REV-2577 LOG: CC response.data.results', data.results);
   }
   // [END] TEMPORARY CODE for rollout testing/confirmation===========
 
