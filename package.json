@@ -79,7 +79,7 @@
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.15.6",
     "es-check": "5.2.0",
-    "fetch-mock": "6.3.0",
+    "fetch-mock": "6.5.2",
     "husky": "3.0.9",
     "react-dev-utils": "5.0.2",
     "react-test-renderer": "16.8.6",
