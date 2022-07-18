@@ -55,7 +55,7 @@
     "lodash.pick": "4.4.0",
     "lodash.snakecase": "4.1.1",
     "newrelic": "5.5.0",
-    "prop-types": "^15.8.1",
+    "prop-types": "15.7.2",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-redux": "7.1.3",
