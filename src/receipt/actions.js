@@ -20,6 +20,11 @@ export const fetchOrderSuccess = result => ({
   payload: result,
 });
 
+export const fetchOrderFailure = error => ({
+  type: FETCH_ORDER.FAILURE,
+  payload: { error },
+});
+
 export const fetchOrderReset = () => ({
   type: FETCH_ORDER.RESET,
 });

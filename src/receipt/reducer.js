@@ -20,6 +20,12 @@ const receiptPage = (state = initialState, action) => { // eslint-disable-line d
         order: action.payload.order,
         loadingReceipt: false,
       };
+    case FETCH_ORDER.FAILURE:
+      return {
+        ...state,
+        loadingReceiptError: action.payload.error,
+        loadingReceipt: false,
+      };
     case FETCH_ORDER.RESET:
       return {
         ...state,

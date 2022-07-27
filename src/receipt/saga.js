@@ -1,10 +1,13 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
+import { history } from '@edx/frontend-platform';
+import { logError } from '@edx/frontend-platform/logging';
 
 // Actions
 import {
   FETCH_ORDER,
   fetchOrderBegin,
   fetchOrderSuccess,
+  fetchOrderFailure,
   fetchOrderReset,
 } from './actions';
 
@@ -12,15 +15,19 @@ import {
 import * as OrderApiService from './service';
 
 export function* handleFetchOrder(action) {
-  console.log('[Saga] 1.a) action', action);
-  const { orderToFetch } = action.payload;
-  // JK TODO: try and finally block? Remove console.log
-  console.log('[Saga] 1.b) orderToFetch:', orderToFetch);
-  yield put(fetchOrderBegin());
-  const result = yield call(OrderApiService.getOrder, orderToFetch);
-  console.log('[Saga] 1.c) result:', result);
-  yield put(fetchOrderSuccess(result));
-  console.log('[Saga] 1.d) success');
+  try {
+    const { orderToFetch } = action.payload;
+    yield put(fetchOrderBegin());
+    const result = yield call(OrderApiService.getOrder, orderToFetch);
+    yield put(fetchOrderSuccess(result));
+  } catch (error) {
+    if (error.response.status === 404) {
+      history.push('/notfound');
+    } else {
+      yield put(fetchOrderFailure(error.message));
+      logError(error);
+    }
+  }
   yield put(fetchOrderReset());
 }
 

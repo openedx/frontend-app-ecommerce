@@ -1,7 +1,9 @@
 import React from 'react';
 import { FormattedMessage } from '@edx/frontend-platform/i18n';
+import PropTypes from 'prop-types';
 
-export default function NotFoundPage() {
+export default function NotFoundPage(props) {
+  const { error } = props;
   return (
     <div className="container-fluid d-flex py-5 justify-content-center align-items-start text-center">
       <p className="my-0 py-5 text-muted" style={{ maxWidth: '32em' }}>
@@ -10,7 +12,16 @@ export default function NotFoundPage() {
           defaultMessage="The page you're looking for is unavailable or there's an error in the URL. Please check the URL and try again."
           description="error message when a page does not exist"
         />
+        <span>{error}</span>
       </p>
     </div>
   );
 }
+
+NotFoundPage.defaultProps = {
+  error: null,
+};
+
+NotFoundPage.propTypes = {
+  error: PropTypes.string,
+};
