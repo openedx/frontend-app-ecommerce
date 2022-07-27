@@ -1,0 +1,1219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReceiptPage /> renders a receipt page 1`] = `
+<div
+  className="page__receipt receipt container content-container"
+  data-currency="USD"
+  data-order-id="EDX-100005"
+  data-product-ids="3"
+  data-total-amount="149.00"
+  id="receipt-container"
+>
+  <div
+    className="list-info"
+  >
+    <h2
+      className="thank-you text-primary-500"
+    >
+      Thank you for your order!
+    </h2>
+    <div
+      className="info-item payment-info row"
+    >
+      <div
+        className="copy col-md-8"
+      >
+        <div
+          className="confirm-message"
+        >
+          <span>
+            Your order is complete. If you need a receipt, you can print this page.
+          </span>
+        </div>
+        <address
+          className="billing-address"
+          data-hj-suppress={true}
+        >
+          Juliana
+           
+          Doe
+          <br />
+          123 Main Street
+          <br />
+          Cambridge
+          <br />
+          CA
+          <br />
+          12346
+          <br />
+          US
+          <br />
+        </address>
+      </div>
+      <div
+        className="order-summary col-md-4"
+      >
+        <dl>
+          <dt>
+            Order Number:
+          </dt>
+          <dd>
+            EDX-100005
+          </dd>
+          <dt>
+            Payment Method:
+          </dt>
+          <dd>
+            Visa 411111XXXXXX1111
+          </dd>
+          <dt>
+            Order Date:
+          </dt>
+          <dd>
+            Jun 21, 2022
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <h2
+      className="text-primary-500"
+    >
+      Order Information
+    </h2>
+    <div
+      className="info-table"
+    >
+      <div
+        className="pgn__data-table-layout-wrapper"
+      >
+        <div
+          className="pgn__data-table-layout-main"
+        >
+          <div
+            className="pgn__data-table-wrapper"
+          >
+            <div
+              className="pgn__data-table-container"
+            >
+              <table
+                className="pgn__data-table is-striped"
+                role="table"
+              >
+                <thead>
+                  <tr
+                    role="row"
+                  >
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Quantity
+                        </span>
+                      </span>
+                    </th>
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Description
+                        </span>
+                      </span>
+                    </th>
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Item Price
+                        </span>
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  role="rowgroup"
+                >
+                  <tr
+                    className="pgn__data-table-row"
+                    role="row"
+                  >
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      
+                    </td>
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      <span
+                        className="course-description-title"
+                      >
+                        Seat in edX Demonstration Course with verified certificate
+                      </span>
+                      <span
+                        className="course-description-subtitle"
+                      />
+                    </td>
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      $149.00
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="order-total col-6 ml-auto"
+      >
+        <div
+          className="order-total-item border-divider pgn__action-row"
+        >
+          <span
+            className="description"
+          >
+            Subtotal
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          $149.00
+        </div>
+        <div
+          className="order-total-item pgn__action-row"
+        >
+          <span
+            className="badge badge-success"
+          >
+            Discount
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span
+            data-hj-suppress={true}
+          >
+            12345
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span>
+            10
+            % off
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span>
+            -$14.90
+          </span>
+        </div>
+        <div
+          className="border-divider pgn__action-row"
+        />
+        <div
+          className="order-total-item pgn__action-row"
+        >
+          <span>
+            Total
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          $134.10
+        </div>
+      </div>
+    </div>
+    <div
+      className="pgn__action-row"
+      id="cta-nav-links"
+    >
+      <a
+        className="pgn__hyperlink default-link standalone-link dashboard-link"
+        href="http://localhost:18000/dashboard"
+        onClick={[Function]}
+        target="_self"
+      >
+        Go to dashboard
+      </a>
+      <a
+        className="pgn__hyperlink default-link standalone-link"
+        href="http://localhost:18000/courses"
+        onClick={[Function]}
+        target="_self"
+      >
+        Find more courses
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ReceiptPage /> renders credit messaging 1`] = `
+<div
+  className="page__receipt receipt container content-container"
+  data-currency="USD"
+  data-order-id="EDX-100005"
+  data-product-ids="3"
+  data-total-amount="149.00"
+  id="receipt-container"
+>
+  <div
+    className="list-info"
+  >
+    <h2
+      className="thank-you text-primary-500"
+    >
+      Thank you for your order!
+    </h2>
+    <div
+      className="info-item payment-info row"
+    >
+      <div
+        className="copy col-md-8"
+      >
+        <div
+          className="confirm-message"
+        >
+          <span>
+            Your order is complete. If you need a receipt, you can print this page.
+          </span>
+        </div>
+        <address
+          className="billing-address"
+          data-hj-suppress={true}
+        >
+          Juliana
+           
+          Doe
+          <br />
+          123 Main Street
+          <br />
+          Cambridge
+          <br />
+          CA
+          <br />
+          12346
+          <br />
+          US
+          <br />
+        </address>
+      </div>
+      <div
+        className="order-summary col-md-4"
+      >
+        <dl>
+          <dt>
+            Order Number:
+          </dt>
+          <dd>
+            EDX-100005
+          </dd>
+          <dt>
+            Payment Method:
+          </dt>
+          <dd>
+            Visa 411111XXXXXX1111
+          </dd>
+          <dt>
+            Order Date:
+          </dt>
+          <dd>
+            Jun 21, 2022
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <h2
+      className="text-primary-500"
+    >
+      Order Information
+    </h2>
+    <div
+      className="info-table"
+    >
+      <div
+        className="pgn__data-table-layout-wrapper"
+      >
+        <div
+          className="pgn__data-table-layout-main"
+        >
+          <div
+            className="pgn__data-table-wrapper"
+          >
+            <div
+              className="pgn__data-table-container"
+            >
+              <table
+                className="pgn__data-table is-striped"
+                role="table"
+              >
+                <thead>
+                  <tr
+                    role="row"
+                  >
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Quantity
+                        </span>
+                      </span>
+                    </th>
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Description
+                        </span>
+                      </span>
+                    </th>
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Item Price
+                        </span>
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  role="rowgroup"
+                >
+                  <tr
+                    className="pgn__data-table-row"
+                    role="row"
+                  >
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      
+                    </td>
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      <span
+                        className="course-description-title"
+                      >
+                        Seat in edX Demonstration Course with verified certificate
+                      </span>
+                      <span
+                        className="course-description-subtitle"
+                      />
+                    </td>
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      $149.00
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="order-total col-6 ml-auto"
+      >
+        <div
+          className="order-total-item border-divider pgn__action-row"
+        >
+          <span
+            className="description"
+          >
+            Subtotal
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          $149.00
+        </div>
+        <div
+          className="order-total-item pgn__action-row"
+        >
+          <span
+            className="badge badge-success"
+          >
+            Discount
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span
+            data-hj-suppress={true}
+          >
+            12345
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span>
+            10
+            % off
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span>
+            -$14.90
+          </span>
+        </div>
+        <div
+          className="border-divider pgn__action-row"
+        />
+        <div
+          className="order-total-item pgn__action-row"
+        >
+          <span>
+            Total
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          $134.10
+        </div>
+      </div>
+    </div>
+    <div
+      className="fade alert-content credit-messaging alert alert-warning show"
+      role="alert"
+    >
+      <span
+        className="pgn__icon alert-icon"
+      >
+        <svg
+          aria-hidden={true}
+          fill="none"
+          focusable={false}
+          height={24}
+          role="img"
+          viewBox="0 0 24 24"
+          width={24}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        className="pgn__alert-message-wrapper"
+      >
+        <div
+          className="alert-message-content"
+        >
+          <div
+            className="alert-heading h4"
+          >
+            Get Your Course Credit
+          </div>
+          <p>
+            To receive academic credit for this course, you must apply for credit at the organization that offers the credit. You can find a link to the organization’s website on your 
+            <a
+              className="inline-link-underline"
+              href="http://localhost:18000/dashboard"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              dashboard
+            </a>
+            , next to the course name.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="pgn__action-row"
+      id="cta-nav-links"
+    >
+      <a
+        className="pgn__hyperlink default-link standalone-link dashboard-link"
+        href="http://localhost:18000/dashboard"
+        onClick={[Function]}
+        target="_self"
+      >
+        Go to dashboard
+      </a>
+      <a
+        className="pgn__hyperlink default-link standalone-link"
+        href="http://localhost:18000/courses"
+        onClick={[Function]}
+        target="_self"
+      >
+        Find more courses
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ReceiptPage /> renders discount information 1`] = `
+<div
+  className="page__receipt receipt container content-container"
+  data-currency="USD"
+  data-order-id="EDX-100005"
+  data-product-ids="3"
+  data-total-amount="149.00"
+  id="receipt-container"
+>
+  <div
+    className="list-info"
+  >
+    <h2
+      className="thank-you text-primary-500"
+    >
+      Thank you for your order!
+    </h2>
+    <div
+      className="info-item payment-info row"
+    >
+      <div
+        className="copy col-md-8"
+      >
+        <div
+          className="confirm-message"
+        >
+          <span>
+            Your order is complete. If you need a receipt, you can print this page.
+          </span>
+        </div>
+        <address
+          className="billing-address"
+          data-hj-suppress={true}
+        >
+          Juliana
+           
+          Doe
+          <br />
+          123 Main Street
+          <br />
+          Cambridge
+          <br />
+          CA
+          <br />
+          12346
+          <br />
+          US
+          <br />
+        </address>
+      </div>
+      <div
+        className="order-summary col-md-4"
+      >
+        <dl>
+          <dt>
+            Order Number:
+          </dt>
+          <dd>
+            EDX-100005
+          </dd>
+          <dt>
+            Payment Method:
+          </dt>
+          <dd>
+            Visa 411111XXXXXX1111
+          </dd>
+          <dt>
+            Order Date:
+          </dt>
+          <dd>
+            Jun 21, 2022
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <h2
+      className="text-primary-500"
+    >
+      Order Information
+    </h2>
+    <div
+      className="info-table"
+    >
+      <div
+        className="pgn__data-table-layout-wrapper"
+      >
+        <div
+          className="pgn__data-table-layout-main"
+        >
+          <div
+            className="pgn__data-table-wrapper"
+          >
+            <div
+              className="pgn__data-table-container"
+            >
+              <table
+                className="pgn__data-table is-striped"
+                role="table"
+              >
+                <thead>
+                  <tr
+                    role="row"
+                  >
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Quantity
+                        </span>
+                      </span>
+                    </th>
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Description
+                        </span>
+                      </span>
+                    </th>
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Item Price
+                        </span>
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  role="rowgroup"
+                >
+                  <tr
+                    className="pgn__data-table-row"
+                    role="row"
+                  >
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      
+                    </td>
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      <span
+                        className="course-description-title"
+                      >
+                        Seat in edX Demonstration Course with verified certificate
+                      </span>
+                      <span
+                        className="course-description-subtitle"
+                      />
+                    </td>
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      $149.00
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="order-total col-6 ml-auto"
+      >
+        <div
+          className="order-total-item border-divider pgn__action-row"
+        >
+          <span
+            className="description"
+          >
+            Subtotal
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          $149.00
+        </div>
+        <div
+          className="order-total-item pgn__action-row"
+        >
+          <span
+            className="badge badge-success"
+          >
+            Discount
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span
+            data-hj-suppress={true}
+          >
+            12345
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span>
+            10
+            % off
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span>
+            -$14.90
+          </span>
+        </div>
+        <div
+          className="border-divider pgn__action-row"
+        />
+        <div
+          className="order-total-item pgn__action-row"
+        >
+          <span>
+            Total
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          $134.10
+        </div>
+      </div>
+    </div>
+    <div
+      className="pgn__action-row"
+      id="cta-nav-links"
+    >
+      <a
+        className="pgn__hyperlink default-link standalone-link dashboard-link"
+        href="http://localhost:18000/dashboard"
+        onClick={[Function]}
+        target="_self"
+      >
+        Go to dashboard
+      </a>
+      <a
+        className="pgn__hyperlink default-link standalone-link"
+        href="http://localhost:18000/courses"
+        onClick={[Function]}
+        target="_self"
+      >
+        Find more courses
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ReceiptPage /> renders enterprise message banner 1`] = `
+<div
+  className="page__receipt receipt container content-container"
+  data-currency="USD"
+  data-order-id="EDX-100005"
+  data-product-ids="3"
+  data-total-amount="149.00"
+  id="receipt-container"
+>
+  <div
+    className="enterprise-message"
+  >
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      className="pgn__pageBanner-component pgn__pageBanner__accentA"
+      role="alert"
+    >
+      <div
+        className="pgn__pageBanner-content"
+      >
+        Your company, , has a dedicated page where you can see all of your sponsored courses. Go to 
+        <a
+          className="inline-link-underline"
+          href="http://www.enterprise.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          your learner portal
+        </a>
+        .
+      </div>
+      <span
+        className="pgn__pageBanner-dismissButtonContainer"
+      >
+        <button
+          aria-label="Dismiss"
+          className="btn-icon btn-icon-black btn-icon-inline"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="btn-icon__icon-container"
+          >
+            <span
+              className="pgn__icon btn-icon__icon"
+              icon={Object {}}
+            >
+              <svg
+                aria-hidden={true}
+                fill="none"
+                focusable={false}
+                height={24}
+                role="img"
+                viewBox="0 0 24 24"
+                width={24}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div
+    className="list-info"
+  >
+    <h2
+      className="thank-you text-primary-500"
+    >
+      Thank you for your order!
+    </h2>
+    <div
+      className="info-item payment-info row"
+    >
+      <div
+        className="copy col-md-8"
+      >
+        <div
+          className="confirm-message"
+        >
+          <span>
+            Your order is complete. If you need a receipt, you can print this page.
+          </span>
+        </div>
+        <address
+          className="billing-address"
+          data-hj-suppress={true}
+        >
+          Juliana
+           
+          Doe
+          <br />
+          123 Main Street
+          <br />
+          Cambridge
+          <br />
+          CA
+          <br />
+          12346
+          <br />
+          US
+          <br />
+        </address>
+      </div>
+      <div
+        className="order-summary col-md-4"
+      >
+        <dl>
+          <dt>
+            Order Number:
+          </dt>
+          <dd>
+            EDX-100005
+          </dd>
+          <dt>
+            Payment Method:
+          </dt>
+          <dd>
+            Visa 411111XXXXXX1111
+          </dd>
+          <dt>
+            Order Date:
+          </dt>
+          <dd>
+            Jun 21, 2022
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <h2
+      className="text-primary-500"
+    >
+      Order Information
+    </h2>
+    <div
+      className="info-table"
+    >
+      <div
+        className="pgn__data-table-layout-wrapper"
+      >
+        <div
+          className="pgn__data-table-layout-main"
+        >
+          <div
+            className="pgn__data-table-wrapper"
+          >
+            <div
+              className="pgn__data-table-container"
+            >
+              <table
+                className="pgn__data-table is-striped"
+                role="table"
+              >
+                <thead>
+                  <tr
+                    role="row"
+                  >
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Quantity
+                        </span>
+                      </span>
+                    </th>
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Description
+                        </span>
+                      </span>
+                    </th>
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      <span
+                        className="d-flex align-items-center"
+                      >
+                        <span>
+                          Item Price
+                        </span>
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  role="rowgroup"
+                >
+                  <tr
+                    className="pgn__data-table-row"
+                    role="row"
+                  >
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      
+                    </td>
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      <span
+                        className="course-description-title"
+                      >
+                        Seat in edX Demonstration Course with verified certificate
+                      </span>
+                      <span
+                        className="course-description-subtitle"
+                      />
+                    </td>
+                    <td
+                      className="pgn__data-table-cell-wrap"
+                      role="cell"
+                    >
+                      $149.00
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="order-total col-6 ml-auto"
+      >
+        <div
+          className="order-total-item border-divider pgn__action-row"
+        >
+          <span
+            className="description"
+          >
+            Subtotal
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          $149.00
+        </div>
+        <div
+          className="order-total-item pgn__action-row"
+        >
+          <span
+            className="badge badge-success"
+          >
+            Discount
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span
+            data-hj-suppress={true}
+          >
+            12345
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span>
+            10
+            % off
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <span>
+            -$14.90
+          </span>
+        </div>
+        <div
+          className="enterprise-customer"
+        >
+          Courtesy of  is provided
+        </div>
+        <div
+          className="border-divider pgn__action-row"
+        />
+        <div
+          className="order-total-item pgn__action-row"
+        >
+          <span>
+            Total
+          </span>
+          <span
+            className="pgn__action-row-spacer"
+          />
+          $134.10
+        </div>
+      </div>
+    </div>
+    <div
+      className="pgn__action-row"
+      id="cta-nav-links"
+    >
+      <a
+        className="pgn__hyperlink default-link standalone-link dashboard-link"
+        href="http://localhost:18000/dashboard"
+        onClick={[Function]}
+        target="_self"
+      >
+        Go to dashboard
+      </a>
+      <a
+        className="pgn__hyperlink default-link standalone-link"
+        href="http://localhost:18000/courses"
+        onClick={[Function]}
+        target="_self"
+      >
+        Find more courses
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ReceiptPage /> renders error view if there is an error loading the order 1`] = `
+<div
+  className="page__receipt receipt container content-container pt-5 pb-5"
+  id="receipt-container"
+>
+  <span>
+    The specified order could not be located. Please ensure that the URL is correct, and try again. You may also view your previous orders on the 
+    <a
+      className="inline-link-underline"
+      href="https://localhost:1996/orders"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      order history
+    </a>
+     page.
+  </span>
+</div>
+`;
