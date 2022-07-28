@@ -9,7 +9,7 @@ import ConnectedOrderHistoryPage from './OrderHistoryPage';
 
 const mockStore = configureMockStore();
 const storeMocks = {
-  ordersLoaded: require('./__mocks__/ordersLoaded.mockStore.js'),
+  ordersLoaded: require('./__mocks__/ordersLoaded.mockStore'),
 };
 const requiredOrderHistoryPageProps = {
   fetchOrders: () => {},
