@@ -32,6 +32,11 @@ class OrderHistoryPage extends React.Component {
     this.props.fetchOrders(1);
   }
 
+  handlePageSelect(page) {
+    // TODO: We should update the url and trigger this fetching based on the route
+    this.props.fetchOrders(page);
+  }
+
   getTableData() {
     return this.props.orders.map(({
       lineItems,
@@ -52,11 +57,6 @@ class OrderHistoryPage extends React.Component {
       ),
       orderId,
     }), this);
-  }
-
-  handlePageSelect(page) {
-    // TODO: We should update the url and trigger this fetching based on the route
-    this.props.fetchOrders(page);
   }
 
   renderPagination() {
