@@ -11,7 +11,7 @@ export const initialState = {
   previous: null,
 };
 
-const orderHistoryPage = (state = initialState, action) => {
+const orderHistoryPage = (state = initialState, action) => { // eslint-disable-line default-param-last
   switch (action.type) {
     case FETCH_ORDERS.BEGIN:
       return {

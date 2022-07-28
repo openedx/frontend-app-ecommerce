@@ -87,8 +87,8 @@ export async function getOrders(page = 1, pageSize = 20) {
     }));
 
     return {
-      datePlaced: date_placed,
-      total: total_excl_tax,
+      datePlaced: date_placed, // eslint-disable-line camelcase
+      total: total_excl_tax, // eslint-disable-line camelcase
       orderId: number,
       currency,
       lineItems,
