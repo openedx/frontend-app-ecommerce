@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import {
   getConfig,
@@ -11,7 +12,7 @@ import {
   FormattedNumber,
 } from '@edx/frontend-platform/i18n';
 import {
-  ActionRow, Alert, Badge, DataTable, Hyperlink,
+  ActionRow, Alert, Badge, DataTable, Hyperlink, PageBanner,
 } from '@edx/paragon';
 import { Info } from '@edx/paragon/icons';
 
@@ -26,6 +27,13 @@ const { LMS_BASE_URL } = getConfig();
 const DASHBOARD_URL = `${LMS_BASE_URL}/dashboard`;
 const FIND_COURSES_URL = `${LMS_BASE_URL}/courses`;
 class ReceiptPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: true,
+    };
+  }
+
   componentDidMount() {
     const orderNumber = this.props.history.location.search.split('=')[1];
     this.props.fetchOrder(orderNumber);
@@ -46,6 +54,11 @@ class ReceiptPage extends React.Component {
         </span>
       )
     ));
+  }
+
+  getProductTrackingVariable() {
+    const productTracking = this.props.order.product_tracking;
+    return `var awinProductTrackingData = ${productTracking}`;
   }
 
   renderDiscountByType(discounts) {
@@ -124,34 +137,58 @@ class ReceiptPage extends React.Component {
         />
       </a>
     );
-    return this.props.order.lines.map(({
-      product,
-    }) => (
-      <>
-        {product.is_enrollment_code_product ? (
-          <Alert
-            variant="warning"
-            icon={Info}
-            className="credit-messaging"
-            key={product.id}
-          >
-            <Alert.Heading>
-              <FormattedMessage
-                id="ecommerce.receipt.credit.messaging.header"
-                defaultMessage="Get Your Course Credit"
-              />
-            </Alert.Heading>
-            <p>
-              <FormattedMessage
-                id="ecommerce.receipt.credit.messaging.message"
-                defaultMessage="To receive academic credit for this course, you must apply for credit at the organization that offers the credit. You can find a link to the organization’s website on your {dashboardLink}, next to the course name."
-                values={{ dashboardLink }}
-              />
-            </p>
-          </Alert>
-        ) : null}
-      </>
-    ));
+    return (
+      <Alert
+        variant="warning"
+        icon={Info}
+        className="credit-messaging"
+      >
+        <Alert.Heading>
+          <FormattedMessage
+            id="ecommerce.receipt.credit.messaging.header"
+            defaultMessage="Get Your Course Credit"
+          />
+        </Alert.Heading>
+        <p>
+          <FormattedMessage
+            id="ecommerce.receipt.credit.messaging.message"
+            defaultMessage="To receive academic credit for this course, you must apply for credit at the organization that offers the credit. You can find a link to the organization’s website on your {dashboardLink}, next to the course name."
+            values={{ dashboardLink }}
+          />
+        </p>
+      </Alert>
+    );
+  }
+
+  renderEnterpriseMessage() {
+    const learnerPortalLink = (
+      <a className="inline-link-underline" rel="noopener noreferrer" target="_blank" href={this.props.order.enterprise_learner_portal_url}>
+        <FormattedMessage
+          id="ecommerce.receipt.page.banner.enterprise.message.link"
+          defaultMessage="your learner portal"
+        />
+      </a>
+    );
+
+    // eslint-disable-next-line no-unused-expressions
+    return (
+      <div className="enterprise-message">
+        <PageBanner
+          show={this.state.show}
+          dismissible
+          onDismiss={() => this.setState({ show: false })}
+        >
+          <FormattedMessage
+            id="ecommerce.receipt.page.banner.enterprise.message"
+            defaultMessage="Your company, {enterpriseCustomerName}, has a dedicated page where you can see all of your sponsored courses. Go to {learnerPortalUrl}."
+            values={{
+              enterpriseCustomerName: this.props.order.basket_discounts[0].enterprise_customer_name,
+              learnerPortalUrl: learnerPortalLink,
+            }}
+          />
+        </PageBanner>
+      </div>
+    );
   }
 
   renderError() {
@@ -184,7 +221,16 @@ class ReceiptPage extends React.Component {
   }
 
   renderOrderTable() {
-    // TODO: can we add data-couse-id, className, key to rendered child elements from Paragon
+    const courseDescriptionAndId = ({ row }) => (
+      <>
+        <span className="course-description-title">
+          {row.values.description}
+        </span>
+        <span className="course-description-subtitle" data-course-id={row.values.course_organization}>
+          {row.values.course_organization}
+        </span>
+      </>
+    );
     return this.props.order.lines.map(line => (
       <DataTable
         aria-hidden="true"
@@ -208,6 +254,7 @@ class ReceiptPage extends React.Component {
           {
             Header: this.props.intl.formatMessage(messages['ecommerce.receipt.table.column.description']),
             accessor: 'description',
+            Cell: courseDescriptionAndId,
           },
           {
             Header: this.props.intl.formatMessage(messages['ecommerce.receipt.table.column.price']),
@@ -227,10 +274,11 @@ class ReceiptPage extends React.Component {
       order,
     } = this.props;
     const loaded = !loadingReceipt && !loadingReceiptError;
+    const fetchingError = loaded && !order;
 
     return (
       <>
-        {loadingReceiptError ? this.renderError() : null}
+        {loadingReceiptError || fetchingError ? this.renderError() : null}
         {loadingReceipt ? this.renderLoading() : null}
         {loaded && order ? (
           <div
@@ -242,6 +290,12 @@ class ReceiptPage extends React.Component {
             data-product-ids={order.order_product_ids}
             // data-back-button="{{ disable_back_button | default:0 }}"
           >
+            <Helmet>
+              <script type="text/javascript">
+                {this.getProductTrackingVariable()}
+              </script>
+            </Helmet>
+            {order.enterprise_learner_portal_url ? this.renderEnterpriseMessage() : null}
             <div className="list-info">
               <h2 className="thank-you text-primary-500">{this.props.intl.formatMessage(messages['ecommerce.receipt.heading'])}</h2>
               <div className="info-item payment-info row">
@@ -251,12 +305,12 @@ class ReceiptPage extends React.Component {
                   </div>
                   {order.billing_address ? (
                     <address className="billing-address" data-hj-suppress>
-                      {order.billing_address.first_name} {order.billing_address.last_name} <br />
-                      {order.billing_address.line1} <br />
-                      {order.billing_address.city} <br />
-                      {order.billing_address.state} <br />
-                      {order.billing_address.postcode} <br />
-                      {order.billing_address.country} <br />
+                      {order.billing_address.first_name} {order.billing_address.last_name}<br />
+                      {order.billing_address.line1}<br />
+                      {order.billing_address.city}<br />
+                      {order.billing_address.state}<br />
+                      {order.billing_address.postcode}<br />
+                      {order.billing_address.country}<br />
                     </address>
                   ) : null}
                 </div>
@@ -295,13 +349,13 @@ class ReceiptPage extends React.Component {
                         <ActionRow.Spacer />
                         {this.renderDiscountByType(order.basket_discounts)}
                       </ActionRow>
-                      {order.enterprise_customer_info ? (
+                      {order.enterprise_learner_portal_url ? (
                         <div className="enterprise-customer">
                           <FormattedMessage
                             id="ecommerce.receipt.table.order.discount.message.enterprise.secondary"
                             defaultMessage="Courtesy of {enterpriseName} is provided"
                             values={{
-                              enterpriseName: order.enterprise_customer_info.offer_condition_enterprise_customer_name,
+                              enterpriseName: order.basket_discounts[0].enterprise_customer_name,
                             }}
                           />
                         </div>
@@ -321,10 +375,10 @@ class ReceiptPage extends React.Component {
                   </ActionRow>
                 </div>
               </div>
-              {this.renderCreditMessaging()}
+              {order.contains_credit_seat ? this.renderCreditMessaging() : null}
               <ActionRow id="cta-nav-links">
                 <Hyperlink className="dashboard-link" destination={DASHBOARD_URL}>{this.props.intl.formatMessage(messages['ecommerce.receipt.link.dashboard'])}</Hyperlink>
-                <Hyperlink destination={FIND_COURSES_URL}> {this.props.intl.formatMessage(messages['ecommerce.receipt.link.find.courses'])}</Hyperlink>
+                <Hyperlink destination={FIND_COURSES_URL}>{this.props.intl.formatMessage(messages['ecommerce.receipt.link.find.courses'])}</Hyperlink>
               </ActionRow>
             </div>
           </div>
@@ -362,11 +416,13 @@ ReceiptPage.propTypes = {
       postcode: PropTypes.string,
       state: PropTypes.string,
     }),
+    contains_credit_seat: PropTypes.bool,
     currency: PropTypes.string,
     date_placed: PropTypes.string,
     discount: PropTypes.string,
     enterprise_learner_portal_url: PropTypes.string,
     lines: PropTypes.arrayOf(PropTypes.shape({
+      course_organization: PropTypes.string,
       description: PropTypes.string,
       linePriceExclTax: PropTypes.string,
       quantity: PropTypes.number,
