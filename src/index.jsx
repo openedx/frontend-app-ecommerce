@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch } from 'react-router-dom';
+import { IntlProvider } from '@edx/frontend-platform/i18n';
 import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
 import {
   APP_INIT_ERROR,
@@ -38,7 +39,7 @@ subscribe(APP_READY, () => {
 });
 
 subscribe(APP_INIT_ERROR, (error) => {
-  ReactDOM.render(<ErrorPage message={error.message} />, document.getElementById('root'));
+  ReactDOM.render(<IntlProvider locale="en"><ErrorPage message={error.message} /></IntlProvider>, document.getElementById('root'));
 });
 
 initialize({
