@@ -53,6 +53,7 @@ export async function getOrders(page = 1, pageSize = 20) {
       },
     });
     data = newData.data;
+    console.log('REV-2817 LOG: orderFetchingUrl', orderFetchingUrl);
     console.log('REV-2577 LOG: CC response', newData);
     console.log('REV-2577 LOG: CC response.data', data);
     console.log('REV-2577 LOG: CC response.data.results', data.results);
