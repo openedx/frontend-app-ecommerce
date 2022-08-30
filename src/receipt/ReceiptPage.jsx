@@ -130,12 +130,12 @@ class ReceiptPage extends React.Component {
 
   renderCreditMessaging() {
     const dashboardLink = (
-      <a className="inline-link-underline" rel="noopener noreferrer" target="_blank" href={DASHBOARD_URL}>
+      <Hyperlink className="inline-link-underline" destination={DASHBOARD_URL}>
         <FormattedMessage
           id="ecommerce.receipt.credit.messaging.message.link"
           defaultMessage="dashboard"
         />
-      </a>
+      </Hyperlink>
     );
     return (
       <Alert
@@ -162,12 +162,12 @@ class ReceiptPage extends React.Component {
 
   renderEnterpriseMessage() {
     const learnerPortalLink = (
-      <a className="inline-link-underline" rel="noopener noreferrer" target="_blank" href={this.props.order.enterprise_learner_portal_url}>
+      <Hyperlink className="inline-link-underline" destination={this.props.order.enterprise_learner_portal_url}>
         <FormattedMessage
           id="ecommerce.receipt.page.banner.enterprise.message.link"
           defaultMessage="your learner portal"
         />
-      </a>
+      </Hyperlink>
     );
 
     // eslint-disable-next-line no-unused-expressions
@@ -194,12 +194,12 @@ class ReceiptPage extends React.Component {
   renderError() {
     const { ORDER_HISTORY_URL } = getConfig();
     const orderHistoryLink = (
-      <a className="inline-link-underline" rel="noopener noreferrer" target="_blank" href={ORDER_HISTORY_URL}>
+      <Hyperlink className="inline-link-underline" destination={ORDER_HISTORY_URL}>
         <FormattedMessage
           id="ecommerce.receipt.loading.error.link"
           defaultMessage="order history"
         />
-      </a>
+      </Hyperlink>
     );
     return (
       <div id="receipt-container" className="page__receipt receipt container content-container pt-5 pb-5">
