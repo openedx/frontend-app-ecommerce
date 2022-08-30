@@ -303,7 +303,7 @@ class ReceiptPage extends React.Component {
                   <div className="confirm-message">
                     {this.getConfirmMessage()}
                   </div>
-                  {order.billing_address ? (
+                  {order.billing_address && (
                     <address className="billing-address" data-hj-suppress>
                       {order.billing_address.first_name} {order.billing_address.last_name}<br />
                       {order.billing_address.line1}<br />
@@ -312,18 +312,18 @@ class ReceiptPage extends React.Component {
                       {order.billing_address.postcode}<br />
                       {order.billing_address.country}<br />
                     </address>
-                  ) : null}
+                  )}
                 </div>
                 <div className="order-summary col-md-4">
                   <dl>
                     <dt>{this.props.intl.formatMessage(messages['ecommerce.receipt.order.summary.order.number'])}</dt>
                     <dd>{order.number}</dd>
-                    {order.payment_method ? (
+                    {order.payment_method && (
                       <>
                         <dt>{this.props.intl.formatMessage(messages['ecommerce.receipt.order.summary.payment.method'])}</dt>
                         <dd>{order.payment_method}</dd>
                       </>
-                    ) : null}
+                    )}
                     <dt>{this.props.intl.formatMessage(messages['ecommerce.receipt.order.summary.order.date'])}</dt>
                     <dd>{new Date(order.date_placed).toLocaleDateString('default', { month: 'short', day: 'numeric', year: 'numeric' })}</dd>
                   </dl>
@@ -342,14 +342,14 @@ class ReceiptPage extends React.Component {
                       currency={this.props.order.currency}
                     />
                   </ActionRow>
-                  {order.vouchers ? (
+                  {order.vouchers && (
                     <>
                       <ActionRow className="order-total-item">
                         <Badge variant="success">{this.props.intl.formatMessage(messages['ecommerce.receipt.table.order.discount'])}</Badge>
                         <ActionRow.Spacer />
                         {this.renderDiscountByType(order.basket_discounts)}
                       </ActionRow>
-                      {order.enterprise_learner_portal_url ? (
+                      {order.enterprise_learner_portal_url && (
                         <div className="enterprise-customer">
                           <FormattedMessage
                             id="ecommerce.receipt.table.order.discount.message.enterprise.secondary"
@@ -359,11 +359,10 @@ class ReceiptPage extends React.Component {
                             }}
                           />
                         </div>
-                      ) : null}
+                      )}
                       <ActionRow className="border-divider" />
                     </>
-                  )
-                    : null}
+                  )}
                   <ActionRow className="order-total-item">
                     <span>{this.props.intl.formatMessage(messages['ecommerce.receipt.table.order.total'])}</span>
                     <ActionRow.Spacer />
@@ -375,7 +374,7 @@ class ReceiptPage extends React.Component {
                   </ActionRow>
                 </div>
               </div>
-              {order.contains_credit_seat ? this.renderCreditMessaging() : null}
+              {order.contains_credit_seat && this.renderCreditMessaging()}
               <ActionRow id="cta-nav-links">
                 <Hyperlink className="dashboard-link" destination={DASHBOARD_URL}>{this.props.intl.formatMessage(messages['ecommerce.receipt.link.dashboard'])}</Hyperlink>
                 <Hyperlink destination={FIND_COURSES_URL}>{this.props.intl.formatMessage(messages['ecommerce.receipt.link.find.courses'])}</Hyperlink>
