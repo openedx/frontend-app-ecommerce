@@ -234,7 +234,7 @@ class ReceiptPage extends React.Component {
     return this.props.order.lines.map(line => (
       <DataTable
         aria-hidden="true"
-        itemCount={this.props.order.lines.length}
+        itemCount="1"
         data={[
           {
             quantity: line.quantity,
