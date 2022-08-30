@@ -12,7 +12,7 @@ import {
   FormattedNumber,
 } from '@edx/frontend-platform/i18n';
 import {
-  ActionRow, Alert, Badge, DataTable, Hyperlink, PageBanner,
+  ActionRow, Alert, Badge, DataTable, Hyperlink, MailtoLink, PageBanner,
 } from '@edx/paragon';
 import { Info } from '@edx/paragon/icons';
 
@@ -46,7 +46,7 @@ class ReceiptPage extends React.Component {
       product.is_enrollment_code_product ? (
         <span key={product.id}>
           {this.props.intl.formatMessage(messages['ecommerce.receipt.confirm.message.enrollment.code'])}
-          <Hyperlink data-hj-suppress destination="mailto:{order.user.email}">{this.props.order.user.email}</Hyperlink>
+          <MailtoLink data-hj-suppress to={this.props.order.user.email}>{this.props.order.user.email}</MailtoLink>
         </span>
       ) : (
         <span key={product.id}>
