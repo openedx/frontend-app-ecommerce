@@ -83,7 +83,7 @@ class OrderHistoryPage extends React.Component {
       quantity,
     }) => (
       <p className="d-flex" key={description}>
-        <span className="mr-3">{quantity}x</span>
+        <span className="mr-3">{quantity}&times;</span>
         <span>{description}</span>
       </p>
     ));

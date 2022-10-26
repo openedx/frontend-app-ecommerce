@@ -13,9 +13,9 @@ This is a micro-frontend application responsible for the display of an authentic
 Installation
 ------------
 
-This MFE is bundled with `Devstack <https://github.com/edx/devstack>`_, see the `Getting Started <https://github.com/edx/devstack#getting-started>`_ section for setup instructions.
+This MFE is bundled with `Devstack <https://github.com/openedx/devstack>`_, see the `Getting Started <https://github.com/openedx/devstack#getting-started>`_ section for setup instructions.
 
-1. Install Devstack using the `Getting Started <https://github.com/edx/devstack#getting-started>`_ instructions.
+1. Install Devstack using the `Getting Started <https://github.com/openedx/devstack#getting-started>`_ instructions.
 
 2. Start up Devstack, if it's not already started.
 
@@ -49,7 +49,7 @@ None
 Development Roadmap
 -------------------
 
-This MFE is currently in maintenance mode, as we have no further development planned for it.  However, if we want to pull more ecommerce interfaces out into a micro-frontend, this would be where they should live.  Note that `frontend-app-payment <https://github.com/edx/frontend-app-payment>`_ contains the checkout flow.
+This MFE is currently in maintenance mode, as we have no further development planned for it.  However, if we want to pull more ecommerce interfaces out into a micro-frontend, this would be where they should live.  Note that `frontend-app-payment <https://github.com/openedx/frontend-app-payment>`_ contains the checkout flow.
 
 Anyone merging to this repository is expected to `release and monitor their changes <https://openedx.atlassian.net/wiki/spaces/RS/pages/1835106870/How+to+contribute+to+our+repositories>`__; if you are not able to do this DO NOT MERGE, please coordinate with someone who can to ensure that the changes are released.
 
