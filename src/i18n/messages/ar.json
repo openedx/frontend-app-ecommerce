@@ -1,13 +1,13 @@
 {
-  "error.notfound.message": "الصفحة التي تبحث عنها غير متوفرة أو هناك خطأ في نص الرابط. الرجاء التحقق من الرابط والمحاولة مجددا.",
-  "ecommerce.order.history.page.heading": "المشتريات السابقة",
-  "ecommerce.order.history.no.orders": "Orders you place with {siteName} will appear here.",
-  "ecommerce.order.history.loading.orders": "تحميل الطلبات",
+  "error.notfound.message": "الصفحة التي تبحث عنها غير متوفرة أو هناك خطأ في العنوان. رجاءً تحقق من العنوان و حاول مجددًا.",
+  "ecommerce.order.history.page.heading": "سجل الطلبيات",
+  "ecommerce.order.history.no.orders": "ستظهر هنا طلبياتك التي تقوم بها عند {siteName}",
+  "ecommerce.order.history.loading.orders": "تحميل الطلبيات جارٍ...",
   "ecommerce.order.history.loading.error": "خطأ: {error}",
-  "ecommerce.order.history.view.order.detail": "عرض تفاصيل الطلب",
+  "ecommerce.order.history.view.order.detail": "عرض تفاصيل الطلبية",
   "ecommerce.order.history.table.column.items": "العناصر",
-  "ecommerce.order.history.table.column.date.placed": "تاريخ الطلب",
-  "ecommerce.order.history.table.column.total.cost": "التكلفة الإجمالية:",
-  "ecommerce.order.history.table.column.order.number": "رقم الطلب",
-  "ecommerce.order.history.table.column.order.details": "تفاصيل الطلب"
+  "ecommerce.order.history.table.column.date.placed": "تاريخ الطلبية",
+  "ecommerce.order.history.table.column.total.cost": "التكلفة الإجمالية",
+  "ecommerce.order.history.table.column.order.number": "رقم الطلبية",
+  "ecommerce.order.history.table.column.order.details": "تفاصيل الطلبية"
 }
