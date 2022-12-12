@@ -18,6 +18,7 @@ import messages from './i18n';
 import configureStore from './store';
 import NotFoundPage from './components/NotFoundPage';
 import { ConnectedOrderHistoryPage } from './order-history';
+import { ConnectedReceiptPage } from './receipt';
 
 import './index.scss';
 
@@ -28,6 +29,7 @@ subscribe(APP_READY, () => {
       <main>
         <Switch>
           <Route path="/orders" component={ConnectedOrderHistoryPage} />
+          <Route path="/receipt" component={ConnectedReceiptPage} />
           <Route path="/notfound" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
