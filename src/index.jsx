@@ -13,7 +13,7 @@ import {
 
 import Header, { messages as headerMessages } from '@edx/frontend-component-header';
 import Footer, { messages as footerMessages } from '@edx/frontend-component-footer';
-
+import { messages as paragonMessages } from '@edx/paragon';
 import messages from './i18n';
 import configureStore from './store';
 import NotFoundPage from './components/NotFoundPage';
@@ -47,6 +47,7 @@ initialize({
     messages,
     headerMessages,
     footerMessages,
+    paragonMessages,
   ],
   requireAuthenticatedUser: true,
   hydrateAuthenticatedUser: true,
