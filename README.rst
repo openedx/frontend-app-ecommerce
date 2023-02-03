@@ -8,14 +8,14 @@ Please tag **@edx/revenue-squad** on any PRs or issues.
 Introduction
 ------------
 
-This is a micro-frontend application responsible for the display of an authenticated user's order history.
+This is a micro-frontend application responsible for the display of an authenticated user's order history and receipt page.
 
 Installation
 ------------
 
-This MFE is bundled with `Devstack <https://github.com/edx/devstack>`_, see the `Getting Started <https://github.com/edx/devstack#getting-started>`_ section for setup instructions.
+This MFE is bundled with `Devstack <https://github.com/openedx/devstack>`_, see the `Getting Started <https://github.com/openedx/devstack#getting-started>`_ section for setup instructions.
 
-1. Install Devstack using the `Getting Started <https://github.com/edx/devstack#getting-started>`_ instructions.
+1. Install Devstack using the `Getting Started <https://github.com/openedx/devstack#getting-started>`_ instructions.
 
 2. Start up Devstack, if it's not already started.
 
@@ -39,6 +39,10 @@ Environment Variables/Setup Notes
 
 This MFE is configured via environment variables supplied at build time.  All micro-frontends have a shared set of required environment variables, as documented in the Open edX Developer Guide under `Required Environment Variables <https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/developers_guide/micro_frontends_in_open_edx.html#required-environment-variables>`__.
 
+To have ecommerce send users to this receipt page (instead of its own), there are two items to set in ecommerce: 
+1) Django admin waffle flag: enable_receipts_via_ecommerce_mfe
+2) ECOMMERCE_MICROFRONTEND_URL environment variable
+
 This micro-frontend has no additional required environment variables.
 
 Known Issues
@@ -49,7 +53,7 @@ None
 Development Roadmap
 -------------------
 
-This MFE is currently in maintenance mode, as we have no further development planned for it.  However, if we want to pull more ecommerce interfaces out into a micro-frontend, this would be where they should live.  Note that `frontend-app-payment <https://github.com/edx/frontend-app-payment>`_ contains the checkout flow.
+This MFE is currently in maintenance mode, as we have no further development planned for it.  However, if we want to pull more ecommerce interfaces out into a micro-frontend, this would be where they should live.  Note that `frontend-app-payment <https://github.com/openedx/frontend-app-payment>`_ contains the checkout flow.
 
 Anyone merging to this repository is expected to `release and monitor their changes <https://openedx.atlassian.net/wiki/spaces/RS/pages/1835106870/How+to+contribute+to+our+repositories>`__; if you are not able to do this DO NOT MERGE, please coordinate with someone who can to ensure that the changes are released.
 

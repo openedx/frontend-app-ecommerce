@@ -32,6 +32,11 @@ class OrderHistoryPage extends React.Component {
     this.props.fetchOrders(1);
   }
 
+  handlePageSelect(page) {
+    // TODO: We should update the url and trigger this fetching based on the route
+    this.props.fetchOrders(page);
+  }
+
   getTableData() {
     return this.props.orders.map(({
       lineItems,
@@ -52,11 +57,6 @@ class OrderHistoryPage extends React.Component {
       ),
       orderId,
     }), this);
-  }
-
-  handlePageSelect(page) {
-    // TODO: We should update the url and trigger this fetching based on the route
-    this.props.fetchOrders(page);
   }
 
   renderPagination() {
@@ -83,7 +83,7 @@ class OrderHistoryPage extends React.Component {
       quantity,
     }) => (
       <p className="d-flex" key={description}>
-        <span className="mr-3">{quantity}x</span>
+        <span className="mr-3">{quantity}&times;</span>
         <span>{description}</span>
       </p>
     ));

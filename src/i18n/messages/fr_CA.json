@@ -1,0 +1,13 @@
+{
+  "error.notfound.message": "La page que vous recherchez n'est pas disponible ou il y a une erreur dans l'URL. Veuillez vérifier l'URL et réessayer.",
+  "ecommerce.order.history.page.heading": "Historique des commandes",
+  "ecommerce.order.history.no.orders": "Les commandes que vous passez avec {siteName} apparaîtront ici.",
+  "ecommerce.order.history.loading.orders": "Chargement des commandes...",
+  "ecommerce.order.history.loading.error": "Erreur : {error}",
+  "ecommerce.order.history.view.order.detail": "Voir les détails de la commande",
+  "ecommerce.order.history.table.column.items": "Éléments",
+  "ecommerce.order.history.table.column.date.placed": "Date commandée",
+  "ecommerce.order.history.table.column.total.cost": "Coût total",
+  "ecommerce.order.history.table.column.order.number": "Numéro de la commande",
+  "ecommerce.order.history.table.column.order.details": "Détails de la commande"
+}

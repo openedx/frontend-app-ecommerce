@@ -1,9 +1,19 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    "group:allNonMajor",
+    ":automergePatch",
+    ":label(dependencies)",
+    ":rebaseStalePrs",
+    ":reviewer(edx-revenue-tasks)",
+    ":semanticCommits",
+    ":timezone(America/New_York)"
   ],
-  "patch": {
-    "automerge": true
-  },
-  "rebaseStalePrs": true
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["@edx"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ]
 }
