@@ -70,6 +70,7 @@ class OrderHistoryPage extends React.Component {
     return (
       <Pagination
         paginationLabel="pagination navigation"
+        className="pagination-margin"
         pageCount={pageCount}
         currentPage={currentPage}
         onPageSelect={this.handlePageSelect}
@@ -92,7 +93,6 @@ class OrderHistoryPage extends React.Component {
   renderOrdersTable() {
     return (
       <DataTable
-        className="order-history table-bordered"
         data={this.getTableData()}
         itemCount={this.props.count}
         columns={[
