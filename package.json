@@ -9,7 +9,6 @@
   "scripts": {
     "build": "fedx-scripts webpack",
     "i18n_extract": "BABEL_ENV=i18n fedx-scripts babel src --quiet > /dev/null",
-    "is-es5": "es-check es5 ./dist/*.js",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
     "start": "fedx-scripts webpack-dev-server --progress",
     "test": "fedx-scripts jest --coverage"
@@ -20,10 +19,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "browserslist": [
-    "last 2 versions",
-    "ie 11"
-  ],
+  "browserslist": ["extends @edx/browserslist-config"]
+,
   "husky": {
     "pre-commit": "npm run lint"
   },
@@ -77,6 +74,7 @@
     "webpack-bundle-analyzer": "^4.5.0"
   },
   "devDependencies": {
+    "@edx/browserslist-config": "^1.1.0",
     "@edx/frontend-build": "12.3.0",
     "@edx/reactifex": "^2.1.0",
     "axios-mock-adapter": "1.21.1",
@@ -84,7 +82,6 @@
     "babel-plugin-transform-imports": "2.0.0",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.6",
-    "es-check": "7.0.0",
     "fetch-mock": "9.11.0",
     "husky": "8.0.1",
     "react-dev-utils": "^12.0.1",
