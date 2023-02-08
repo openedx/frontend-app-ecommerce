@@ -19,8 +19,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "browserslist": ["extends @edx/browserslist-config"]
-,
+  "browserslist": [
+    "extends @edx/browserslist-config"
+  ],
   "husky": {
     "pre-commit": "npm run lint"
   },
@@ -28,7 +29,7 @@
     "@cospired/i18n-iso-languages": "4.0.0",
     "@edx/brand": "npm:@edx/brand-openedx@^1.1.0",
     "@edx/frontend-component-footer": "11.1.2",
-    "@edx/frontend-component-header": "3.1.1",
+    "@edx/frontend-component-header": "^3.6.0",
     "@edx/frontend-platform": "2.5.0",
     "@edx/paragon": "^20.20.0",
     "@fortawesome/fontawesome-svg-core": "6.1.2",
