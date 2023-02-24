@@ -5,7 +5,7 @@ name: Lockfile Version check
 on:
   push:
     branches:
-    - master
+    - master, 2u/project-theseus
   pull_request:
 
 jobs:
