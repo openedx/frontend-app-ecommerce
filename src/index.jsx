@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { IntlProvider } from '@edx/frontend-platform/i18n';
 import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
 import {
@@ -26,11 +26,11 @@ subscribe(APP_READY, () => {
     <AppProvider store={configureStore()}>
       <Header />
       <main>
-        <Switch>
-          <Route path="/orders" component={ConnectedOrderHistoryPage} />
-          <Route path="/notfound" component={NotFoundPage} />
-          <Route path="*" component={NotFoundPage} />
-        </Switch>
+        <Routes>
+          <Route path="/orders" element={<ConnectedOrderHistoryPage />} />
+          <Route path="/notfound" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
       <Footer />
     </AppProvider>,
