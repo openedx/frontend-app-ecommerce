@@ -12,6 +12,7 @@ const storeMocks = {
   ordersLoaded: require('./__mocks__/ordersLoaded.mockStore'),
 };
 const requiredOrderHistoryPageProps = {
+  isB2CSubsEnabled: false,
   fetchOrders: () => {},
 };
 

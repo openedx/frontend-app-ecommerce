@@ -1,0 +1,27 @@
+.page__orders-and-subscriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  section, .section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .section-gap-sm {
+      gap: 0.75rem;
+    }
+
+    .section-gap-lg {
+      gap: 1.5rem;
+    }
+
+    h1, h2 {
+      @extend .mb-0;
+    }
+  }
+
+  .subscription-scrollable {
+    max-height: 310px;
+  }
+}

@@ -17,7 +17,7 @@ import { messages as paragonMessages } from '@edx/paragon';
 import messages from './i18n';
 import configureStore from './store';
 import NotFoundPage from './components/NotFoundPage';
-import { ConnectedOrderHistoryPage } from './order-history';
+import { OrdersAndSubscriptionsPage } from './orders-and-subscriptions';
 
 import './index.scss';
 
@@ -27,7 +27,7 @@ subscribe(APP_READY, () => {
       <Header />
       <main>
         <Switch>
-          <Route path="/orders" component={ConnectedOrderHistoryPage} />
+          <Route path="/orders" component={OrdersAndSubscriptionsPage} />
           <Route path="/notfound" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
