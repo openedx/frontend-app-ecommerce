@@ -182,33 +182,37 @@ class OrderHistoryPage extends React.Component {
     } = this.props;
     const loaded = !loading && !loadingError;
     const hasOrders = orders.length > 0;
+    const heading = this.props.intl.formatMessage(
+      messages['ecommerce.order.history.page.heading'],
+    );
 
     return (
-      <div className="page__order-history container-fluid py-5">
-        <h1>
-          {this.props.intl.formatMessage(messages['ecommerce.order.history.page.heading'])}
-        </h1>
-        {loadingError ? this.renderError() : null}
-        {loaded && hasOrders ? (
-          <>
-            <MediaQuery query="(max-width: 768px)">
-              {this.renderMobileOrdersTable()}
-            </MediaQuery>
-            <MediaQuery query="(min-width: 769px)">
-              {this.renderOrdersTable()}
-            </MediaQuery>
-            {this.renderPagination()}
-          </>
-        ) : null}
-        {loaded && !hasOrders ? this.renderEmptyMessage() : null}
-        {loading ? this.renderLoading() : null}
-      </div>
+      <section className="page__order-history">
+        {this.props.isB2CSubsEnabled ? <h2>{heading}</h2> : <h1>{heading}</h1>}
+        <div>
+          {loadingError ? this.renderError() : null}
+          {loaded && hasOrders ? (
+            <>
+              <MediaQuery query="(max-width: 768px)">
+                {this.renderMobileOrdersTable()}
+              </MediaQuery>
+              <MediaQuery query="(min-width: 769px)">
+                {this.renderOrdersTable()}
+              </MediaQuery>
+              {this.renderPagination()}
+            </>
+          ) : null}
+          {loaded && !hasOrders ? this.renderEmptyMessage() : null}
+          {loading ? this.renderLoading() : null}
+        </div>
+      </section>
     );
   }
 }
 
 OrderHistoryPage.propTypes = {
   intl: intlShape.isRequired,
+  isB2CSubsEnabled: PropTypes.bool.isRequired,
   orders: PropTypes.arrayOf(PropTypes.shape({
     datePlaced: PropTypes.string,
     total: PropTypes.string,

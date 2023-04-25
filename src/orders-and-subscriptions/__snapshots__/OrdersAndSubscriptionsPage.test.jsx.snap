@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders with orders and subscriptions 1`] = `
+<div
+  className="page__orders-and-subscriptions container-fluid py-4.5"
+>
+  <div
+    className="section"
+  >
+    <h1
+      className="text-primary-700"
+    >
+      My orders and subscriptions
+    </h1>
+    <span
+      className="text-dark-900"
+    >
+      Manage your program subscriptions and view your order history.
+    </span>
+  </div>
+  <section>
+    <h2>
+      Subscriptions
+    </h2>
+    <div
+      className="section flex-md-row align-items-start align-items-md-center justify-content-between"
+    >
+      <span
+        className="text-dark-900"
+      >
+        To view your receipts, change your payment method or cancel your subscription, click 
+        <i>
+          Manage my subscription
+        </i>
+        .
+      </span>
+      <button
+        className="text-nowrap btn btn-primary btn-sm"
+        disabled={false}
+        type="button"
+      >
+        Manage my subscription
+        <span
+          className="pgn__icon btn-icon-after pgn__icon__sm"
+        >
+          <svg
+            aria-hidden={true}
+            fill="none"
+            focusable={false}
+            height={24}
+            role="img"
+            viewBox="0 0 24 24"
+            width={24}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 19H5V5h7V3H3v18h18v-9h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      aria-controls="scrollbar"
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={0}
+      className="pgn__scrollable-body subscription-scrollable mx-n1 pgn__scrollable-body-scroll-top pgn__scrollable-body-scroll-bottom"
+      onScroll={[Function]}
+      role="scrollbar"
+      tabIndex="0"
+    >
+      <div />
+      <div
+        className="pgn__scrollable-body-content"
+      >
+        <div
+          className="section section-gap-lg mx-1"
+        >
+          <div
+            className="bg-light-200 p-3 pgn__card card"
+            tabIndex="-1"
+          >
+            <div
+              className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+            >
+              <h3
+                className="text-info-500 m-0"
+              >
+                Blockchain Fundamentals
+              </h3>
+              <span
+                className="text-capitalize badge badge-light"
+              >
+                trial
+              </span>
+            </div>
+            <p
+              className="small text-gray-500 m-0"
+            >
+              University of California, Berkeley
+            </p>
+          </div>
+          <div
+            className="bg-light-200 p-3 pgn__card card"
+            tabIndex="-1"
+          >
+            <div
+              className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+            >
+              <h3
+                className="text-info-500 m-0"
+              >
+                Critical Thinking
+              </h3>
+              <span
+                className="text-capitalize badge badge-light"
+              >
+                active
+              </span>
+            </div>
+            <p
+              className="small text-gray-500 m-0"
+            >
+              Simmons University
+            </p>
+          </div>
+          <div
+            className="bg-light-200 p-3 pgn__card card"
+            tabIndex="-1"
+          >
+            <div
+              className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+            >
+              <h3
+                className="text-info-500 m-0"
+              >
+                Blockchain Fundamentals
+              </h3>
+              <span
+                className="text-capitalize badge badge-light"
+              >
+                inactive
+              </span>
+            </div>
+            <p
+              className="small text-gray-500 m-0"
+            >
+              University of California, Berkeley
+            </p>
+          </div>
+          <div
+            className="bg-light-200 p-3 pgn__card card"
+            tabIndex="-1"
+          >
+            <div
+              className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+            >
+              <h3
+                className="text-info-500 m-0"
+              >
+                Critical Thinking
+              </h3>
+              <span
+                className="text-capitalize badge badge-light"
+              >
+                inactive
+              </span>
+            </div>
+            <p
+              className="small text-gray-500 m-0"
+            >
+              Simmons University
+            </p>
+          </div>
+        </div>
+      </div>
+      <div />
+    </div>
+  </section>
+  <section
+    className="page__order-history"
+  >
+    <h2>
+      Order History
+    </h2>
+    <div>
+      <nav
+        aria-label="pagination navigation"
+        className="pagination-default"
+      >
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          aria-relevant="text"
+          className="sr-only"
+        >
+          Page 2, Current Page, of 10
+        </div>
+        <ul
+          className="pagination"
+        >
+          <li
+            className="page-item"
+          >
+            <button
+              aria-label="Previous, Page 1"
+              className="previous page-link btn btn-primary"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              <div>
+                <span
+                  className="pgn__icon"
+                >
+                  <svg
+                    aria-hidden={true}
+                    fill="none"
+                    focusable={false}
+                    height={24}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={24}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                Previous
+              </div>
+            </button>
+          </li>
+          <li
+            className="page-item"
+          >
+            <button
+              aria-label="Next, Page 3"
+              className="next page-link btn btn-primary"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              <div>
+                Next
+                <span
+                  className="pgn__icon"
+                >
+                  <svg
+                    aria-hidden={true}
+                    fill="none"
+                    focusable={false}
+                    height={24}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={24}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+</div>
+`;
