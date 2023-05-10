@@ -11,9 +11,9 @@ import {
   subscribe,
 } from '@edx/frontend-platform';
 
-import Header, { messages as headerMessages } from '@edx/frontend-component-header';
-import Footer, { messages as footerMessages } from '@edx/frontend-component-footer';
-import { messages as paragonMessages } from '@edx/paragon';
+import Header from '@edx/frontend-component-header';
+import Footer from '@edx/frontend-component-footer';
+
 import messages from './i18n';
 import configureStore from './store';
 import NotFoundPage from './components/NotFoundPage';
@@ -43,12 +43,7 @@ subscribe(APP_INIT_ERROR, (error) => {
 });
 
 initialize({
-  messages: [
-    messages,
-    headerMessages,
-    footerMessages,
-    paragonMessages,
-  ],
+  messages,
   requireAuthenticatedUser: true,
   hydrateAuthenticatedUser: true,
 });
