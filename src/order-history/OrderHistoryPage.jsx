@@ -27,11 +27,6 @@ class OrderHistoryPage extends React.Component {
     this.handlePageSelect = this.handlePageSelect.bind(this);
   }
 
-  componentDidMount() {
-    // TODO: We should fetch based on the route (ex: /orders/list/page/1)
-    this.props.fetchOrders(1);
-  }
-
   handlePageSelect(page) {
     // TODO: We should update the url and trigger this fetching based on the route
     this.props.fetchOrders(page);
@@ -203,7 +198,9 @@ class OrderHistoryPage extends React.Component {
             </>
           ) : null}
           {loaded && !hasOrders ? this.renderEmptyMessage() : null}
-          {loading ? this.renderLoading() : null}
+          {loading && !this.props.isB2CSubsEnabled
+            ? this.renderLoading()
+            : null}
         </div>
       </section>
     );

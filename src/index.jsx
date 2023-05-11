@@ -9,6 +9,7 @@ import {
   APP_READY,
   initialize,
   subscribe,
+  mergeConfig,
 } from '@edx/frontend-platform';
 
 import Header from '@edx/frontend-component-header';
@@ -21,7 +22,26 @@ import { OrdersAndSubscriptionsPage } from './orders-and-subscriptions';
 
 import './index.scss';
 
+/**
+ * TEMPORARY
+ *
+ * Until we add the following keys in frontend-platform,
+ * use mergeConfig to join it with the rest of the config items
+ * (so we don't need to get it separately from process.env).
+ * After we add the keys to frontend-platform, this mergeConfig can go away
+ */
+mergeConfig({
+  COMMERCE_COORDINATOR_BASE_URL: process.env.COMMERCE_COORDINATOR_BASE_URL,
+  ENABLE_B2C_SUBSCRIPTIONS: process.env.ENABLE_B2C_SUBSCRIPTIONS,
+  SUBSCRIPTIONS_BASE_URL: process.env.SUBSCRIPTIONS_BASE_URL,
+  SUPPORT_URL: process.env.SUPPORT_URL,
+});
+
 subscribe(APP_READY, () => {
+  if (process.env.NODE_ENV === 'development') {
+    global.analytics?.debug();
+  }
+
   ReactDOM.render(
     <AppProvider store={configureStore()}>
       <Header />
@@ -39,7 +59,12 @@ subscribe(APP_READY, () => {
 });
 
 subscribe(APP_INIT_ERROR, (error) => {
-  ReactDOM.render(<IntlProvider locale="en"><ErrorPage message={error.message} /></IntlProvider>, document.getElementById('root'));
+  ReactDOM.render(
+    <IntlProvider locale="en">
+      <ErrorPage message={error.message} />
+    </IntlProvider>,
+    document.getElementById('root'),
+  );
 });
 
 initialize({

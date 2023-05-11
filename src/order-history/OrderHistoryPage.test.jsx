@@ -8,9 +8,8 @@ import configureMockStore from 'redux-mock-store';
 import ConnectedOrderHistoryPage from './OrderHistoryPage';
 
 const mockStore = configureMockStore();
-const storeMocks = {
-  ordersLoaded: require('./__mocks__/ordersLoaded.mockStore'),
-};
+const storeMocks = require('../store/__mocks__/mockStore');
+
 const requiredOrderHistoryPageProps = {
   isB2CSubsEnabled: false,
   fetchOrders: () => {},
@@ -30,7 +29,7 @@ describe('<OrderHistoryPage />', () => {
       const tree = renderer
         .create((
           <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocks.ordersLoaded)}>
+            <Provider store={mockStore(storeMocks)}>
               <ConnectedOrderHistoryPage {...requiredOrderHistoryPageProps} />
             </Provider>
           </IntlProvider>

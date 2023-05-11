@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Subscriptions /> renders correctly 1`] = `
+exports[`<Subscriptions /> Renders correctly in various states renders with subscriptions 1`] = `
 <section>
   <h2>
     Subscriptions
@@ -13,18 +13,27 @@ exports[`<Subscriptions /> renders correctly 1`] = `
     >
       To view your receipts, change your payment method or cancel your subscription, click 
       <i>
-        Manage my subscription
+        Manage my subscriptions
       </i>
       .
     </span>
     <button
-      className="text-nowrap btn btn-primary btn-sm"
+      aria-disabled={false}
+      aria-live="assertive"
+      className="pgn__stateful-btn pgn__stateful-btn-state-default text-nowrap btn btn-primary btn-sm"
       disabled={false}
+      onClick={[Function]}
       type="button"
     >
-      Manage my subscription
       <span
-        className="pgn__icon btn-icon-after pgn__icon__sm"
+        className="d-flex align-items-center justify-content-center"
+      >
+        <span>
+          Manage my subscriptions
+        </span>
+      </span>
+      <span
+        className="pgn__icon pgn__icon__sm btn-icon-after"
       >
         <svg
           aria-hidden={true}
@@ -45,121 +54,132 @@ exports[`<Subscriptions /> renders correctly 1`] = `
     </button>
   </div>
   <div
-    aria-controls="scrollbar"
-    aria-valuemax={100}
-    aria-valuemin={0}
-    aria-valuenow={0}
-    className="pgn__scrollable-body subscription-scrollable mx-n1 pgn__scrollable-body-scroll-top pgn__scrollable-body-scroll-bottom"
-    onScroll={[Function]}
-    role="scrollbar"
-    tabIndex="0"
+    className="section section-gap-lg"
   >
-    <div />
-    <div
-      className="pgn__scrollable-body-content"
+    <a
+      className="pgn__hyperlink default-link standalone-link"
+      href="http://localhost:18000/dashboard/programs/a87e5eac-3c93-45a1-a8e1-4c79ca8401c8"
+      onClick={[Function]}
+      target="_self"
     >
       <div
-        className="section section-gap-lg mx-1"
+        className="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabIndex={-1}
       >
         <div
-          className="bg-light-200 p-3 pgn__card card"
-          tabIndex="-1"
+          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
         >
-          <div
-            className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+          <h3
+            className="text-info-500 m-0"
           >
-            <h3
-              className="text-info-500 m-0"
-            >
-              Blockchain Fundamentals
-            </h3>
-            <span
-              className="text-capitalize badge badge-light"
-            >
-              trial
-            </span>
-          </div>
-          <p
-            className="small text-gray-500 m-0"
+            Blockchain Fundamentals
+          </h3>
+          <span
+            className="text-capitalize badge badge-light"
           >
-            University of California, Berkeley
-          </p>
+            trial
+          </span>
         </div>
-        <div
-          className="bg-light-200 p-3 pgn__card card"
-          tabIndex="-1"
+        <p
+          className="small text-gray-500 m-0"
         >
-          <div
-            className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
-          >
-            <h3
-              className="text-info-500 m-0"
-            >
-              Critical Thinking
-            </h3>
-            <span
-              className="text-capitalize badge badge-light"
-            >
-              active
-            </span>
-          </div>
-          <p
-            className="small text-gray-500 m-0"
-          >
-            Simmons University
-          </p>
-        </div>
-        <div
-          className="bg-light-200 p-3 pgn__card card"
-          tabIndex="-1"
-        >
-          <div
-            className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
-          >
-            <h3
-              className="text-info-500 m-0"
-            >
-              Blockchain Fundamentals
-            </h3>
-            <span
-              className="text-capitalize badge badge-light"
-            >
-              inactive
-            </span>
-          </div>
-          <p
-            className="small text-gray-500 m-0"
-          >
-            University of California, Berkeley
-          </p>
-        </div>
-        <div
-          className="bg-light-200 p-3 pgn__card card"
-          tabIndex="-1"
-        >
-          <div
-            className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
-          >
-            <h3
-              className="text-info-500 m-0"
-            >
-              Critical Thinking
-            </h3>
-            <span
-              className="text-capitalize badge badge-light"
-            >
-              inactive
-            </span>
-          </div>
-          <p
-            className="small text-gray-500 m-0"
-          >
-            Simmons University
-          </p>
-        </div>
+          University of California, Berkeley
+        </p>
       </div>
-    </div>
-    <div />
+    </a>
+    <a
+      className="pgn__hyperlink default-link standalone-link"
+      href="http://localhost:18000/dashboard/programs/0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22"
+      onClick={[Function]}
+      target="_self"
+    >
+      <div
+        className="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabIndex={-1}
+      >
+        <div
+          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+        >
+          <h3
+            className="text-info-500 m-0"
+          >
+            Critical Thinking
+          </h3>
+          <span
+            className="text-capitalize badge badge-light"
+          >
+            active
+          </span>
+        </div>
+        <p
+          className="small text-gray-500 m-0"
+        >
+          Simmons University
+        </p>
+      </div>
+    </a>
+    <a
+      className="pgn__hyperlink default-link standalone-link"
+      href="http://localhost:18000/dashboard/programs/a87e5eac-3c93-45a1-a8e1-4c79ca8401c8"
+      onClick={[Function]}
+      target="_self"
+    >
+      <div
+        className="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabIndex={-1}
+      >
+        <div
+          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+        >
+          <h3
+            className="text-info-500 m-0"
+          >
+            Blockchain Fundamentals
+          </h3>
+          <span
+            className="text-capitalize badge badge-light"
+          >
+            inactive
+          </span>
+        </div>
+        <p
+          className="small text-gray-500 m-0"
+        >
+          University of California, Berkeley
+        </p>
+      </div>
+    </a>
+    <a
+      className="pgn__hyperlink default-link standalone-link"
+      href="http://localhost:18000/dashboard/programs/0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22"
+      onClick={[Function]}
+      target="_self"
+    >
+      <div
+        className="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabIndex={-1}
+      >
+        <div
+          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+        >
+          <h3
+            className="text-info-500 m-0"
+          >
+            Critical Thinking
+          </h3>
+          <span
+            className="text-capitalize badge badge-light"
+          >
+            inactive
+          </span>
+        </div>
+        <p
+          className="small text-gray-500 m-0"
+        >
+          Simmons University
+        </p>
+      </div>
+    </a>
   </div>
 </section>
 `;
