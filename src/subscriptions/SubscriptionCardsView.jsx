@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getConfig } from '@edx/frontend-platform';
 
-import { Card, Badge, Scrollable } from '@edx/paragon';
+import { Badge, Card, Hyperlink } from '@edx/paragon';
 
-const SubscriptionScrollView = ({ subscriptions }) => (
-  <Scrollable className="subscription-scrollable mx-n1">
-    <div className="section section-gap-lg mx-1">
-      {subscriptions.map(({
-        uuid,
-        title,
-        organizations,
-        status,
-      }) => (
-        <Card className="bg-light-200 p-3" key={uuid + status}>
+const SubscriptionCardsView = ({ subscriptions }) => (
+  <div className="section section-gap-lg">
+    {subscriptions.map(({
+      uuid,
+      title,
+      organizations,
+      status,
+    }) => (
+      <Hyperlink
+        key={uuid + status}
+        destination={`${getConfig().LMS_BASE_URL}/dashboard/programs/${uuid}`}
+      >
+        <Card className="bg-light-200 p-3">
           <div className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center">
             <h3 className="text-info-500 m-0">{title}</h3>
             <Badge className="text-capitalize" variant="light">
@@ -21,12 +25,12 @@ const SubscriptionScrollView = ({ subscriptions }) => (
           </div>
           <p className="small text-gray-500 m-0">{organizations.join(', ')}</p>
         </Card>
-      ))}
-    </div>
-  </Scrollable>
+      </Hyperlink>
+    ))}
+  </div>
 );
 
-SubscriptionScrollView.propTypes = {
+SubscriptionCardsView.propTypes = {
   subscriptions: PropTypes.arrayOf(
     PropTypes.shape({
       uuid: PropTypes.string.isRequired,
@@ -37,4 +41,4 @@ SubscriptionScrollView.propTypes = {
   ).isRequired,
 };
 
-export default SubscriptionScrollView;
+export default SubscriptionCardsView;

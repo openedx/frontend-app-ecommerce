@@ -1,3 +1,4 @@
+import { call, put } from 'redux-saga/effects';
 import camelCase from 'lodash.camelcase';
 import snakeCase from 'lodash.snakecase';
 
@@ -78,4 +79,24 @@ export class AsyncActionType {
   get RESET() {
     return `${this.topic}__${this.name}__RESET`;
   }
+}
+
+/**
+ * A higher order helper function to create a redux-saga generator function
+ *
+ * it handles the boilerplate of making a call to an API
+ * and dispatching the appropriate actions.
+ */
+export function createFetchHandler(routine, apiCall) {
+  return function* handleFetch() {
+    try {
+      yield put(routine.request());
+      const result = yield call(apiCall);
+      yield put(routine.success(result));
+    } catch (error) {
+      yield put(routine.failure(error));
+    } finally {
+      yield put(routine.fulfill());
+    }
+  };
 }

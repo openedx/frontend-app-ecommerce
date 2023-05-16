@@ -1,47 +1,58 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getConfig } from '@edx/frontend-platform';
+import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { FormattedMessage } from '@edx/frontend-platform/i18n';
-import { Button } from '@edx/paragon';
-import { Launch } from '@edx/paragon/icons';
+import {
+  ActionRow,
+  AlertModal,
+  Button,
+  Hyperlink,
+  StatefulButton,
+} from '@edx/paragon';
+import { SpinnerSimple, Info, Launch } from '@edx/paragon/icons';
 
+import SubscriptionCardsView from './SubscriptionCardsView';
 import SubscriptionUpsell from './SubscriptionUpsell';
-import SubscriptionScrollView from './SubscriptionScrollView';
+
+import { clearStripeError, fetchStripeCustomerPortalURL } from './actions';
+import { subscriptionsSelector } from './selectors';
 
 const Subscriptions = () => {
-  // TODO: get from api
-  const subscriptions = [
-    {
-      uuid: 'a87e5eac-3c93-45a1-a8e1-4c79ca8401c8',
-      title: 'Blockchain Fundamentals',
-      organizations: ['University of California', 'Berkeley'],
-      status: 'trial',
-    },
-    {
-      uuid: '0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22',
-      title: 'Critical Thinking',
-      organizations: ['Simmons University'],
-      status: 'active',
-    },
-    {
-      uuid: 'a87e5eac-3c93-45a1-a8e1-4c79ca8401c8',
-      title: 'Blockchain Fundamentals',
-      organizations: ['University of California', 'Berkeley'],
-      status: 'inActive',
-    },
-    {
-      uuid: '0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22',
-      title: 'Critical Thinking',
-      organizations: ['Simmons University'],
-      status: 'inactive',
-    },
-  ];
+  const dispatch = useDispatch();
+  const {
+    subscriptions,
+    stripeCustomerPortalURL,
+    stripeError,
+    stripeLoading,
+  } = useSelector(subscriptionsSelector);
   const hasSubscriptions = subscriptions.length > 0;
+
+  const handleManageSubscriptionsClick = () => {
+    sendTrackEvent('edx.bi.user.subscription.order-page.manage.clicked');
+    dispatch(fetchStripeCustomerPortalURL());
+  };
+
+  const handeAlertClose = () => {
+    dispatch(clearStripeError());
+  };
+
+  useEffect(() => {
+    if (stripeCustomerPortalURL) {
+      window.open(stripeCustomerPortalURL, '_blank', 'noopener,noreferrer');
+    }
+  }, [stripeCustomerPortalURL]);
 
   const buttonLabel = (
     <FormattedMessage
       id="ecommerce.order.history.subscriptions.manage.button"
-      defaultMessage="Manage my subscription"
+      defaultMessage="Manage my subscriptions"
       description="Button text for managing subscriptions."
     />
+  );
+
+  const renderSpinner = () => (
+    <div className="icon-spin">{SpinnerSimple()}</div>
   );
 
   const renderEmpty = () => (
@@ -70,11 +81,51 @@ const Subscriptions = () => {
         >
           {(text) => <span className="text-dark-900">{text}</span>}
         </FormattedMessage>
-        <Button className="text-nowrap" size="sm" iconAfter={Launch}>
-          {buttonLabel}
-        </Button>
+        <StatefulButton
+          size="sm"
+          className="text-nowrap"
+          labels={{ default: buttonLabel }}
+          icons={{ default: undefined }}
+          iconAfter={stripeLoading ? renderSpinner : Launch}
+          state={stripeLoading ? 'pending' : 'default'}
+          onClick={handleManageSubscriptionsClick}
+        />
       </div>
-      <SubscriptionScrollView subscriptions={subscriptions} />
+      <SubscriptionCardsView subscriptions={subscriptions} />
+      <AlertModal
+        variant="danger"
+        title="Something went wrong."
+        icon={Info}
+        isOpen={stripeError}
+        onClose={handeAlertClose}
+        footerNode={(
+          <ActionRow>
+            <Button variant="tertiary" onClick={handeAlertClose}>
+              Dismiss
+            </Button>
+          </ActionRow>
+        )}
+      >
+        <FormattedMessage
+          tagName="p"
+          id="ecommerce.order.history.subscriptions.stripe.error"
+          defaultMessage="Refresh this page and try again. If this problem persists, {supportLink}."
+          description="Error message when Stripe subscription information fails to load."
+          values={{
+            supportLink: (
+              <Hyperlink
+                destination={`${getConfig().SUPPORT_URL}/hc/requests/new`}
+              >
+                <FormattedMessage
+                  id="ecommerce.order.history.support.fragment"
+                  defaultMessage="contact support"
+                  description="The support link as in 'please {contact support}'"
+                />
+              </Hyperlink>
+            ),
+          }}
+        />
+      </AlertModal>
     </>
   );
 

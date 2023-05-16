@@ -8,9 +8,7 @@ import configureMockStore from 'redux-mock-store';
 import OrdersAndSubscriptionsPage from './OrdersAndSubscriptionsPage';
 
 const mockStore = configureMockStore();
-const storeMocks = {
-  ordersLoaded: require('../order-history/__mocks__/ordersLoaded.mockStore'),
-};
+const storeMocks = require('../store/__mocks__/mockStore');
 
 describe('<OrdersAndSubscriptions />', () => {
   describe('Renders correctly in various states', () => {
@@ -18,7 +16,7 @@ describe('<OrdersAndSubscriptions />', () => {
       const tree = renderer
         .create(
           <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocks.ordersLoaded)}>
+            <Provider store={mockStore(storeMocks)}>
               <OrdersAndSubscriptionsPage />
             </Provider>
           </IntlProvider>,

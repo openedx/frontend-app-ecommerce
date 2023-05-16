@@ -1,18 +1,49 @@
 import React, { useEffect } from 'react';
-import { FormattedMessage } from '@edx/frontend-platform/i18n';
+import { useDispatch, useSelector } from 'react-redux';
+import { getConfig } from '@edx/frontend-platform';
+import { sendTrackEvent } from '@edx/frontend-platform/analytics';
+import { FormattedMessage, useIntl } from '@edx/frontend-platform/i18n';
 
-import Subscriptions from '../subscriptions';
-import OrderHistory from '../order-history';
+import Subscriptions, { fetchSubscriptions } from '../subscriptions';
+import OrderHistory, { fetchOrders } from '../order-history';
+import { loadingSelector } from './selectors';
+import { PageLoading } from '../common';
 
 const OrdersAndSubscriptionsPage = () => {
-  // TODO: get from waffle-flag
-  const isB2CSubsEnabled = true;
+  const intl = useIntl();
+  const dispatch = useDispatch();
+  const loading = useSelector(loadingSelector);
+  const isB2CSubsEnabled = JSON.parse(
+    getConfig().ENABLE_B2C_SUBSCRIPTIONS ?? 'false',
+  );
 
   useEffect(() => {
     if (isB2CSubsEnabled) {
       document.title = 'Orders and Subscriptions | edX';
+      sendTrackEvent('edx.bi.user.subscription.order-page.viewed');
+      dispatch(fetchSubscriptions());
     }
-  }, [isB2CSubsEnabled]);
+    // TODO: We should fetch based on the route (ex: /orders/?orderPage=1)
+    dispatch(fetchOrders(1));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const renderLoading = () => (
+    <PageLoading
+      srMessage={intl.formatMessage({
+        id: 'ecommerce.order.history.loading',
+        defaultMessage: 'Loading orders and subscriptions...',
+        description: 'Message when orders and subscriptions page is loading.',
+      })}
+    />
+  );
+
+  const renderOrdersandSubscriptions = () => (
+    <>
+      <Subscriptions />
+      <OrderHistory isB2CSubsEnabled />
+    </>
+  );
 
   if (!isB2CSubsEnabled) {
     return (
@@ -40,8 +71,7 @@ const OrdersAndSubscriptionsPage = () => {
           {(text) => <span className="text-dark-900">{text}</span>}
         </FormattedMessage>
       </div>
-      <Subscriptions />
-      <OrderHistory isB2CSubsEnabled />
+      {loading ? renderLoading() : renderOrdersandSubscriptions()}
     </div>
   );
 };
