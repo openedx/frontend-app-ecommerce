@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ManageSubscriptions /> Renders correctly in various states renders when url is fetched correctly 1`] = `
+<div>
+  <div
+    className="d-flex justify-content-center align-items-center flex-column"
+    style={
+      Object {
+        "height": "50vh",
+      }
+    }
+  >
+    <div
+      className="spinner-border text-primary"
+      role="status"
+    />
+  </div>
+</div>
+`;
