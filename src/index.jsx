@@ -49,7 +49,7 @@ subscribe(APP_READY, () => {
       <Header />
       <main>
         <Switch>
-          {getConfig().ENABLE_B2C_SUBSCRIPTIONS === 'true' ? (
+          {getConfig().ENABLE_B2C_SUBSCRIPTIONS?.toLowerCase() === 'true' ? (
             <Route
               path="/manage-subscriptions"
               component={ManageSubscriptionsPage}
