@@ -13,9 +13,7 @@ const OrdersAndSubscriptionsPage = () => {
   const intl = useIntl();
   const dispatch = useDispatch();
   const loading = useSelector(loadingSelector);
-  const isB2CSubsEnabled = JSON.parse(
-    getConfig().ENABLE_B2C_SUBSCRIPTIONS ?? 'false',
-  );
+  const isB2CSubsEnabled = getConfig().ENABLE_B2C_SUBSCRIPTIONS?.toLowerCase() === 'true';
 
   useEffect(() => {
     if (isB2CSubsEnabled) {
