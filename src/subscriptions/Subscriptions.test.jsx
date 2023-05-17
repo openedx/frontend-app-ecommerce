@@ -24,5 +24,25 @@ describe('<Subscriptions />', () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    it('renders with no subscriptions', () => {
+      const storeMockWithoutSubscriptions = {
+        ...storeMocks,
+        subscriptions: {
+          ...storeMocks.subscriptions,
+          subscriptions: [],
+        },
+      };
+      const tree = renderer
+        .create(
+          <IntlProvider locale="en">
+            <Provider store={mockStore(storeMockWithoutSubscriptions)}>
+              <Subscriptions />
+            </Provider>
+          </IntlProvider>,
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 });

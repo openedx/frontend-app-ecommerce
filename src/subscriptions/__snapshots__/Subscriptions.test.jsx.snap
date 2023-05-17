@@ -1,5 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Subscriptions /> Renders correctly in various states renders with no subscriptions 1`] = `
+<section>
+  <h2>
+    Subscriptions
+  </h2>
+  <span
+    className="text-dark-900"
+  >
+    You do not have any active or previous subscriptions.
+  </span>
+  <div
+    className="fade alert-content bg-light-200 alert show"
+    role="alert"
+  >
+    <div
+      className="pgn__alert-message-wrapper"
+    >
+      <div
+        className="alert-message-content"
+      >
+        <h4
+          className="section section-gap-sm flex-sm-row align-items-start alert-heading"
+        >
+          <span
+            className="badge badge-warning"
+          >
+            New
+          </span>
+          Monthly program subscriptions 
+          —
+           more flexible, more affordable
+        </h4>
+        <p>
+          Now available for many popular programs, affordable monthly subscription pricing can help you manage your budget more effectively. Subscriptions start at $39/month USD per program, after a 7-day full access free trial. Cancel at any time.
+        </p>
+      </div>
+      <div
+        className="pgn__alert-actions pgn__action-row"
+      >
+        <span
+          className="pgn__action-row-spacer"
+        />
+        <button
+          className="text-nowrap btn btn-primary btn-sm"
+          disabled={false}
+          type="button"
+        >
+          Explore subscription options
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
 exports[`<Subscriptions /> Renders correctly in various states renders with subscriptions 1`] = `
 <section>
   <h2>
