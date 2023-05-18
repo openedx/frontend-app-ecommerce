@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+// NOTE: console logs are intentionally added for REV-2577
+
 import { getAuthenticatedHttpClient, getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { getConfig } from '@edx/frontend-platform';
 

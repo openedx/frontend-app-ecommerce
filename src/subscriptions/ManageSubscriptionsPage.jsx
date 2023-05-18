@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import NotFoundPage from '../components/NotFoundPage';
-import { PageLoading } from '../common';
+import { NotFoundPage, PageLoading } from '../components';
+
 import { fetchStripeCustomerPortalURL } from './actions';
 import { subscriptionsSelector } from './selectors';
 
