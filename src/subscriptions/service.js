@@ -16,7 +16,7 @@ export async function getSubscriptions() {
     status:
       subscription?.status === 'trialing'
         ? 'trial'
-        : subscription.subscription_state,
+        : subscription.subscription_state?.toLowerCase(),
   }));
 }
 

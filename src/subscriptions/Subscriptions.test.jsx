@@ -44,5 +44,27 @@ describe('<Subscriptions />', () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    it('renders with no active subscriptions', () => {
+      const storeMockWithoutActiveSubscriptions = {
+        ...storeMocks,
+        subscriptions: {
+          ...storeMocks.subscriptions,
+          subscriptions: storeMocks.subscriptions.subscriptions.filter(
+            ({ status }) => status === 'inactive',
+          ),
+        },
+      };
+      const tree = renderer
+        .create(
+          <IntlProvider locale="en">
+            <Provider store={mockStore(storeMockWithoutActiveSubscriptions)}>
+              <Subscriptions />
+            </Provider>
+          </IntlProvider>,
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 });
