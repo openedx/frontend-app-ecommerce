@@ -1,8 +1,9 @@
-import { utils } from '../common';
+import { AsyncActionType } from '../utils';
 
-const { AsyncActionType } = utils;
-
-export const FETCH_ORDERS = new AsyncActionType('ORDER_HISTORY', 'FETCH_ORDERS');
+export const FETCH_ORDERS = new AsyncActionType(
+  'ORDER_HISTORY',
+  'FETCH_ORDERS',
+);
 
 // FETCH ORDERS ACTIONS
 

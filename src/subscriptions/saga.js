@@ -1,6 +1,6 @@
 import { takeLatest } from 'redux-saga/effects';
 
-import { createFetchHandler } from '../common/utils';
+import { createFetchHandler } from '../utils';
 
 import { fetchSubscriptions, fetchStripeCustomerPortalURL } from './actions';
 import { getSubscriptions, getStripeCustomerPortalURL } from './service';

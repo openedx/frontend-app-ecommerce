@@ -4,10 +4,12 @@ import { getConfig } from '@edx/frontend-platform';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { FormattedMessage, useIntl } from '@edx/frontend-platform/i18n';
 
+import { PageLoading } from '../components';
+
 import Subscriptions, { fetchSubscriptions } from '../subscriptions';
 import OrderHistory, { fetchOrders } from '../order-history';
+
 import { loadingSelector } from './selectors';
-import { PageLoading } from '../common';
 
 const OrdersAndSubscriptionsPage = () => {
   const intl = useIntl();

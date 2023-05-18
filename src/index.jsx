@@ -18,7 +18,7 @@ import Footer from '@edx/frontend-component-footer';
 
 import messages from './i18n';
 import configureStore from './store';
-import NotFoundPage from './components/NotFoundPage';
+import { NotFoundPage } from './components';
 import { OrdersAndSubscriptionsPage } from './orders-and-subscriptions';
 import { ManageSubscriptionsPage } from './subscriptions';
 

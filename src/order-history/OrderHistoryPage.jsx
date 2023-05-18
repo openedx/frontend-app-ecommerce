@@ -13,12 +13,13 @@ import {
 import { Table, Hyperlink, Pagination } from '@edx/paragon';
 import MediaQuery from 'react-responsive';
 
+import { PageLoading } from '../components';
+
 import messages from './OrderHistoryPage.messages';
 
 // Actions
 import { fetchOrders } from './actions';
 import { pageSelector } from './selectors';
-import { PageLoading } from '../common';
 
 class OrderHistoryPage extends React.Component {
   constructor(props) {
