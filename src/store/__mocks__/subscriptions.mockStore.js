@@ -1,6 +1,7 @@
 module.exports = {
   store: {
     loading: false,
+    loadingError: false,
     stripeLoading: false,
     stripeError: false,
     stripeCustomerPortalURL: 'https://stripe.customer.portal',
@@ -21,7 +22,7 @@ module.exports = {
         uuid: 'a87e5eac-3c93-45a1-a8e1-4c79ca8401c8',
         title: 'Blockchain Fundamentals',
         organizations: ['University of California', 'Berkeley'],
-        status: 'inActive',
+        status: 'inactive',
       },
       {
         uuid: '0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22',

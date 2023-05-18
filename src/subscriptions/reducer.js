@@ -2,6 +2,7 @@ import { fetchStripeCustomerPortalURL, fetchSubscriptions } from './actions';
 
 export const initialState = {
   loading: false,
+  loadingError: false,
   subscriptions: [],
   stripeCustomerPortalURL: null,
   stripeError: false,
@@ -14,11 +15,17 @@ const subscriptionsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: true,
+        loadingError: false,
       };
     case fetchSubscriptions.SUCCESS:
       return {
         ...state,
         subscriptions: action.payload,
+      };
+    case fetchSubscriptions.FAILURE:
+      return {
+        ...state,
+        loadingError: true,
       };
     case fetchSubscriptions.FULFILL:
       return {

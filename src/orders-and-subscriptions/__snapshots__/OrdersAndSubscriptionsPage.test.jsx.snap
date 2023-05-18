@@ -2,7 +2,7 @@
 
 exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders with orders and subscriptions 1`] = `
 <div
-  className="page__orders-and-subscriptions container-fluid py-4.5"
+  className="page__orders-and-subscriptions container-fluid container-mw-xl py-4.5"
 >
   <div
     className="section"
@@ -28,7 +28,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
       <span
         className="text-dark-900"
       >
-        To view your receipts, change your payment method or cancel your subscription, click 
+        You have 2 active subscriptions. To view your receipts, change your payment method or cancel your subscription, click 
         <i>
           Manage my subscriptions
         </i>
@@ -92,7 +92,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
               Blockchain Fundamentals
             </h3>
             <span
-              className="text-capitalize badge badge-light"
+              className="text-capitalize badge badge-warning"
             >
               trial
             </span>
@@ -123,7 +123,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
               Critical Thinking
             </h3>
             <span
-              className="text-capitalize badge badge-light"
+              className="text-capitalize badge badge-success"
             >
               active
             </span>

@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getConfig } from '@edx/frontend-platform';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { FormattedMessage } from '@edx/frontend-platform/i18n';
-import {
-  ActionRow,
-  AlertModal,
-  Button,
-  Hyperlink,
-  StatefulButton,
-} from '@edx/paragon';
-import { SpinnerSimple, Info, Launch } from '@edx/paragon/icons';
+import { FormattedMessage, useIntl } from '@edx/frontend-platform/i18n';
+import { StatefulButton } from '@edx/paragon';
+import { Launch, SpinnerSimple } from '@edx/paragon/icons';
+
+import { BasicAlert } from '../components';
 
 import SubscriptionCardsView from './SubscriptionCardsView';
 import SubscriptionUpsell from './SubscriptionUpsell';
@@ -18,7 +13,10 @@ import SubscriptionUpsell from './SubscriptionUpsell';
 import { clearStripeError, fetchStripeCustomerPortalURL } from './actions';
 import { subscriptionsSelector } from './selectors';
 
+import messages from './Subscriptions.messages';
+
 const Subscriptions = () => {
+  const { formatMessage } = useIntl();
   const dispatch = useDispatch();
   const {
     subscriptions,
@@ -27,6 +25,15 @@ const Subscriptions = () => {
     stripeLoading,
   } = useSelector(subscriptionsSelector);
   const hasSubscriptions = subscriptions.length > 0;
+  const activeCount = subscriptions.filter(
+    ({ status }) => ['active', 'trial'].includes(status),
+  ).length;
+
+  const subtitle = {
+    0: 'ecommerce.order.history.subscriptions.subtitle.zero',
+    1: 'ecommerce.order.history.subscriptions.subtitle.one',
+    2: 'ecommerce.order.history.subscriptions.subtitle.multiple',
+  }[Math.min(activeCount, 2)];
 
   const handleManageSubscriptionsClick = () => {
     sendTrackEvent('edx.bi.user.subscription.order-page.manage.clicked');
@@ -71,16 +78,12 @@ const Subscriptions = () => {
   const renderSubscriptions = () => (
     <>
       <div className="section flex-md-row align-items-start align-items-md-center justify-content-between">
-        <FormattedMessage
-          id="ecommerce.order.history.subscriptions.subtitle"
-          defaultMessage="To view your receipts, change your payment method or cancel your subscription, click {buttonLabel}."
-          description="Subtitle for subscriptions section."
-          values={{
+        <span className="text-dark-900">
+          {formatMessage(messages[subtitle], {
+            activeCount,
             buttonLabel: <i>{buttonLabel}</i>,
-          }}
-        >
-          {(text) => <span className="text-dark-900">{text}</span>}
-        </FormattedMessage>
+          })}
+        </span>
         <StatefulButton
           size="sm"
           className="text-nowrap"
@@ -92,40 +95,7 @@ const Subscriptions = () => {
         />
       </div>
       <SubscriptionCardsView subscriptions={subscriptions} />
-      <AlertModal
-        variant="danger"
-        title="Something went wrong."
-        icon={Info}
-        isOpen={stripeError}
-        onClose={handeAlertClose}
-        footerNode={(
-          <ActionRow>
-            <Button variant="tertiary" onClick={handeAlertClose}>
-              Dismiss
-            </Button>
-          </ActionRow>
-        )}
-      >
-        <FormattedMessage
-          tagName="p"
-          id="ecommerce.order.history.subscriptions.stripe.error"
-          defaultMessage="Refresh this page and try again. If this problem persists, {supportLink}."
-          description="Error message when Stripe subscription information fails to load."
-          values={{
-            supportLink: (
-              <Hyperlink
-                destination={`${getConfig().SUPPORT_URL}/hc/requests/new`}
-              >
-                <FormattedMessage
-                  id="ecommerce.order.history.support.fragment"
-                  defaultMessage="contact support"
-                  description="The support link as in 'please {contact support}'"
-                />
-              </Hyperlink>
-            ),
-          }}
-        />
-      </AlertModal>
+      <BasicAlert isModal isVisible={stripeError} onClose={handeAlertClose} />
     </>
   );
 

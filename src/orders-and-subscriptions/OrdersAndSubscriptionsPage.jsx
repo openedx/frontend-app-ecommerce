@@ -4,18 +4,22 @@ import { getConfig } from '@edx/frontend-platform';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { FormattedMessage, useIntl } from '@edx/frontend-platform/i18n';
 
-import { PageLoading } from '../components';
+import { BasicAlert, PageLoading } from '../components';
 
 import Subscriptions, { fetchSubscriptions } from '../subscriptions';
 import OrderHistory, { fetchOrders } from '../order-history';
 
-import { loadingSelector } from './selectors';
+import { errorSelector, loadingSelector } from './selectors';
 
 const OrdersAndSubscriptionsPage = () => {
-  const intl = useIntl();
+  const { formatMessage } = useIntl();
   const dispatch = useDispatch();
-  const loading = useSelector(loadingSelector);
-  const isB2CSubsEnabled = getConfig().ENABLE_B2C_SUBSCRIPTIONS?.toLowerCase() === 'true';
+  const isLoading = useSelector(loadingSelector);
+  const hasError = useSelector(errorSelector);
+
+  const isB2CSubsEnabled = (
+    getConfig().ENABLE_B2C_SUBSCRIPTIONS?.toLowerCase() === 'true'
+  );
 
   useEffect(() => {
     if (isB2CSubsEnabled) {
@@ -30,7 +34,7 @@ const OrdersAndSubscriptionsPage = () => {
 
   const renderLoading = () => (
     <PageLoading
-      srMessage={intl.formatMessage({
+      srMessage={formatMessage({
         id: 'ecommerce.order.history.loading',
         defaultMessage: 'Loading orders and subscriptions...',
         description: 'Message when orders and subscriptions page is loading.',
@@ -47,15 +51,16 @@ const OrdersAndSubscriptionsPage = () => {
 
   if (!isB2CSubsEnabled) {
     return (
-      <div className="page__orders-and-subscriptions container-fluid py-5">
+      <div className="page__orders-and-subscriptions container-fluid container-mw-xl py-5">
         <OrderHistory isB2CSubsEnabled={false} />
       </div>
     );
   }
 
   return (
-    <div className="page__orders-and-subscriptions container-fluid py-4.5">
+    <div className="page__orders-and-subscriptions container-fluid container-mw-xl py-4.5">
       <div className="section">
+        <BasicAlert isVisible={hasError} />
         <FormattedMessage
           id="ecommerce.order.history.main.heading"
           defaultMessage="My orders and subscriptions"
@@ -71,7 +76,7 @@ const OrdersAndSubscriptionsPage = () => {
           {(text) => <span className="text-dark-900">{text}</span>}
         </FormattedMessage>
       </div>
-      {loading ? renderLoading() : renderOrdersandSubscriptions()}
+      {isLoading ? renderLoading() : renderOrdersandSubscriptions()}
     </div>
   );
 };
