@@ -51,14 +51,14 @@ const OrdersAndSubscriptionsPage = () => {
 
   if (!isB2CSubsEnabled) {
     return (
-      <div className="page__orders-and-subscriptions container-fluid container-mw-xl py-5">
+      <div className="page__orders-and-subscriptions container-fluid py-5">
         <OrderHistory isB2CSubsEnabled={false} />
       </div>
     );
   }
 
   return (
-    <div className="page__orders-and-subscriptions container-fluid container-mw-xl py-4.5">
+    <div className="page__orders-and-subscriptions container-fluid py-4.5">
       <div className="section">
         <BasicAlert isVisible={hasError} />
         <FormattedMessage

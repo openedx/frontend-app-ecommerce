@@ -2,7 +2,7 @@
 
 exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders with orders and subscriptions 1`] = `
 <div
-  className="page__orders-and-subscriptions container-fluid container-mw-xl py-4.5"
+  className="page__orders-and-subscriptions container-fluid py-4.5"
 >
   <div
     className="section"
