@@ -1,4 +1,8 @@
 {
+  "ecommerce.order.history.support.fragment": "contact support",
+  "ecommerce.order.history.basic.alert.title": "Something went wrong.",
+  "ecommerce.order.history.basic.alert.body": "Refresh this page and try again. If this problem persists, {supportLink}.",
+  "ecommerce.order.history.basic.alert.button": "Dismiss",
   "error.notfound.message": "La page que vous recherchez n'est pas disponible ou il y a une erreur dans l'URL. Veuillez vérifier l'URL et réessayer.",
   "ecommerce.order.history.page.heading": "Historique des commandes",
   "ecommerce.order.history.no.orders": "Les commandes que vous passez avec {siteName} apparaîtront ici.",
@@ -9,5 +13,17 @@
   "ecommerce.order.history.table.column.date.placed": "Date d'émission",
   "ecommerce.order.history.table.column.total.cost": "Coût total",
   "ecommerce.order.history.table.column.order.number": "Numéro de commande",
-  "ecommerce.order.history.table.column.order.details": "Détails des commandes"
+  "ecommerce.order.history.table.column.order.details": "Détails des commandes",
+  "ecommerce.order.history.main.heading": "My orders and subscriptions",
+  "ecommerce.order.history.main.subtitle": "Manage your program subscriptions and view your order history.",
+  "ecommerce.order.history.subscriptions.manage.button": "Manage my subscriptions",
+  "ecommerce.order.history.subscriptions.subtitle.empty": "You do not have any active or previous subscriptions.",
+  "ecommerce.order.history.subscriptions.heading": "Subscriptions",
+  "ecommerce.order.history.subscriptions.subtitle.zero": "You do not have an active subscription. To view your past receipts, click {buttonLabel}.",
+  "ecommerce.order.history.subscriptions.subtitle.one": "You have {activeCount} active subscription. To view your receipts, change your payment method or cancel your subscription, click {buttonLabel}.",
+  "ecommerce.order.history.subscriptions.subtitle.multiple": "You have {activeCount} active subscriptions. To view your receipts, change your payment method or cancel your subscription, click {buttonLabel}.",
+  "ecommerce.order.history.subscription.upsell.button": "Explore subscription options",
+  "ecommerce.order.history.subscription.upsell.badge": "New",
+  "ecommerce.order.history.subscription.upsell.heading": "Monthly program subscriptions {emDash} more flexible, more affordable",
+  "ecommerce.order.history.subscription.upsell.message": "Now available for many popular programs, affordable monthly subscription pricing can help you manage your budget more effectively. Subscriptions start at {minSubscriptionPrice}/month USD per program, after a {trialLength}-day full access free trial. Cancel at any time."
 }
