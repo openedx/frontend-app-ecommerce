@@ -1,0 +1,13 @@
+{
+  "error.notfound.message": "La pagina ricercata non è disponibile oppure è presente un errore nell'URL. Controllare l'URL e riprovare. ",
+  "ecommerce.order.history.page.heading": "Cronologia Ordini",
+  "ecommerce.order.history.no.orders": "Gli ordini che effettui con {siteName} verranno visualizzati qui.",
+  "ecommerce.order.history.loading.orders": "Caricamento degli ordini...",
+  "ecommerce.order.history.loading.error": "Errore: {error}",
+  "ecommerce.order.history.view.order.detail": "Visualizza dettagli ordine",
+  "ecommerce.order.history.table.column.items": "Oggetti",
+  "ecommerce.order.history.table.column.date.placed": "Data di emissione",
+  "ecommerce.order.history.table.column.total.cost": "Costo totale ",
+  "ecommerce.order.history.table.column.order.number": "Numero ordine",
+  "ecommerce.order.history.table.column.order.details": "Dettagli ordine"
+}
