@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  getConfig,
-} from '@edx/frontend-platform';
+import { getConfig } from '@edx/frontend-platform';
 import {
   injectIntl,
   intlShape,
@@ -157,55 +155,45 @@ class OrderHistoryPage extends React.Component {
     );
   }
 
-  renderError() {
-    return (
-      <div>
-        {this.props.intl.formatMessage(messages['ecommerce.order.history.loading.error'], {
-          error: this.props.loadingError,
-        })}
-      </div>
+  renderLoading() {
+    return this.props.isB2CSubsEnabled ? null : (
+      <PageLoading
+        srMessage={this.props.intl.formatMessage(
+          messages['ecommerce.order.history.loading.orders'],
+        )}
+      />
     );
   }
 
-  renderLoading() {
-    return (
-      <PageLoading srMessage={this.props.intl.formatMessage(messages['ecommerce.order.history.loading.orders'])} />
+  renderOrders() {
+    const hasOrders = this.props.orders.length > 0;
+
+    return hasOrders ? (
+      <>
+        <MediaQuery query="(max-width: 768px)">
+          {this.renderMobileOrdersTable()}
+        </MediaQuery>
+        <MediaQuery query="(min-width: 769px)">
+          {this.renderOrdersTable()}
+        </MediaQuery>
+        {this.renderPagination()}
+      </>
+    ) : (
+      this.renderEmptyMessage()
     );
   }
 
   render() {
-    const {
-      loading,
-      loadingError,
-      orders,
-    } = this.props;
-    const loaded = !loading && !loadingError;
-    const hasOrders = orders.length > 0;
-    const heading = this.props.intl.formatMessage(
+    const { loading, intl, isB2CSubsEnabled } = this.props;
+
+    const heading = intl.formatMessage(
       messages['ecommerce.order.history.page.heading'],
     );
 
     return (
       <section className="page__order-history">
-        {this.props.isB2CSubsEnabled ? <h2>{heading}</h2> : <h1>{heading}</h1>}
-        <div>
-          {loadingError ? this.renderError() : null}
-          {loaded && hasOrders ? (
-            <>
-              <MediaQuery query="(max-width: 768px)">
-                {this.renderMobileOrdersTable()}
-              </MediaQuery>
-              <MediaQuery query="(min-width: 769px)">
-                {this.renderOrdersTable()}
-              </MediaQuery>
-              {this.renderPagination()}
-            </>
-          ) : null}
-          {loaded && !hasOrders ? this.renderEmptyMessage() : null}
-          {loading && !this.props.isB2CSubsEnabled
-            ? this.renderLoading()
-            : null}
-        </div>
+        {isB2CSubsEnabled ? <h2>{heading}</h2> : <h1>{heading}</h1>}
+        <div>{loading ? this.renderLoading() : this.renderOrders()}</div>
       </section>
     );
   }
@@ -230,13 +218,11 @@ OrderHistoryPage.propTypes = {
   count: PropTypes.number,
   currentPage: PropTypes.number,
   loading: PropTypes.bool,
-  loadingError: PropTypes.string,
   fetchOrders: PropTypes.func.isRequired,
 };
 
 OrderHistoryPage.defaultProps = {
   orders: [],
-  loadingError: null,
   loading: false,
   pageCount: 0,
   count: 0,

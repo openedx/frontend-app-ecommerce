@@ -16,11 +16,6 @@ const messages = defineMessages({
     defaultMessage: 'Loading orders...',
     description: 'Message when orders are being loaded',
   },
-  'ecommerce.order.history.loading.error': {
-    id: 'ecommerce.order.history.loading.error',
-    defaultMessage: 'Error: {error}',
-    description: 'Message when orders are fail to load',
-  },
   'ecommerce.order.history.view.order.detail': {
     id: 'ecommerce.order.history.view.order.detail',
     defaultMessage: 'View Order Details',

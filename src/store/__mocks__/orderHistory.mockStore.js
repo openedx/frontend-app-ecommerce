@@ -1,7 +1,7 @@
 module.exports = {
   store: {
     loading: false,
-    loadingError: null,
+    loadingError: false,
     orders: [
       {
         datePlaced: '2016-01-26T22:26:50Z',
