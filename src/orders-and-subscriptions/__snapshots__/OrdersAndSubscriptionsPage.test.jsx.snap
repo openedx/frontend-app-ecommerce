@@ -1,5 +1,181 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders alerts on errors 1`] = `
+<div
+  className="page__orders-and-subscriptions container-fluid py-4.5"
+>
+  <div
+    className="section"
+  >
+    <div
+      className="fade alert-content alert alert-danger show"
+      role="alert"
+    >
+      <span
+        className="pgn__icon alert-icon"
+      >
+        <svg
+          aria-hidden={true}
+          fill="none"
+          focusable={false}
+          height={24}
+          role="img"
+          viewBox="0 0 24 24"
+          width={24}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        className="pgn__alert-message-wrapper"
+      >
+        <div
+          className="alert-message-content"
+        >
+          <div
+            className="alert-heading h4"
+          >
+            Something went wrong.
+          </div>
+          <p>
+            Refresh this page and try again. If this problem persists, 
+            <a
+              className="pgn__hyperlink default-link standalone-link"
+              href="http://localhost:18000/support/hc/requests/new"
+              onClick={[Function]}
+              target="_self"
+            >
+              contact support
+            </a>
+            .
+          </p>
+        </div>
+      </div>
+    </div>
+    <h1
+      className="text-primary-700"
+    >
+      My orders and subscriptions
+    </h1>
+    <span
+      className="text-dark-900"
+    >
+      Manage your program subscriptions and view your order history.
+    </span>
+  </div>
+  <section>
+    <h2>
+      Subscriptions
+    </h2>
+    <span
+      className="text-dark-900"
+    >
+      You do not have any active or previous subscriptions.
+    </span>
+    <div
+      className="fade alert-content bg-light-200 alert show"
+      role="alert"
+    >
+      <div
+        className="pgn__alert-message-wrapper"
+      >
+        <div
+          className="alert-message-content"
+        >
+          <h4
+            className="section section-gap-sm flex-sm-row align-items-start alert-heading"
+          >
+            <span
+              className="badge badge-warning"
+            >
+              New
+            </span>
+            Monthly program subscriptions 
+            —
+             more flexible, more affordable
+          </h4>
+          <p>
+            Now available for many popular programs, affordable monthly subscription pricing can help you manage your budget more effectively. Subscriptions start at $39/month USD per program, after a 7-day full access free trial. Cancel at any time.
+          </p>
+        </div>
+        <div
+          className="pgn__alert-actions pgn__action-row"
+        >
+          <span
+            className="pgn__action-row-spacer"
+          />
+          <button
+            className="text-nowrap btn btn-primary btn-sm"
+            disabled={false}
+            type="button"
+          >
+            Explore subscription options
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="page__order-history"
+  >
+    <h2>
+      Order History
+    </h2>
+    <div>
+      <p>
+        Orders you place with localhost will appear here.
+      </p>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders with loadingErrors 1`] = `
+<div
+  className="page__orders-and-subscriptions container-fluid py-4.5"
+>
+  <div
+    className="section"
+  >
+    <h1
+      className="text-primary-700"
+    >
+      My orders and subscriptions
+    </h1>
+    <span
+      className="text-dark-900"
+    >
+      Manage your program subscriptions and view your order history.
+    </span>
+  </div>
+  <div>
+    <div
+      className="d-flex justify-content-center align-items-center flex-column"
+      style={
+        Object {
+          "height": "50vh",
+        }
+      }
+    >
+      <div
+        className="spinner-border text-primary"
+        role="status"
+      >
+        <span
+          className="sr-only"
+        >
+          Loading orders and subscriptions...
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders with orders and subscriptions 1`] = `
 <div
   className="page__orders-and-subscriptions container-fluid py-4.5"

@@ -17,7 +17,8 @@ const requiredOrderHistoryPageProps = {
 
 // Match all media queries. This will result in rendering
 // both the desktop and mobile views at the same time.
-global.matchMedia = media => ({ // eslint-disable-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
+global.matchMedia = (media) => ({
   addListener: () => {},
   removeListener: () => {},
   matches: true,
@@ -27,13 +28,63 @@ describe('<OrderHistoryPage />', () => {
   describe('Renders correctly in various states', () => {
     it('renders orders table with pagination', () => {
       const tree = renderer
-        .create((
+        .create(
           <IntlProvider locale="en">
             <Provider store={mockStore(storeMocks)}>
               <ConnectedOrderHistoryPage {...requiredOrderHistoryPageProps} />
             </Provider>
-          </IntlProvider>
-        ))
+          </IntlProvider>,
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('renders empty orders', () => {
+      const storeMockWithoutOrders = {
+        ...storeMocks,
+        orderHistory: {
+          ...storeMocks.orders,
+          orders: [],
+          count: 0,
+          pageCount: 0,
+          currentPage: null,
+        },
+      };
+
+      const tree = renderer
+        .create(
+          <IntlProvider locale="en">
+            <Provider store={mockStore(storeMockWithoutOrders)}>
+              <ConnectedOrderHistoryPage {...requiredOrderHistoryPageProps} />
+            </Provider>
+          </IntlProvider>,
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('renders loading state', () => {
+      const storeMockWithLoading = {
+        ...storeMocks,
+        orderHistory: {
+          ...storeMocks.orders,
+          loading: true,
+          loadingError: false,
+          orders: [],
+          count: 0,
+          pageCount: 0,
+          currentPage: null,
+        },
+      };
+
+      const tree = renderer
+        .create(
+          <IntlProvider locale="en">
+            <Provider store={mockStore(storeMockWithLoading)}>
+              <ConnectedOrderHistoryPage {...requiredOrderHistoryPageProps} />
+            </Provider>
+          </IntlProvider>,
+        )
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
