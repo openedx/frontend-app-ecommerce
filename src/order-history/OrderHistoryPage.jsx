@@ -156,7 +156,7 @@ class OrderHistoryPage extends React.Component {
   }
 
   renderLoading() {
-    return this.props.isB2CSubsEnabled ? null : (
+    return (
       <PageLoading
         srMessage={this.props.intl.formatMessage(
           messages['ecommerce.order.history.loading.orders'],
