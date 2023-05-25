@@ -208,7 +208,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
     <div>
       <nav
         aria-label="pagination navigation"
-        className="pagination-default"
+        className="pagination-margin pagination-default"
       >
         <div
           aria-atomic={true}

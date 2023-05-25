@@ -1,5 +1,5 @@
 .page__order-history {
-  table.order-history {
+  table {
     thead th,
     tbody td {
       width: 4em;
@@ -10,4 +10,7 @@
       width: 12em;
     }
   }
+}
+.pagination-margin {
+  margin-top: 1rem;
 }

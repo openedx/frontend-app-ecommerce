@@ -10,7 +10,7 @@ import {
   FormattedDate,
   FormattedNumber,
 } from '@edx/frontend-platform/i18n';
-import { Table, Hyperlink, Pagination } from '@edx/paragon';
+import { DataTable, Hyperlink, Pagination } from '@edx/paragon';
 import MediaQuery from 'react-responsive';
 
 import { PageLoading } from '../components';
@@ -66,6 +66,7 @@ class OrderHistoryPage extends React.Component {
     return (
       <Pagination
         paginationLabel="pagination navigation"
+        className="pagination-margin"
         pageCount={pageCount}
         currentPage={currentPage}
         onPageSelect={this.handlePageSelect}
@@ -87,32 +88,34 @@ class OrderHistoryPage extends React.Component {
 
   renderOrdersTable() {
     return (
-      <Table
-        className="order-history table-bordered"
+      <DataTable
         data={this.getTableData()}
+        itemCount={this.props.count}
         columns={[
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
-            key: 'description',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
+            accessor: 'description',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
-            key: 'datePlaced',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
+            accessor: 'datePlaced',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
-            key: 'total',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
+            accessor: 'total',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
-            key: 'orderId',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
+            accessor: 'orderId',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.details']),
-            key: 'receiptUrl',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.details']),
+            accessor: 'receiptUrl',
           },
         ]}
-      />
+      >
+        <DataTable.Table />
+      </DataTable>
     );
   }
 
@@ -224,6 +227,7 @@ OrderHistoryPage.propTypes = {
     })),
   })),
   pageCount: PropTypes.number,
+  count: PropTypes.number,
   currentPage: PropTypes.number,
   loading: PropTypes.bool,
   loadingError: PropTypes.string,
@@ -235,6 +239,7 @@ OrderHistoryPage.defaultProps = {
   loadingError: null,
   loading: false,
   pageCount: 0,
+  count: 0,
   currentPage: null,
 };
 
