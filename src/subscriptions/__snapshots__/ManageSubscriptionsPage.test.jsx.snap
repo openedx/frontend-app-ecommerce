@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ManageSubscriptions /> Renders correctly in various states renders when url is fetched correctly 1`] = `
+exports[`<ManageSubscriptions /> Renders correctly in various states navigates when url is fetched correctly 1`] = `
 <div>
   <div
     className="d-flex justify-content-center align-items-center flex-column"
@@ -13,7 +13,54 @@ exports[`<ManageSubscriptions /> Renders correctly in various states renders whe
     <div
       className="spinner-border text-primary"
       role="status"
-    />
+    >
+      <span
+        className="sr-only"
+      >
+        Loading manage subscriptions...
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ManageSubscriptions /> Renders correctly in various states renders error ui when fetching url fails 1`] = `
+<div
+  className="container-fluid d-flex py-5 justify-content-center align-items-start text-center"
+>
+  <p
+    className="my-0 py-5 text-muted"
+    style={
+      Object {
+        "maxWidth": "32em",
+      }
+    }
+  >
+    The page you're looking for is unavailable or there's an error in the URL. Please check the URL and try again.
+  </p>
+</div>
+`;
+
+exports[`<ManageSubscriptions /> Renders correctly in various states renders loading when url is being fetched 1`] = `
+<div>
+  <div
+    className="d-flex justify-content-center align-items-center flex-column"
+    style={
+      Object {
+        "height": "50vh",
+      }
+    }
+  >
+    <div
+      className="spinner-border text-primary"
+      role="status"
+    >
+      <span
+        className="sr-only"
+      >
+        Loading manage subscriptions...
+      </span>
+    </div>
   </div>
 </div>
 `;
