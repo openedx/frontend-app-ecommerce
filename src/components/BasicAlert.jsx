@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getConfig } from '@edx/frontend-platform';
-import { FormattedMessage, useIntl } from '@edx/frontend-platform/i18n';
+import { useIntl } from '@edx/frontend-platform/i18n';
 import {
   ActionRow,
   Alert,
   AlertModal,
   Button,
-  Hyperlink,
 } from '@edx/paragon';
 import { Info } from '@edx/paragon/icons';
 
+import SupportLink from './SupportLink';
 import messages from './BasicAlert.messages';
 
 const BasicAlert = ({ isModal, isVisible, onClose }) => {
@@ -22,15 +21,7 @@ const BasicAlert = ({ isModal, isVisible, onClose }) => {
   const body = formatMessage(
     messages['ecommerce.order.history.basic.alert.body'],
     {
-      supportLink: (
-        <Hyperlink destination={`${getConfig().SUPPORT_URL}/hc/requests/new`}>
-          <FormattedMessage
-            id="ecommerce.order.history.support.fragment"
-            defaultMessage="contact support"
-            description="The support link as in 'please {contact support}'"
-          />
-        </Hyperlink>
-      ),
+      supportLink: <SupportLink />,
     },
   );
   const buttonLabel = formatMessage(

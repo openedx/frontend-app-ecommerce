@@ -19,6 +19,11 @@ const messages = defineMessages({
       'You have {activeCount} active subscriptions. To view your receipts, change your payment method or cancel your subscription, click {buttonLabel}.',
     description: 'Subtitle for multiple subscriptions',
   },
+  'ecommerce.order.history.subscriptions.manage.button': {
+    id: 'ecommerce.order.history.subscriptions.manage.button',
+    defaultMessage: 'Manage my subscriptions',
+    description: 'Button text for managing subscriptions.',
+  },
 });
 
 export default messages;

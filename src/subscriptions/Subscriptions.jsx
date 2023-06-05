@@ -35,6 +35,10 @@ const Subscriptions = () => {
     2: 'ecommerce.order.history.subscriptions.subtitle.multiple',
   }[Math.min(activeCount, 2)];
 
+  const buttonLabel = formatMessage(
+    messages['ecommerce.order.history.subscriptions.manage.button'],
+  );
+
   const handleManageSubscriptionsClick = () => {
     sendTrackEvent('edx.bi.user.subscription.order-page.manage.clicked');
     dispatch(fetchStripeCustomerPortalURL());
@@ -49,14 +53,6 @@ const Subscriptions = () => {
       window.open(stripeCustomerPortalURL, '_blank', 'noopener,noreferrer');
     }
   }, [stripeCustomerPortalURL]);
-
-  const buttonLabel = (
-    <FormattedMessage
-      id="ecommerce.order.history.subscriptions.manage.button"
-      defaultMessage="Manage my subscriptions"
-      description="Button text for managing subscriptions."
-    />
-  );
 
   const renderSpinner = () => (
     <div className="icon-spin">{SpinnerSimple()}</div>
