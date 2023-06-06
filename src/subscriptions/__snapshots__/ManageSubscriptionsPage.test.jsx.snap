@@ -28,16 +28,51 @@ exports[`<ManageSubscriptions /> Renders correctly in various states renders err
 <div
   className="container-fluid d-flex py-5 justify-content-center align-items-start text-center"
 >
-  <p
-    className="my-0 py-5 text-muted"
+  <div
+    className="py-5 text-gray-700"
     style={
       Object {
         "maxWidth": "32em",
       }
     }
   >
-    The page you're looking for is unavailable or there's an error in the URL. Please check the URL and try again.
-  </p>
+    <h3
+      className="text-gray-700 mb-3"
+    >
+      Something went wrong
+    </h3>
+    <p
+      className="lead"
+    >
+      The page you’re looking for is unavailable or there was an error. Visit the 
+      <i
+        className="text-lowercase"
+      >
+        Orders and subscriptions
+      </i>
+       page to manage your subscription.
+    </p>
+    <p>
+      If this problem persists, 
+      <a
+        className="pgn__hyperlink default-link standalone-link"
+        href="http://localhost:18000/support/hc/requests/new"
+        onClick={[Function]}
+        target="_self"
+      >
+        contact support
+      </a>
+      .
+    </p>
+    <a
+      className="btn btn-primary btn-sm"
+      href="/orders"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      Orders and subscriptions
+    </a>
+  </div>
 </div>
 `;
 
