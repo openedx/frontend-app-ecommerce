@@ -25,7 +25,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z"
             fill="currentColor"
           />
         </svg>
@@ -239,7 +239,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M19 19H5V5h7V3H3v18h18v-9h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+              d="M19 19H5V5h7V3H3v18h18v-9h-2v7ZM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7Z"
               fill="currentColor"
             />
           </svg>
@@ -422,7 +422,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"
+                      d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59Z"
                       fill="currentColor"
                     />
                   </svg>
@@ -457,7 +457,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
+                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6Z"
                       fill="currentColor"
                     />
                   </svg>
