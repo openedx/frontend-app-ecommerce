@@ -5,6 +5,7 @@ module.exports = {
     stripeLoading: false,
     stripeError: false,
     stripeCustomerPortalURL: null,
+    shouldShowSubscriptionsSection: true,
     subscriptions: [
       {
         uuid: 'a87e5eac-3c93-45a1-a8e1-4c79ca8401c8',

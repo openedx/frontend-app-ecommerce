@@ -8,3 +8,7 @@ export const fetchStripeCustomerPortalURL = createRoutine(
 export const clearStripeError = () => ({
   type: 'CLEAR_STRIPE_ERROR',
 });
+
+export const hideSubscriptionSection = () => ({
+  type: 'HIDE_SUBSCRIPTION_SECTION',
+});
