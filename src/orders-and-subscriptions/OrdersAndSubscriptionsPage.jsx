@@ -6,10 +6,15 @@ import { FormattedMessage, useIntl } from '@edx/frontend-platform/i18n';
 
 import { BasicAlert, PageLoading } from '../components';
 
-import Subscriptions, { fetchSubscriptions } from '../subscriptions';
 import OrderHistory, { fetchOrders } from '../order-history';
+import Subscriptions, { fetchSubscriptions } from '../subscriptions';
 
-import { errorSelector, loadingSelector, showSubscriptionSelector } from './selectors';
+import {
+  errorSelector,
+  loadingSelector,
+  showSubscriptionSelector,
+} from './selectors';
+import messages from './OrdersAndSubscriptionsPage.messages';
 
 const OrdersAndSubscriptionsPage = () => {
   const { formatMessage } = useIntl();
@@ -38,11 +43,7 @@ const OrdersAndSubscriptionsPage = () => {
 
   const renderLoading = () => (
     <PageLoading
-      srMessage={formatMessage({
-        id: 'ecommerce.order.history.loading',
-        defaultMessage: 'Loading orders and subscriptions...',
-        description: 'Message when orders and subscriptions page is loading.',
-      })}
+      srMessage={formatMessage(messages['ecommerce.order.history.loading'])}
     />
   );
 

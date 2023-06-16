@@ -7,6 +7,7 @@ import { PageLoading, SupportLink } from '../components';
 
 import { fetchStripeCustomerPortalURL } from './actions';
 import { subscriptionsSelector } from './selectors';
+import messages from './ManageSubscriptionsPage.messages';
 
 const ManageSubscriptionsPage = () => {
   const { formatMessage } = useIntl();
@@ -15,12 +16,9 @@ const ManageSubscriptionsPage = () => {
     subscriptionsSelector,
   );
 
-  const buttonLabel = formatMessage({
-    id: 'ecommerce.order.history.manage.subscriptions.button',
-    defaultMessage: 'Orders and subscriptions',
-    description:
-      'Button label to navigate to the orders and subscriptions page.',
-  });
+  const buttonLabel = formatMessage(
+    messages['ecommerce.order.history.manage.subscriptions.button'],
+  );
 
   useEffect(() => {
     dispatch(fetchStripeCustomerPortalURL());
@@ -35,11 +33,9 @@ const ManageSubscriptionsPage = () => {
 
   const renderLoading = () => (
     <PageLoading
-      srMessage={formatMessage({
-        id: 'ecommerce.order.history.loading.manage.subscriptions',
-        defaultMessage: 'Loading manage subscriptions...',
-        description: 'Message when loading the manage subscriptions page.',
-      })}
+      srMessage={formatMessage(
+        messages['ecommerce.order.history.manage.subscriptions.loading'],
+      )}
     />
   );
 
