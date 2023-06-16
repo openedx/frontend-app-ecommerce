@@ -77,7 +77,7 @@ exports[`<Subscriptions /> Renders correctly in various states renders with no a
           <span
             className="text-capitalize badge badge-light"
           >
-            inactive
+            Inactive
           </span>
         </div>
         <p
@@ -108,7 +108,7 @@ exports[`<Subscriptions /> Renders correctly in various states renders with no a
           <span
             className="text-capitalize badge badge-light"
           >
-            inactive
+            Inactive
           </span>
         </div>
         <p
@@ -254,7 +254,7 @@ exports[`<Subscriptions /> Renders correctly in various states renders with subs
           <span
             className="text-capitalize badge badge-warning"
           >
-            trial
+            Trial
           </span>
         </div>
         <p
@@ -285,7 +285,7 @@ exports[`<Subscriptions /> Renders correctly in various states renders with subs
           <span
             className="text-capitalize badge badge-success"
           >
-            active
+            Active
           </span>
         </div>
         <p
@@ -316,7 +316,7 @@ exports[`<Subscriptions /> Renders correctly in various states renders with subs
           <span
             className="text-capitalize badge badge-light"
           >
-            inactive
+            Inactive
           </span>
         </div>
         <p
@@ -347,7 +347,7 @@ exports[`<Subscriptions /> Renders correctly in various states renders with subs
           <span
             className="text-capitalize badge badge-light"
           >
-            inactive
+            Inactive
           </span>
         </div>
         <p

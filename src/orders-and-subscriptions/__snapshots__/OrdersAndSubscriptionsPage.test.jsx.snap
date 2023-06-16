@@ -270,7 +270,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
             <span
               className="text-capitalize badge badge-warning"
             >
-              trial
+              Trial
             </span>
           </div>
           <p
@@ -301,7 +301,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
             <span
               className="text-capitalize badge badge-success"
             >
-              active
+              Active
             </span>
           </div>
           <p
@@ -332,7 +332,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
             <span
               className="text-capitalize badge badge-light"
             >
-              inactive
+              Inactive
             </span>
           </div>
           <p
@@ -363,7 +363,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
             <span
               className="text-capitalize badge badge-light"
             >
-              inactive
+              Inactive
             </span>
           </div>
           <p
