@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+import { getConfig } from '@edx/frontend-platform';
 import { FormattedMessage } from '@edx/frontend-platform/i18n';
 import { Alert, Badge, Button } from '@edx/paragon';
 
@@ -8,7 +9,13 @@ const SubscriptionUpsell = () => (
   <Alert
     className="bg-light-200"
     actions={[
-      <Button className="text-nowrap">
+      <Button
+        href={
+          getConfig().MARKETING_SITE_BASE_URL
+          + getConfig().SUBSCRIPTIONS_MARKETING_URL
+        }
+        className="text-nowrap"
+      >
         <FormattedMessage
           id="ecommerce.order.history.subscription.upsell.button"
           defaultMessage="Explore subscription options"
