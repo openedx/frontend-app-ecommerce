@@ -108,13 +108,14 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
           <span
             className="pgn__action-row-spacer"
           />
-          <button
+          <a
             className="text-nowrap btn btn-primary btn-sm"
-            disabled={false}
-            type="button"
+            href="http://localhost:18000/program-subscriptions"
+            onClick={[Function]}
+            onKeyDown={[Function]}
           >
             Explore subscription options
-          </button>
+          </a>
         </div>
       </div>
     </div>
