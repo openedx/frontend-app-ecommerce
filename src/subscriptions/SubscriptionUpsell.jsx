@@ -51,8 +51,8 @@ const SubscriptionUpsell = () => (
       defaultMessage="Now available for many popular programs, affordable monthly subscription pricing can help you manage your budget more effectively. Subscriptions start at {minSubscriptionPrice}/month USD per program, after a {trialLength}-day full access free trial. Cancel at any time."
       description="Message body for subscription upsell"
       values={{
-        minSubscriptionPrice: '$39',
-        trialLength: 7,
+        minSubscriptionPrice: getConfig().SUBSCRIPTIONS_MINIMUM_PRICE,
+        trialLength: getConfig().SUBSCRIPTIONS_TRIAL_LENGTH,
       }}
     />
   </Alert>
