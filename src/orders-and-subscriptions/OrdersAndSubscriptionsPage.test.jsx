@@ -1,33 +1,21 @@
 /* eslint-disable global-require */
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux';
-import { IntlProvider } from '@edx/frontend-platform/i18n';
-import configureMockStore from 'redux-mock-store';
+import { render } from '../testing';
 
 import OrdersAndSubscriptionsPage from './OrdersAndSubscriptionsPage';
 
-jest.mock('@edx/frontend-platform/analytics', () => ({
-  sendTrackEvent: jest.fn(),
-}));
-
-const mockStore = configureMockStore();
 const storeMocks = require('../store/__mocks__/mockStore');
 const emptyStoreMocks = require('../store/__mocks__/mockEmptyStore');
+
+const matchSnapshot = (store) => {
+  const { container } = render(<OrdersAndSubscriptionsPage />, store);
+  expect(container.querySelector('div')).toMatchSnapshot();
+};
 
 describe('<OrdersAndSubscriptions />', () => {
   describe('Renders correctly in various states', () => {
     it('renders with orders and subscriptions', () => {
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocks)}>
-              <OrdersAndSubscriptionsPage />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMocks);
     });
 
     it('renders alerts on errors', () => {
@@ -42,16 +30,7 @@ describe('<OrdersAndSubscriptions />', () => {
         },
       };
 
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocksWithErrors)}>
-              <OrdersAndSubscriptionsPage />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMocksWithErrors);
     });
 
     it('renders with loadingErrors', () => {
@@ -66,16 +45,7 @@ describe('<OrdersAndSubscriptions />', () => {
         },
       };
 
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocksWithLoading)}>
-              <OrdersAndSubscriptionsPage />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMocksWithLoading);
     });
   });
 });

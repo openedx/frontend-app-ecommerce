@@ -1,13 +1,9 @@
 /* eslint-disable global-require */
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux';
-import { IntlProvider } from '@edx/frontend-platform/i18n';
-import configureMockStore from 'redux-mock-store';
+import { render } from '../testing';
 
 import ConnectedOrderHistoryPage from './OrderHistoryPage';
 
-const mockStore = configureMockStore();
 const storeMocks = require('../store/__mocks__/mockStore');
 
 const requiredOrderHistoryPageProps = {
@@ -24,19 +20,18 @@ global.matchMedia = (media) => ({
   matches: true,
 });
 
+const matchSnapshot = (store) => {
+  const { container } = render(
+    <ConnectedOrderHistoryPage {...requiredOrderHistoryPageProps} />,
+    store,
+  );
+  expect(container.querySelector('section')).toMatchSnapshot();
+};
+
 describe('<OrderHistoryPage />', () => {
   describe('Renders correctly in various states', () => {
     it('renders orders table with pagination', () => {
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocks)}>
-              <ConnectedOrderHistoryPage {...requiredOrderHistoryPageProps} />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMocks);
     });
 
     it('renders empty orders', () => {
@@ -51,16 +46,7 @@ describe('<OrderHistoryPage />', () => {
         },
       };
 
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMockWithoutOrders)}>
-              <ConnectedOrderHistoryPage {...requiredOrderHistoryPageProps} />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMockWithoutOrders);
     });
 
     it('renders loading state', () => {
@@ -77,16 +63,7 @@ describe('<OrderHistoryPage />', () => {
         },
       };
 
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMockWithLoading)}>
-              <ConnectedOrderHistoryPage {...requiredOrderHistoryPageProps} />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMockWithLoading);
     });
   });
 });

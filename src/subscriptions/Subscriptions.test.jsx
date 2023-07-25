@@ -1,28 +1,20 @@
 /* eslint-disable global-require */
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux';
-import { IntlProvider } from '@edx/frontend-platform/i18n';
-import configureMockStore from 'redux-mock-store';
+import { render } from '../testing';
 
 import Subscriptions from './Subscriptions';
 
-const mockStore = configureMockStore();
 const storeMocks = require('../store/__mocks__/mockStore');
+
+const matchSnapshot = (store) => {
+  const { container } = render(<Subscriptions />, store);
+  expect(container.querySelector('section')).toMatchSnapshot();
+};
 
 describe('<Subscriptions />', () => {
   describe('Renders correctly in various states', () => {
     it('renders with subscriptions', () => {
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocks)}>
-              <Subscriptions />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMocks);
     });
 
     it('renders with no subscriptions', () => {
@@ -33,16 +25,7 @@ describe('<Subscriptions />', () => {
           subscriptions: [],
         },
       };
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMockWithoutSubscriptions)}>
-              <Subscriptions />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMockWithoutSubscriptions);
     });
 
     it('renders with no active subscriptions', () => {
@@ -55,16 +38,8 @@ describe('<Subscriptions />', () => {
           ),
         },
       };
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMockWithoutActiveSubscriptions)}>
-              <Subscriptions />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+
+      matchSnapshot(storeMockWithoutActiveSubscriptions);
     });
   });
 });

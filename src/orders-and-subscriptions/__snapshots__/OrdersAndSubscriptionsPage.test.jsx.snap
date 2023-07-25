@@ -2,26 +2,26 @@
 
 exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders alerts on errors 1`] = `
 <div
-  className="page__orders-and-subscriptions container-fluid py-4.5"
+  class="page__orders-and-subscriptions container-fluid py-4.5"
 >
   <div
-    className="section"
+    class="section"
   >
     <div
-      className="fade alert-content alert alert-danger show"
+      class="fade alert-content alert alert-danger show"
       role="alert"
     >
       <span
-        className="pgn__icon alert-icon"
+        class="pgn__icon alert-icon"
       >
         <svg
-          aria-hidden={true}
+          aria-hidden="true"
           fill="none"
-          focusable={false}
-          height={24}
+          focusable="false"
+          height="24"
           role="img"
           viewBox="0 0 24 24"
-          width={24}
+          width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -31,22 +31,21 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
         </svg>
       </span>
       <div
-        className="pgn__alert-message-wrapper"
+        class="pgn__alert-message-wrapper"
       >
         <div
-          className="alert-message-content"
+          class="alert-message-content"
         >
           <div
-            className="alert-heading h4"
+            class="alert-heading h4"
           >
             Something went wrong.
           </div>
           <p>
             Refresh this page and try again. If this problem persists, 
             <a
-              className="pgn__hyperlink default-link standalone-link"
+              class="pgn__hyperlink default-link standalone-link"
               href="http://localhost:18000/support/hc/requests/new"
-              onClick={[Function]}
               target="_self"
             >
               contact support
@@ -57,12 +56,12 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
       </div>
     </div>
     <h1
-      className="text-primary-700"
+      class="text-primary-700"
     >
       My orders and subscriptions
     </h1>
     <span
-      className="text-dark-900"
+      class="text-dark-900"
     >
       Manage your program subscriptions and view your order history.
     </span>
@@ -72,25 +71,25 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
       Subscriptions
     </h2>
     <span
-      className="text-dark-900"
+      class="text-dark-900"
     >
       You do not have any active or previous subscriptions.
     </span>
     <div
-      className="fade alert-content bg-light-200 alert show"
+      class="fade alert-content bg-light-200 alert show"
       role="alert"
     >
       <div
-        className="pgn__alert-message-wrapper"
+        class="pgn__alert-message-wrapper"
       >
         <div
-          className="alert-message-content"
+          class="alert-message-content"
         >
           <h4
-            className="section section-gap-sm flex-sm-row align-items-start alert-heading"
+            class="section section-gap-sm flex-sm-row align-items-start alert-heading"
           >
             <span
-              className="badge badge-warning"
+              class="badge badge-warning"
             >
               New
             </span>
@@ -103,16 +102,14 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
           </p>
         </div>
         <div
-          className="pgn__alert-actions pgn__action-row"
+          class="pgn__alert-actions pgn__action-row"
         >
           <span
-            className="pgn__action-row-spacer"
+            class="pgn__action-row-spacer"
           />
           <a
-            className="text-nowrap btn btn-primary btn-sm"
+            class="text-nowrap btn btn-primary btn-sm"
             href="http://localhost:18000/program-subscriptions"
-            onClick={[Function]}
-            onKeyDown={[Function]}
           >
             Explore subscription options
           </a>
@@ -121,7 +118,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
     </div>
   </section>
   <section
-    className="page__order-history"
+    class="page__order-history"
   >
     <h2>
       Order History
@@ -137,37 +134,33 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
 
 exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders with loadingErrors 1`] = `
 <div
-  className="page__orders-and-subscriptions container-fluid py-4.5"
+  class="page__orders-and-subscriptions container-fluid py-4.5"
 >
   <div
-    className="section"
+    class="section"
   >
     <h1
-      className="text-primary-700"
+      class="text-primary-700"
     >
       My orders and subscriptions
     </h1>
     <span
-      className="text-dark-900"
+      class="text-dark-900"
     >
       Manage your program subscriptions and view your order history.
     </span>
   </div>
   <div>
     <div
-      className="d-flex justify-content-center align-items-center flex-column"
-      style={
-        Object {
-          "height": "50vh",
-        }
-      }
+      class="d-flex justify-content-center align-items-center flex-column"
+      style="height: 50vh;"
     >
       <div
-        className="spinner-border text-primary"
+        class="spinner-border text-primary"
         role="status"
       >
         <span
-          className="sr-only"
+          class="sr-only"
         >
           Loading orders and subscriptions...
         </span>
@@ -179,18 +172,18 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
 
 exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders with orders and subscriptions 1`] = `
 <div
-  className="page__orders-and-subscriptions container-fluid py-4.5"
+  class="page__orders-and-subscriptions container-fluid py-4.5"
 >
   <div
-    className="section"
+    class="section"
   >
     <h1
-      className="text-primary-700"
+      class="text-primary-700"
     >
       My orders and subscriptions
     </h1>
     <span
-      className="text-dark-900"
+      class="text-dark-900"
     >
       Manage your program subscriptions and view your order history.
     </span>
@@ -200,10 +193,10 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
       Subscriptions
     </h2>
     <div
-      className="section flex-md-row align-items-start align-items-md-center justify-content-between"
+      class="section flex-md-row align-items-start align-items-md-center justify-content-between"
     >
       <span
-        className="text-dark-900"
+        class="text-dark-900"
       >
         You have 2 active subscriptions. To view your receipts, change your payment method or cancel your subscription, click 
         <i>
@@ -212,31 +205,29 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
         .
       </span>
       <button
-        aria-disabled={false}
+        aria-disabled="false"
         aria-live="assertive"
-        className="pgn__stateful-btn pgn__stateful-btn-state-default text-nowrap btn btn-primary btn-sm"
-        disabled={false}
-        onClick={[Function]}
+        class="pgn__stateful-btn pgn__stateful-btn-state-default text-nowrap btn btn-primary btn-sm"
         type="button"
       >
         <span
-          className="d-flex align-items-center justify-content-center"
+          class="d-flex align-items-center justify-content-center"
         >
           <span>
             Manage my subscriptions
           </span>
         </span>
         <span
-          className="pgn__icon pgn__icon__sm btn-icon-after"
+          class="pgn__icon pgn__icon__sm btn-icon-after"
         >
           <svg
-            aria-hidden={true}
+            aria-hidden="true"
             fill="none"
-            focusable={false}
-            height={24}
+            focusable="false"
+            height="24"
             role="img"
             viewBox="0 0 24 24"
-            width={24}
+            width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -248,127 +239,123 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
       </button>
     </div>
     <div
-      className="section section-gap-lg"
+      class="section section-gap-lg"
     >
       <a
-        className="pgn__hyperlink default-link standalone-link"
+        class="pgn__hyperlink default-link standalone-link"
         href="http://localhost:18000/dashboard/programs/a87e5eac-3c93-45a1-a8e1-4c79ca8401c8"
-        onClick={[Function]}
         target="_self"
       >
         <div
-          className="bg-light-200 p-3 pgn__card pgn__card-light card"
-          tabIndex={-1}
+          class="bg-light-200 p-3 pgn__card pgn__card-light card"
+          tabindex="-1"
         >
           <div
-            className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+            class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
           >
             <h3
-              className="text-info-500 m-0"
+              class="text-info-500 m-0"
             >
               Blockchain Fundamentals
             </h3>
             <span
-              className="text-capitalize badge badge-warning"
+              class="text-capitalize badge badge-warning"
             >
               Trial
             </span>
           </div>
           <p
-            className="small text-gray-500 m-0"
+            class="small text-gray-500 m-0"
           >
             University of California, Berkeley
           </p>
         </div>
       </a>
       <a
-        className="pgn__hyperlink default-link standalone-link"
+        class="pgn__hyperlink default-link standalone-link"
         href="http://localhost:18000/dashboard/programs/0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22"
-        onClick={[Function]}
         target="_self"
       >
         <div
-          className="bg-light-200 p-3 pgn__card pgn__card-light card"
-          tabIndex={-1}
+          class="bg-light-200 p-3 pgn__card pgn__card-light card"
+          tabindex="-1"
         >
           <div
-            className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+            class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
           >
             <h3
-              className="text-info-500 m-0"
+              class="text-info-500 m-0"
             >
               Critical Thinking
             </h3>
             <span
-              className="text-capitalize badge badge-success"
+              class="text-capitalize badge badge-success"
             >
               Active
             </span>
           </div>
           <p
-            className="small text-gray-500 m-0"
+            class="small text-gray-500 m-0"
           >
             Simmons University
           </p>
         </div>
       </a>
       <a
-        className="pgn__hyperlink default-link standalone-link"
+        class="pgn__hyperlink default-link standalone-link"
         href="http://localhost:18000/dashboard/programs/a87e5eac-3c93-45a1-a8e1-4c79ca8401c8"
-        onClick={[Function]}
         target="_self"
       >
         <div
-          className="bg-light-200 p-3 pgn__card pgn__card-light card"
-          tabIndex={-1}
+          class="bg-light-200 p-3 pgn__card pgn__card-light card"
+          tabindex="-1"
         >
           <div
-            className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+            class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
           >
             <h3
-              className="text-info-500 m-0"
+              class="text-info-500 m-0"
             >
               Blockchain Fundamentals
             </h3>
             <span
-              className="text-capitalize badge badge-light"
+              class="text-capitalize badge badge-light"
             >
               Inactive
             </span>
           </div>
           <p
-            className="small text-gray-500 m-0"
+            class="small text-gray-500 m-0"
           >
             University of California, Berkeley
           </p>
         </div>
       </a>
       <a
-        className="pgn__hyperlink default-link standalone-link"
+        class="pgn__hyperlink default-link standalone-link"
         href="http://localhost:18000/dashboard/programs/0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22"
-        onClick={[Function]}
         target="_self"
       >
         <div
-          className="bg-light-200 p-3 pgn__card pgn__card-light card"
-          tabIndex={-1}
+          class="bg-light-200 p-3 pgn__card pgn__card-light card"
+          tabindex="-1"
         >
           <div
-            className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+            class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
           >
             <h3
-              className="text-info-500 m-0"
+              class="text-info-500 m-0"
             >
               Critical Thinking
             </h3>
             <span
-              className="text-capitalize badge badge-light"
+              class="text-capitalize badge badge-light"
             >
               Inactive
             </span>
           </div>
           <p
-            className="small text-gray-500 m-0"
+            class="small text-gray-500 m-0"
           >
             Simmons University
           </p>
@@ -377,7 +364,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
     </div>
   </section>
   <section
-    className="page__order-history"
+    class="page__order-history"
   >
     <h2>
       Order History
@@ -385,41 +372,39 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
     <div>
       <nav
         aria-label="pagination navigation"
-        className="pagination-margin pagination-default"
+        class="pagination-margin pagination-default"
       >
         <div
-          aria-atomic={true}
+          aria-atomic="true"
           aria-live="polite"
           aria-relevant="text"
-          className="sr-only"
+          class="sr-only"
         >
           Page 2, Current Page, of 10
         </div>
         <ul
-          className="pagination"
+          class="pagination"
         >
           <li
-            className="page-item"
+            class="page-item"
           >
             <button
               aria-label="Previous, Page 1"
-              className="previous page-link btn btn-primary"
-              disabled={false}
-              onClick={[Function]}
+              class="previous page-link btn btn-primary"
               type="button"
             >
               <div>
                 <span
-                  className="pgn__icon"
+                  class="pgn__icon"
                 >
                   <svg
-                    aria-hidden={true}
+                    aria-hidden="true"
                     fill="none"
-                    focusable={false}
-                    height={24}
+                    focusable="false"
+                    height="24"
                     role="img"
                     viewBox="0 0 24 24"
-                    width={24}
+                    width="24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -433,28 +418,26 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
             </button>
           </li>
           <li
-            className="page-item"
+            class="page-item"
           >
             <button
               aria-label="Next, Page 3"
-              className="next page-link btn btn-primary"
-              disabled={false}
-              onClick={[Function]}
+              class="next page-link btn btn-primary"
               type="button"
             >
               <div>
                 Next
                 <span
-                  className="pgn__icon"
+                  class="pgn__icon"
                 >
                   <svg
-                    aria-hidden={true}
+                    aria-hidden="true"
                     fill="none"
-                    focusable={false}
-                    height={24}
+                    focusable="false"
+                    height="24"
                     role="img"
                     viewBox="0 0 24 24"
-                    width={24}
+                    width="24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path

@@ -1,14 +1,15 @@
 /* eslint-disable global-require */
 import React from 'react';
-import renderer, { act } from 'react-test-renderer';
-import { Provider } from 'react-redux';
-import { IntlProvider } from '@edx/frontend-platform/i18n';
-import configureMockStore from 'redux-mock-store';
+import { act, render } from '../testing';
 
 import ManageSubscriptionsPage from './ManageSubscriptionsPage';
 
-const mockStore = configureMockStore();
 const storeMocks = require('../store/__mocks__/mockEmptyStore');
+
+const matchSnapshot = (store) => {
+  const { container } = render(<ManageSubscriptionsPage />, store);
+  expect(container.querySelector('div')).toMatchSnapshot();
+};
 
 describe('<ManageSubscriptions />', () => {
   describe('Renders correctly in various states', () => {
@@ -31,33 +32,19 @@ describe('<ManageSubscriptions />', () => {
       };
 
       jest.useFakeTimers();
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocksWithURL)}>
-              <ManageSubscriptionsPage />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
+      const { container } = render(
+        <ManageSubscriptionsPage />,
+        storeMocksWithURL,
+      );
       act(() => {
         jest.runAllTimers();
       });
-      expect(tree).toMatchSnapshot();
+      expect(container.querySelector('div')).toMatchSnapshot();
       expect(mockHrefSetter).toHaveBeenCalledWith('http://edx.org');
     });
 
     it('renders loading when url is being fetched', () => {
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocks)}>
-              <ManageSubscriptionsPage />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMocks);
     });
 
     it('renders error ui when fetching url fails', () => {
@@ -69,16 +56,7 @@ describe('<ManageSubscriptions />', () => {
         },
       };
 
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocksWithError)}>
-              <ManageSubscriptionsPage />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      matchSnapshot(storeMocksWithError);
     });
   });
 });

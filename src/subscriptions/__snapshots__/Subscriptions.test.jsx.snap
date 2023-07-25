@@ -6,10 +6,10 @@ exports[`<Subscriptions /> Renders correctly in various states renders with no a
     Subscriptions
   </h2>
   <div
-    className="section flex-md-row align-items-start align-items-md-center justify-content-between"
+    class="section flex-md-row align-items-start align-items-md-center justify-content-between"
   >
     <span
-      className="text-dark-900"
+      class="text-dark-900"
     >
       You do not have an active subscription. To view your past receipts, click 
       <i>
@@ -18,31 +18,29 @@ exports[`<Subscriptions /> Renders correctly in various states renders with no a
       .
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled="false"
       aria-live="assertive"
-      className="pgn__stateful-btn pgn__stateful-btn-state-default text-nowrap btn btn-primary btn-sm"
-      disabled={false}
-      onClick={[Function]}
+      class="pgn__stateful-btn pgn__stateful-btn-state-default text-nowrap btn btn-primary btn-sm"
       type="button"
     >
       <span
-        className="d-flex align-items-center justify-content-center"
+        class="d-flex align-items-center justify-content-center"
       >
         <span>
           Manage my subscriptions
         </span>
       </span>
       <span
-        className="pgn__icon pgn__icon__sm btn-icon-after"
+        class="pgn__icon pgn__icon__sm btn-icon-after"
       >
         <svg
-          aria-hidden={true}
+          aria-hidden="true"
           fill="none"
-          focusable={false}
-          height={24}
+          focusable="false"
+          height="24"
           role="img"
           viewBox="0 0 24 24"
-          width={24}
+          width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -54,65 +52,63 @@ exports[`<Subscriptions /> Renders correctly in various states renders with no a
     </button>
   </div>
   <div
-    className="section section-gap-lg"
+    class="section section-gap-lg"
   >
     <a
-      className="pgn__hyperlink default-link standalone-link"
+      class="pgn__hyperlink default-link standalone-link"
       href="http://localhost:18000/dashboard/programs/a87e5eac-3c93-45a1-a8e1-4c79ca8401c8"
-      onClick={[Function]}
       target="_self"
     >
       <div
-        className="bg-light-200 p-3 pgn__card pgn__card-light card"
-        tabIndex={-1}
+        class="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabindex="-1"
       >
         <div
-          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+          class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
         >
           <h3
-            className="text-info-500 m-0"
+            class="text-info-500 m-0"
           >
             Blockchain Fundamentals
           </h3>
           <span
-            className="text-capitalize badge badge-light"
+            class="text-capitalize badge badge-light"
           >
             Inactive
           </span>
         </div>
         <p
-          className="small text-gray-500 m-0"
+          class="small text-gray-500 m-0"
         >
           University of California, Berkeley
         </p>
       </div>
     </a>
     <a
-      className="pgn__hyperlink default-link standalone-link"
+      class="pgn__hyperlink default-link standalone-link"
       href="http://localhost:18000/dashboard/programs/0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22"
-      onClick={[Function]}
       target="_self"
     >
       <div
-        className="bg-light-200 p-3 pgn__card pgn__card-light card"
-        tabIndex={-1}
+        class="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabindex="-1"
       >
         <div
-          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+          class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
         >
           <h3
-            className="text-info-500 m-0"
+            class="text-info-500 m-0"
           >
             Critical Thinking
           </h3>
           <span
-            className="text-capitalize badge badge-light"
+            class="text-capitalize badge badge-light"
           >
             Inactive
           </span>
         </div>
         <p
-          className="small text-gray-500 m-0"
+          class="small text-gray-500 m-0"
         >
           Simmons University
         </p>
@@ -128,25 +124,25 @@ exports[`<Subscriptions /> Renders correctly in various states renders with no s
     Subscriptions
   </h2>
   <span
-    className="text-dark-900"
+    class="text-dark-900"
   >
     You do not have any active or previous subscriptions.
   </span>
   <div
-    className="fade alert-content bg-light-200 alert show"
+    class="fade alert-content bg-light-200 alert show"
     role="alert"
   >
     <div
-      className="pgn__alert-message-wrapper"
+      class="pgn__alert-message-wrapper"
     >
       <div
-        className="alert-message-content"
+        class="alert-message-content"
       >
         <h4
-          className="section section-gap-sm flex-sm-row align-items-start alert-heading"
+          class="section section-gap-sm flex-sm-row align-items-start alert-heading"
         >
           <span
-            className="badge badge-warning"
+            class="badge badge-warning"
           >
             New
           </span>
@@ -159,16 +155,14 @@ exports[`<Subscriptions /> Renders correctly in various states renders with no s
         </p>
       </div>
       <div
-        className="pgn__alert-actions pgn__action-row"
+        class="pgn__alert-actions pgn__action-row"
       >
         <span
-          className="pgn__action-row-spacer"
+          class="pgn__action-row-spacer"
         />
         <a
-          className="text-nowrap btn btn-primary btn-sm"
+          class="text-nowrap btn btn-primary btn-sm"
           href="http://localhost:18000/program-subscriptions"
-          onClick={[Function]}
-          onKeyDown={[Function]}
         >
           Explore subscription options
         </a>
@@ -184,10 +178,10 @@ exports[`<Subscriptions /> Renders correctly in various states renders with subs
     Subscriptions
   </h2>
   <div
-    className="section flex-md-row align-items-start align-items-md-center justify-content-between"
+    class="section flex-md-row align-items-start align-items-md-center justify-content-between"
   >
     <span
-      className="text-dark-900"
+      class="text-dark-900"
     >
       You have 2 active subscriptions. To view your receipts, change your payment method or cancel your subscription, click 
       <i>
@@ -196,31 +190,29 @@ exports[`<Subscriptions /> Renders correctly in various states renders with subs
       .
     </span>
     <button
-      aria-disabled={false}
+      aria-disabled="false"
       aria-live="assertive"
-      className="pgn__stateful-btn pgn__stateful-btn-state-default text-nowrap btn btn-primary btn-sm"
-      disabled={false}
-      onClick={[Function]}
+      class="pgn__stateful-btn pgn__stateful-btn-state-default text-nowrap btn btn-primary btn-sm"
       type="button"
     >
       <span
-        className="d-flex align-items-center justify-content-center"
+        class="d-flex align-items-center justify-content-center"
       >
         <span>
           Manage my subscriptions
         </span>
       </span>
       <span
-        className="pgn__icon pgn__icon__sm btn-icon-after"
+        class="pgn__icon pgn__icon__sm btn-icon-after"
       >
         <svg
-          aria-hidden={true}
+          aria-hidden="true"
           fill="none"
-          focusable={false}
-          height={24}
+          focusable="false"
+          height="24"
           role="img"
           viewBox="0 0 24 24"
-          width={24}
+          width="24"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -232,127 +224,123 @@ exports[`<Subscriptions /> Renders correctly in various states renders with subs
     </button>
   </div>
   <div
-    className="section section-gap-lg"
+    class="section section-gap-lg"
   >
     <a
-      className="pgn__hyperlink default-link standalone-link"
+      class="pgn__hyperlink default-link standalone-link"
       href="http://localhost:18000/dashboard/programs/a87e5eac-3c93-45a1-a8e1-4c79ca8401c8"
-      onClick={[Function]}
       target="_self"
     >
       <div
-        className="bg-light-200 p-3 pgn__card pgn__card-light card"
-        tabIndex={-1}
+        class="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabindex="-1"
       >
         <div
-          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+          class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
         >
           <h3
-            className="text-info-500 m-0"
+            class="text-info-500 m-0"
           >
             Blockchain Fundamentals
           </h3>
           <span
-            className="text-capitalize badge badge-warning"
+            class="text-capitalize badge badge-warning"
           >
             Trial
           </span>
         </div>
         <p
-          className="small text-gray-500 m-0"
+          class="small text-gray-500 m-0"
         >
           University of California, Berkeley
         </p>
       </div>
     </a>
     <a
-      className="pgn__hyperlink default-link standalone-link"
+      class="pgn__hyperlink default-link standalone-link"
       href="http://localhost:18000/dashboard/programs/0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22"
-      onClick={[Function]}
       target="_self"
     >
       <div
-        className="bg-light-200 p-3 pgn__card pgn__card-light card"
-        tabIndex={-1}
+        class="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabindex="-1"
       >
         <div
-          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+          class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
         >
           <h3
-            className="text-info-500 m-0"
+            class="text-info-500 m-0"
           >
             Critical Thinking
           </h3>
           <span
-            className="text-capitalize badge badge-success"
+            class="text-capitalize badge badge-success"
           >
             Active
           </span>
         </div>
         <p
-          className="small text-gray-500 m-0"
+          class="small text-gray-500 m-0"
         >
           Simmons University
         </p>
       </div>
     </a>
     <a
-      className="pgn__hyperlink default-link standalone-link"
+      class="pgn__hyperlink default-link standalone-link"
       href="http://localhost:18000/dashboard/programs/a87e5eac-3c93-45a1-a8e1-4c79ca8401c8"
-      onClick={[Function]}
       target="_self"
     >
       <div
-        className="bg-light-200 p-3 pgn__card pgn__card-light card"
-        tabIndex={-1}
+        class="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabindex="-1"
       >
         <div
-          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+          class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
         >
           <h3
-            className="text-info-500 m-0"
+            class="text-info-500 m-0"
           >
             Blockchain Fundamentals
           </h3>
           <span
-            className="text-capitalize badge badge-light"
+            class="text-capitalize badge badge-light"
           >
             Inactive
           </span>
         </div>
         <p
-          className="small text-gray-500 m-0"
+          class="small text-gray-500 m-0"
         >
           University of California, Berkeley
         </p>
       </div>
     </a>
     <a
-      className="pgn__hyperlink default-link standalone-link"
+      class="pgn__hyperlink default-link standalone-link"
       href="http://localhost:18000/dashboard/programs/0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22"
-      onClick={[Function]}
       target="_self"
     >
       <div
-        className="bg-light-200 p-3 pgn__card pgn__card-light card"
-        tabIndex={-1}
+        class="bg-light-200 p-3 pgn__card pgn__card-light card"
+        tabindex="-1"
       >
         <div
-          className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
+          class="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center"
         >
           <h3
-            className="text-info-500 m-0"
+            class="text-info-500 m-0"
           >
             Critical Thinking
           </h3>
           <span
-            className="text-capitalize badge badge-light"
+            class="text-capitalize badge badge-light"
           >
             Inactive
           </span>
         </div>
         <p
-          className="small text-gray-500 m-0"
+          class="small text-gray-500 m-0"
         >
           Simmons University
         </p>
