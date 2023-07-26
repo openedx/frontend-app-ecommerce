@@ -35,7 +35,11 @@ const SubscriptionCardsView = ({ subscriptions }) => {
     const message = STATUS_MESSAGE_ID_MAP[status];
 
     return (
-      <Hyperlink key={key} destination={destination}>
+      <Hyperlink
+        key={key}
+        destination={destination}
+        data-testid="subscription-card"
+      >
         <Card className="bg-light-200 p-3">
           <div className="section flex-column-reverse flex-sm-row align-items-start align-items-sm-center">
             <h3 className="text-info-500 m-0">{title}</h3>
@@ -50,7 +54,10 @@ const SubscriptionCardsView = ({ subscriptions }) => {
   };
 
   return (
-    <div className="section section-gap-lg">
+    <div
+      className="section section-gap-lg"
+      data-testid="section-subscription-cards"
+    >
       {subscriptions.map(renderItem)}
     </div>
   );

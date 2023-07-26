@@ -77,6 +77,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
     </span>
     <div
       class="fade alert-content bg-light-200 alert show"
+      data-testid="section-subscription-upsell"
       role="alert"
     >
       <div
@@ -197,6 +198,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
     >
       <span
         class="text-dark-900"
+        data-testid="subscription-subtitle"
       >
         You have 2 active subscriptions. To view your receipts, change your payment method or cancel your subscription, click 
         <i>
@@ -240,9 +242,11 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
     </div>
     <div
       class="section section-gap-lg"
+      data-testid="section-subscription-cards"
     >
       <a
         class="pgn__hyperlink default-link standalone-link"
+        data-testid="subscription-card"
         href="http://localhost:18000/dashboard/programs/a87e5eac-3c93-45a1-a8e1-4c79ca8401c8"
         target="_self"
       >
@@ -273,6 +277,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
       </a>
       <a
         class="pgn__hyperlink default-link standalone-link"
+        data-testid="subscription-card"
         href="http://localhost:18000/dashboard/programs/0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22"
         target="_self"
       >
@@ -303,6 +308,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
       </a>
       <a
         class="pgn__hyperlink default-link standalone-link"
+        data-testid="subscription-card"
         href="http://localhost:18000/dashboard/programs/a87e5eac-3c93-45a1-a8e1-4c79ca8401c8"
         target="_self"
       >
@@ -333,6 +339,7 @@ exports[`<OrdersAndSubscriptions /> Renders correctly in various states renders 
       </a>
       <a
         class="pgn__hyperlink default-link standalone-link"
+        data-testid="subscription-card"
         href="http://localhost:18000/dashboard/programs/0c6e5fa2-96e8-40b2-9ebe-c8b0df2a3b22"
         target="_self"
       >
