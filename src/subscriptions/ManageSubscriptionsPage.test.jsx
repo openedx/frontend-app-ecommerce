@@ -1,15 +1,12 @@
 /* eslint-disable global-require */
 import React from 'react';
-import { act, render } from '../testing';
+import { act, render, screen } from '../testing';
 
 import ManageSubscriptionsPage from './ManageSubscriptionsPage';
 
 const storeMocks = require('../store/__mocks__/mockEmptyStore');
 
-const matchSnapshot = (store) => {
-  const { container } = render(<ManageSubscriptionsPage />, store);
-  expect(container.querySelector('div')).toMatchSnapshot();
-};
+const { getByText, getAllByText } = screen;
 
 describe('<ManageSubscriptions />', () => {
   describe('Renders correctly in various states', () => {
@@ -32,19 +29,20 @@ describe('<ManageSubscriptions />', () => {
       };
 
       jest.useFakeTimers();
-      const { container } = render(
-        <ManageSubscriptionsPage />,
-        storeMocksWithURL,
-      );
+
+      render(<ManageSubscriptionsPage />, storeMocksWithURL);
+
       act(() => {
         jest.runAllTimers();
       });
-      expect(container.querySelector('div')).toMatchSnapshot();
       expect(mockHrefSetter).toHaveBeenCalledWith('http://edx.org');
+      expect(getByText('Loading manage subscriptions...')).toBeInTheDocument();
     });
 
     it('renders loading when url is being fetched', () => {
-      matchSnapshot(storeMocks);
+      render(<ManageSubscriptionsPage />, storeMocks);
+
+      expect(getByText('Loading manage subscriptions...')).toBeInTheDocument();
     });
 
     it('renders error ui when fetching url fails', () => {
@@ -56,7 +54,11 @@ describe('<ManageSubscriptions />', () => {
         },
       };
 
-      matchSnapshot(storeMocksWithError);
+      render(<ManageSubscriptionsPage />, storeMocksWithError);
+
+      expect(getByText('Something went wrong')).toBeInTheDocument();
+      expect(getByText('contact support')).toBeInTheDocument();
+      expect(getAllByText('Orders and subscriptions')).toHaveLength(2);
     });
   });
 });
