@@ -30,6 +30,7 @@ const BasicAlert = ({ isModal, isVisible, onClose }) => {
 
   return isModal ? (
     <AlertModal
+      data-testid="basic-alert"
       variant="danger"
       title={title}
       icon={Info}
@@ -46,7 +47,12 @@ const BasicAlert = ({ isModal, isVisible, onClose }) => {
       <p>{body}</p>
     </AlertModal>
   ) : (
-    <Alert variant="danger" icon={Info} show={isVisible}>
+    <Alert
+      data-testid="basic-alert"
+      variant="danger"
+      icon={Info}
+      show={isVisible}
+    >
       <Alert.Heading>{title}</Alert.Heading>
       <p>{body}</p>
     </Alert>

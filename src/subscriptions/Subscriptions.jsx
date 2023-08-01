@@ -74,7 +74,7 @@ const Subscriptions = () => {
   const renderSubscriptions = () => (
     <>
       <div className="section flex-md-row align-items-start align-items-md-center justify-content-between">
-        <span className="text-dark-900">
+        <span className="text-dark-900" data-testid="subscription-subtitle">
           {formatMessage(messages[subtitle], {
             activeCount,
             buttonLabel: <i>{buttonLabel}</i>,

@@ -2,7 +2,7 @@
 
 exports[`<OrderHistoryPage /> Renders correctly in various states renders empty orders 1`] = `
 <section
-  className="page__order-history"
+  class="page__order-history"
 >
   <h1>
     Order History
@@ -17,7 +17,7 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders empty 
 
 exports[`<OrderHistoryPage /> Renders correctly in various states renders loading state 1`] = `
 <section
-  className="page__order-history"
+  class="page__order-history"
 >
   <h1>
     Order History
@@ -25,19 +25,15 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders loadin
   <div>
     <div>
       <div
-        className="d-flex justify-content-center align-items-center flex-column"
-        style={
-          Object {
-            "height": "50vh",
-          }
-        }
+        class="d-flex justify-content-center align-items-center flex-column"
+        style="height: 50vh;"
       >
         <div
-          className="spinner-border text-primary"
+          class="spinner-border text-primary"
           role="status"
         >
           <span
-            className="sr-only"
+            class="sr-only"
           >
             Loading orders...
           </span>
@@ -50,7 +46,7 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders loadin
 
 exports[`<OrderHistoryPage /> Renders correctly in various states renders orders table with pagination 1`] = `
 <section
-  className="page__order-history"
+  class="page__order-history"
 >
   <h1>
     Order History
@@ -58,41 +54,39 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders orders
   <div>
     <nav
       aria-label="pagination navigation"
-      className="pagination-margin pagination-default"
+      class="pagination-margin pagination-default"
     >
       <div
-        aria-atomic={true}
+        aria-atomic="true"
         aria-live="polite"
         aria-relevant="text"
-        className="sr-only"
+        class="sr-only"
       >
         Page 2, Current Page, of 10
       </div>
       <ul
-        className="pagination"
+        class="pagination"
       >
         <li
-          className="page-item"
+          class="page-item"
         >
           <button
             aria-label="Previous, Page 1"
-            className="previous page-link btn btn-primary"
-            disabled={false}
-            onClick={[Function]}
+            class="previous page-link btn btn-primary"
             type="button"
           >
             <div>
               <span
-                className="pgn__icon"
+                class="pgn__icon"
               >
                 <svg
-                  aria-hidden={true}
+                  aria-hidden="true"
                   fill="none"
-                  focusable={false}
-                  height={24}
+                  focusable="false"
+                  height="24"
                   role="img"
                   viewBox="0 0 24 24"
-                  width={24}
+                  width="24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -106,28 +100,26 @@ exports[`<OrderHistoryPage /> Renders correctly in various states renders orders
           </button>
         </li>
         <li
-          className="page-item"
+          class="page-item"
         >
           <button
             aria-label="Next, Page 3"
-            className="next page-link btn btn-primary"
-            disabled={false}
-            onClick={[Function]}
+            class="next page-link btn btn-primary"
             type="button"
           >
             <div>
               Next
               <span
-                className="pgn__icon"
+                class="pgn__icon"
               >
                 <svg
-                  aria-hidden={true}
+                  aria-hidden="true"
                   fill="none"
-                  focusable={false}
-                  height={24}
+                  focusable="false"
+                  height="24"
                   role="img"
                   viewBox="0 0 24 24"
-                  width={24}
+                  width="24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path

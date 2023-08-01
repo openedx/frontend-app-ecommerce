@@ -1,33 +1,45 @@
 /* eslint-disable global-require */
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Provider } from 'react-redux';
-import { IntlProvider } from '@edx/frontend-platform/i18n';
-import configureMockStore from 'redux-mock-store';
+import { render, screen } from '../testing';
 
 import OrdersAndSubscriptionsPage from './OrdersAndSubscriptionsPage';
 
-jest.mock('@edx/frontend-platform/analytics', () => ({
-  sendTrackEvent: jest.fn(),
-}));
-
-const mockStore = configureMockStore();
 const storeMocks = require('../store/__mocks__/mockStore');
 const emptyStoreMocks = require('../store/__mocks__/mockEmptyStore');
+
+const {
+  getByText,
+  getByTestId,
+  queryByText,
+  queryByTestId,
+} = screen;
+
+const testHeadings = (hasSections = true) => {
+  // Assert the main heading
+  expect(getByText('My orders and subscriptions')).toBeInTheDocument();
+  expect(
+    getByText('Manage your program subscriptions and view your order history.'),
+  ).toBeInTheDocument();
+
+  if (hasSections) {
+    // Assert Subscription and Order History sections are rendered
+    expect(getByText('Subscriptions')).toBeInTheDocument();
+    expect(getByText('Order History')).toBeInTheDocument();
+  } else {
+    // Assert Subscription and Order History sections are not rendered
+    expect(queryByText('Subscriptions')).toBeNull();
+    expect(queryByText('Order History')).toBeNull();
+  }
+};
 
 describe('<OrdersAndSubscriptions />', () => {
   describe('Renders correctly in various states', () => {
     it('renders with orders and subscriptions', () => {
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocks)}>
-              <OrdersAndSubscriptionsPage />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      render(<OrdersAndSubscriptionsPage />, storeMocks);
+      testHeadings();
+
+      // Assert alerts are not rendered
+      expect(queryByTestId('basic-alert')).toBeNull();
     });
 
     it('renders alerts on errors', () => {
@@ -42,19 +54,17 @@ describe('<OrdersAndSubscriptions />', () => {
         },
       };
 
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocksWithErrors)}>
-              <OrdersAndSubscriptionsPage />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      render(<OrdersAndSubscriptionsPage />, storeMocksWithErrors);
+      testHeadings();
+
+      expect(getByTestId('basic-alert')).toBeInTheDocument();
+
+      // Assert Subscription section renders empty state
+      expect(queryByTestId('section-subscription-cards')).toBeNull();
+      expect(getByTestId('section-subscription-upsell')).toBeInTheDocument();
     });
 
-    it('renders with loadingErrors', () => {
+    it('renders with loading', () => {
       const storeMocksWithLoading = {
         orderHistory: {
           ...emptyStoreMocks.orderHistory,
@@ -66,16 +76,15 @@ describe('<OrdersAndSubscriptions />', () => {
         },
       };
 
-      const tree = renderer
-        .create(
-          <IntlProvider locale="en">
-            <Provider store={mockStore(storeMocksWithLoading)}>
-              <OrdersAndSubscriptionsPage />
-            </Provider>
-          </IntlProvider>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
+      render(<OrdersAndSubscriptionsPage />, storeMocksWithLoading);
+      testHeadings(false);
+
+      // Assert loading message is rendered
+      expect(getByText('Loading orders and subscriptions...'))
+        .toBeInTheDocument();
+
+      // Assert alerts are not rendered
+      expect(queryByTestId('basic-alert')).toBeNull();
     });
   });
 });

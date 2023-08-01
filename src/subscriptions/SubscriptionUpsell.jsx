@@ -8,6 +8,7 @@ import { Alert, Badge, Button } from '@edx/paragon';
 const SubscriptionUpsell = () => (
   <Alert
     className="bg-light-200"
+    data-testid="section-subscription-upsell"
     actions={[
       <Button
         href={
