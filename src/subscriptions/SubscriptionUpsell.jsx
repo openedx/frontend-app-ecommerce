@@ -1,14 +1,22 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+import { getConfig } from '@edx/frontend-platform';
 import { FormattedMessage } from '@edx/frontend-platform/i18n';
 import { Alert, Badge, Button } from '@edx/paragon';
 
 const SubscriptionUpsell = () => (
   <Alert
     className="bg-light-200"
+    data-testid="section-subscription-upsell"
     actions={[
-      <Button className="text-nowrap">
+      <Button
+        href={
+          getConfig().MARKETING_SITE_BASE_URL
+          + getConfig().SUBSCRIPTIONS_MARKETING_URL
+        }
+        className="text-nowrap"
+      >
         <FormattedMessage
           id="ecommerce.order.history.subscription.upsell.button"
           defaultMessage="Explore subscription options"
@@ -44,8 +52,8 @@ const SubscriptionUpsell = () => (
       defaultMessage="Now available for many popular programs, affordable monthly subscription pricing can help you manage your budget more effectively. Subscriptions start at {minSubscriptionPrice}/month USD per program, after a {trialLength}-day full access free trial. Cancel at any time."
       description="Message body for subscription upsell"
       values={{
-        minSubscriptionPrice: '$39',
-        trialLength: 7,
+        minSubscriptionPrice: getConfig().SUBSCRIPTIONS_MINIMUM_PRICE,
+        trialLength: getConfig().SUBSCRIPTIONS_TRIAL_LENGTH,
       }}
     />
   </Alert>

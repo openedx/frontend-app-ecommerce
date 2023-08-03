@@ -16,5 +16,6 @@ module.exports = {
     stripeCustomerPortalURL: null,
     stripeError: false,
     stripeLoading: false,
+    shouldShowSubscriptionsSection: true,
   },
 };

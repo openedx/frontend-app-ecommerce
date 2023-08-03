@@ -8,7 +8,7 @@ Please tag **@edx/revenue-squad** on any PRs or issues.
 Introduction
 ------------
 
-This is a micro-frontend application responsible for the display of an authenticated user's order history and receipt page.
+This is a micro-frontend application responsible for the display of an authenticated user's single purchase order history and subscription history. Additional work has been done and is in-progress to enable receipt pages in this application, currently hosted in ecommerce.
 
 Installation
 ------------
@@ -33,6 +33,10 @@ This MFE is bundled with `Devstack <https://github.com/openedx/devstack>`_, see 
 5. Once the dev server is up, visit http://localhost:1996 to access the MFE
 
    .. image:: ./docs/images/localhost_preview.png
+
+   Note: the alert will always display if subscriptions repo is not setup locally
+
+6. **(Optional)** For edx developers, they can set up the subscriptions repo for viewing subscription history
 
 Environment Variables/Setup Notes
 ---------------------------------

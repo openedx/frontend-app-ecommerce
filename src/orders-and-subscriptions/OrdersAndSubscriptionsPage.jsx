@@ -6,16 +6,25 @@ import { FormattedMessage, useIntl } from '@edx/frontend-platform/i18n';
 
 import { BasicAlert, PageLoading } from '../components';
 
-import Subscriptions, { fetchSubscriptions } from '../subscriptions';
 import OrderHistory, { fetchOrders } from '../order-history';
+import Subscriptions, { fetchSubscriptions } from '../subscriptions';
 
-import { errorSelector, loadingSelector } from './selectors';
+import {
+  errorSelector,
+  loadingSelector,
+  showSubscriptionSelector,
+} from './selectors';
+import messages from './OrdersAndSubscriptionsPage.messages';
 
 const OrdersAndSubscriptionsPage = () => {
   const { formatMessage } = useIntl();
   const dispatch = useDispatch();
   const isLoading = useSelector(loadingSelector);
   const hasError = useSelector(errorSelector);
+  /**
+   * TODO: PON-299 - Remove this selector after the MVP.
+   */
+  const shouldShowSubscriptionSection = useSelector(showSubscriptionSelector);
 
   const isB2CSubsEnabled = (
     getConfig().ENABLE_B2C_SUBSCRIPTIONS?.toLowerCase() === 'true'
@@ -34,11 +43,7 @@ const OrdersAndSubscriptionsPage = () => {
 
   const renderLoading = () => (
     <PageLoading
-      srMessage={formatMessage({
-        id: 'ecommerce.order.history.loading',
-        defaultMessage: 'Loading orders and subscriptions...',
-        description: 'Message when orders and subscriptions page is loading.',
-      })}
+      srMessage={formatMessage(messages['ecommerce.order.history.loading'])}
     />
   );
 
@@ -49,7 +54,10 @@ const OrdersAndSubscriptionsPage = () => {
     </>
   );
 
-  if (!isB2CSubsEnabled) {
+  /**
+   * TODO: PON-299 - Remove the extra condition i.e. shouldShowSubscriptionSection after the MVP.
+   */
+  if (!isB2CSubsEnabled || !shouldShowSubscriptionSection) {
     return (
       <div className="page__orders-and-subscriptions container-fluid py-5">
         <OrderHistory isB2CSubsEnabled={false} />

@@ -7,6 +7,7 @@ export const initialState = {
   stripeCustomerPortalURL: null,
   stripeError: false,
   stripeLoading: false,
+  shouldShowSubscriptionsSection: true,
 };
 
 const subscriptionsReducer = (state = initialState, action = {}) => {
@@ -57,6 +58,11 @@ const subscriptionsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         stripeError: false,
+      };
+    case 'HIDE_SUBSCRIPTION_SECTION':
+      return {
+        ...state,
+        shouldShowSubscriptionsSection: false,
       };
     default:
       return state;
