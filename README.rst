@@ -34,9 +34,13 @@ This MFE is bundled with `Devstack <https://github.com/openedx/devstack>`_, see 
 
    .. image:: ./docs/images/localhost_preview.png
 
-   Note: the alert will always display if subscriptions repo is not setup locally
+6. **(Optional)** For edx developers, to view both subscriptions and orders history:
 
-6. **(Optional)** For edx developers, they can set up the subscriptions repo for viewing subscription history
+   - set the `ENABLE_B2C_SUBSCRIPTIONS` environment variable to `true`
+
+   - ensure subscriptions repo is setup and is running
+
+   .. image:: ./docs/images/localhost_preview_subs.png
 
 Environment Variables/Setup Notes
 ---------------------------------
