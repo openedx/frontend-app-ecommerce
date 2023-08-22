@@ -34,14 +34,6 @@ This MFE is bundled with `Devstack <https://github.com/openedx/devstack>`_, see 
 
    .. image:: ./docs/images/localhost_preview.png
 
-6. **(Optional)** For edx developers, to view both subscriptions and orders history:
-
-   - set the `ENABLE_B2C_SUBSCRIPTIONS` environment variable to `true`
-
-   - ensure subscriptions repo is setup and is running
-
-   .. image:: ./docs/images/localhost_preview_subs.png
-
 Environment Variables/Setup Notes
 ---------------------------------
 
