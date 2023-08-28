@@ -8,7 +8,7 @@ Please tag **@edx/revenue-squad** on any PRs or issues.
 Introduction
 ------------
 
-This is a micro-frontend application responsible for the display of an authenticated user's order history and receipt page.
+This is a micro-frontend application responsible for the display of an authenticated user's single purchase order history and subscription history. Additional work has been done and is in-progress to enable receipt pages in this application, currently hosted in ecommerce.
 
 Installation
 ------------

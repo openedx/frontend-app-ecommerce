@@ -1,20 +1,15 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { IntlProvider } from '@edx/frontend-platform/i18n';
+import { render } from '../testing';
 
 import NotFoundPage from './NotFoundPage';
 
 describe('<NotFoundPage />', () => {
-  describe('Renders NotFoundPage', () => {
-    it('renders not found page', () => {
-      const tree = renderer
-        .create((
-          <IntlProvider locale="en">
-            <NotFoundPage />
-          </IntlProvider>
-        ))
-        .toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+  it('Renders not found message', () => {
+    const { getByText } = render(<NotFoundPage />);
+    expect(
+      getByText(
+        "The page you're looking for is unavailable or there's an error in the URL. Please check the URL and try again.",
+      ),
+    ).toBeInTheDocument();
   });
 });

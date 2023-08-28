@@ -1,8 +1,8 @@
-import { FETCH_ORDERS } from './actions';
+import { fetchOrders } from './actions';
 
 export const initialState = {
   loading: false,
-  loadingError: null,
+  loadingError: false,
   orders: [],
   count: 0,
   pageCount: 0,
@@ -13,13 +13,13 @@ export const initialState = {
 
 const orderHistoryPage = (state = initialState, action = {}) => {
   switch (action.type) {
-    case FETCH_ORDERS.BEGIN:
+    case fetchOrders.TRIGGER:
       return {
         ...state,
-        loadingError: null,
         loading: true,
+        loadingError: false,
       };
-    case FETCH_ORDERS.SUCCESS:
+    case fetchOrders.SUCCESS:
       return {
         ...state,
         orders: action.payload.orders,
@@ -28,12 +28,15 @@ const orderHistoryPage = (state = initialState, action = {}) => {
         previous: action.payload.previous,
         pageCount: action.payload.pageCount,
         currentPage: action.payload.currentPage,
-        loading: false,
       };
-    case FETCH_ORDERS.RESET:
+    case fetchOrders.FAILURE:
       return {
         ...state,
-        loadingError: null,
+        loadingError: true,
+      };
+    case fetchOrders.FULFILL:
+      return {
+        ...state,
         loading: false,
       };
     default:
