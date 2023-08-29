@@ -1,20 +1,10 @@
+/* eslint-disable no-console */
+// NOTE: console logs are intentionally added for REV-2577
+
 import { getAuthenticatedHttpClient, getAuthenticatedUser } from '@edx/frontend-platform/auth';
-import { getConfig, initialize, mergeConfig } from '@edx/frontend-platform';
+import { getConfig } from '@edx/frontend-platform';
 
 const { ECOMMERCE_BASE_URL } = getConfig();
-
-// Temporary: until we add COMMERCE_COORDINATOR_BASE_URL in frontend-platform, use mergeConfig to join it
-// with the rest of the config items (so we don't need to get it separately from process.env). After we add
-// it to frontend-platform, we'll be able to set it like ECOMMERCE_BASE_URL above, and block below can go away.
-initialize({
-  handlers: {
-    config: () => {
-      mergeConfig({
-        COMMERCE_COORDINATOR_BASE_URL: process.env.COMMERCE_COORDINATOR_BASE_URL || null,
-      });
-    },
-  },
-});
 
 const ECOMMERCE_API_BASE_URL = `${ECOMMERCE_BASE_URL}/api/v2`;
 const ECOMMERCE_RECEIPT_BASE_URL = `${ECOMMERCE_BASE_URL}/checkout/receipt/`;

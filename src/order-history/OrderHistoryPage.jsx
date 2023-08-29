@@ -1,35 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  getConfig,
-} from '@edx/frontend-platform';
+import { getConfig } from '@edx/frontend-platform';
 import {
   injectIntl,
   intlShape,
   FormattedDate,
   FormattedNumber,
 } from '@edx/frontend-platform/i18n';
-import { Table, Hyperlink, Pagination } from '@edx/paragon';
+import { DataTable, Hyperlink, Pagination } from '@edx/paragon';
 import MediaQuery from 'react-responsive';
+
+import { PageLoading } from '../components';
 
 import messages from './OrderHistoryPage.messages';
 
 // Actions
 import { fetchOrders } from './actions';
 import { pageSelector } from './selectors';
-import { PageLoading } from '../common';
 
 class OrderHistoryPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.handlePageSelect = this.handlePageSelect.bind(this);
-  }
-
-  componentDidMount() {
-    // TODO: We should fetch based on the route (ex: /orders/list/page/1)
-    this.props.fetchOrders(1);
   }
 
   handlePageSelect(page) {
@@ -70,6 +64,7 @@ class OrderHistoryPage extends React.Component {
     return (
       <Pagination
         paginationLabel="pagination navigation"
+        className="pagination-margin"
         pageCount={pageCount}
         currentPage={currentPage}
         onPageSelect={this.handlePageSelect}
@@ -91,32 +86,34 @@ class OrderHistoryPage extends React.Component {
 
   renderOrdersTable() {
     return (
-      <Table
-        className="order-history table-bordered"
+      <DataTable
         data={this.getTableData()}
+        itemCount={this.props.count}
         columns={[
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
-            key: 'description',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.items']),
+            accessor: 'description',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
-            key: 'datePlaced',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.date.placed']),
+            accessor: 'datePlaced',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
-            key: 'total',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.total.cost']),
+            accessor: 'total',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
-            key: 'orderId',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.number']),
+            accessor: 'orderId',
           },
           {
-            label: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.details']),
-            key: 'receiptUrl',
+            Header: this.props.intl.formatMessage(messages['ecommerce.order.history.table.column.order.details']),
+            accessor: 'receiptUrl',
           },
         ]}
-      />
+      >
+        <DataTable.Table />
+      </DataTable>
     );
   }
 
@@ -158,57 +155,53 @@ class OrderHistoryPage extends React.Component {
     );
   }
 
-  renderError() {
+  renderLoading() {
     return (
-      <div>
-        {this.props.intl.formatMessage(messages['ecommerce.order.history.loading.error'], {
-          error: this.props.loadingError,
-        })}
-      </div>
+      <PageLoading
+        srMessage={this.props.intl.formatMessage(
+          messages['ecommerce.order.history.loading.orders'],
+        )}
+      />
     );
   }
 
-  renderLoading() {
-    return (
-      <PageLoading srMessage={this.props.intl.formatMessage(messages['ecommerce.order.history.loading.orders'])} />
+  renderOrders() {
+    const hasOrders = this.props.orders.length > 0;
+
+    return hasOrders ? (
+      <>
+        <MediaQuery query="(max-width: 768px)">
+          {this.renderMobileOrdersTable()}
+        </MediaQuery>
+        <MediaQuery query="(min-width: 769px)">
+          {this.renderOrdersTable()}
+        </MediaQuery>
+        {this.renderPagination()}
+      </>
+    ) : (
+      this.renderEmptyMessage()
     );
   }
 
   render() {
-    const {
-      loading,
-      loadingError,
-      orders,
-    } = this.props;
-    const loaded = !loading && !loadingError;
-    const hasOrders = orders.length > 0;
+    const { loading, intl, isB2CSubsEnabled } = this.props;
+
+    const heading = intl.formatMessage(
+      messages['ecommerce.order.history.page.heading'],
+    );
 
     return (
-      <div className="page__order-history container-fluid py-5">
-        <h1>
-          {this.props.intl.formatMessage(messages['ecommerce.order.history.page.heading'])}
-        </h1>
-        {loadingError ? this.renderError() : null}
-        {loaded && hasOrders ? (
-          <>
-            <MediaQuery query="(max-width: 768px)">
-              {this.renderMobileOrdersTable()}
-            </MediaQuery>
-            <MediaQuery query="(min-width: 769px)">
-              {this.renderOrdersTable()}
-            </MediaQuery>
-            {this.renderPagination()}
-          </>
-        ) : null}
-        {loaded && !hasOrders ? this.renderEmptyMessage() : null}
-        {loading ? this.renderLoading() : null}
-      </div>
+      <section className="page__order-history">
+        {isB2CSubsEnabled ? <h2>{heading}</h2> : <h1>{heading}</h1>}
+        <div>{loading ? this.renderLoading() : this.renderOrders()}</div>
+      </section>
     );
   }
 }
 
 OrderHistoryPage.propTypes = {
   intl: intlShape.isRequired,
+  isB2CSubsEnabled: PropTypes.bool.isRequired,
   orders: PropTypes.arrayOf(PropTypes.shape({
     datePlaced: PropTypes.string,
     total: PropTypes.string,
@@ -222,17 +215,17 @@ OrderHistoryPage.propTypes = {
     })),
   })),
   pageCount: PropTypes.number,
+  count: PropTypes.number,
   currentPage: PropTypes.number,
   loading: PropTypes.bool,
-  loadingError: PropTypes.string,
   fetchOrders: PropTypes.func.isRequired,
 };
 
 OrderHistoryPage.defaultProps = {
   orders: [],
-  loadingError: null,
   loading: false,
   pageCount: 0,
+  count: 0,
   currentPage: null,
 };
 
