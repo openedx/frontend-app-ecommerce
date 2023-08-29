@@ -1,96 +1,138 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OrderHistoryPage /> Renders correctly in various states renders orders table with pagination 1`] = `
-<div
-  className="page__order-history container-fluid py-5"
+exports[`<OrderHistoryPage /> Renders correctly in various states renders empty orders 1`] = `
+<section
+  class="page__order-history"
 >
   <h1>
     Order History
   </h1>
-  <nav
-    aria-label="pagination navigation"
-    className="pagination-default"
-  >
-    <div
-      aria-atomic={true}
-      aria-live="polite"
-      aria-relevant="text"
-      className="sr-only"
-    >
-      Page 2, Current Page, of 10
+  <div>
+    <p>
+      Orders you place with localhost will appear here.
+    </p>
+  </div>
+</section>
+`;
+
+exports[`<OrderHistoryPage /> Renders correctly in various states renders loading state 1`] = `
+<section
+  class="page__order-history"
+>
+  <h1>
+    Order History
+  </h1>
+  <div>
+    <div>
+      <div
+        class="d-flex justify-content-center align-items-center flex-column"
+        style="height: 50vh;"
+      >
+        <div
+          class="spinner-border text-primary"
+          role="status"
+        >
+          <span
+            class="sr-only"
+          >
+            Loading orders...
+          </span>
+        </div>
+      </div>
     </div>
-    <ul
-      className="pagination"
+  </div>
+</section>
+`;
+
+exports[`<OrderHistoryPage /> Renders correctly in various states renders orders table with pagination 1`] = `
+<section
+  class="page__order-history"
+>
+  <h1>
+    Order History
+  </h1>
+  <div>
+    <nav
+      aria-label="pagination navigation"
+      class="pagination-margin pagination-default"
     >
-      <li
-        className="page-item"
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        aria-relevant="text"
+        class="sr-only"
       >
-        <button
-          aria-label="Previous, Page 1"
-          className="previous page-link btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <div>
-            <span
-              className="pgn__icon"
-            >
-              <svg
-                aria-hidden={true}
-                fill="none"
-                focusable={false}
-                height={24}
-                role="img"
-                viewBox="0 0 24 24"
-                width={24}
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            Previous
-          </div>
-        </button>
-      </li>
-      <li
-        className="page-item"
+        Page 2, Current Page, of 10
+      </div>
+      <ul
+        class="pagination"
       >
-        <button
-          aria-label="Next, Page 3"
-          className="next page-link btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
+        <li
+          class="page-item"
         >
-          <div>
-            Next
-            <span
-              className="pgn__icon"
-            >
-              <svg
-                aria-hidden={true}
-                fill="none"
-                focusable={false}
-                height={24}
-                role="img"
-                viewBox="0 0 24 24"
-                width={24}
-                xmlns="http://www.w3.org/2000/svg"
+          <button
+            aria-label="Previous, Page 1"
+            class="previous page-link btn btn-primary"
+            type="button"
+          >
+            <div>
+              <span
+                class="pgn__icon"
               >
-                <path
-                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
-      </li>
-    </ul>
-  </nav>
-</div>
+                <svg
+                  aria-hidden="true"
+                  fill="none"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Previous
+            </div>
+          </button>
+        </li>
+        <li
+          class="page-item"
+        >
+          <button
+            aria-label="Next, Page 3"
+            class="next page-link btn btn-primary"
+            type="button"
+          >
+            <div>
+              Next
+              <span
+                class="pgn__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  fill="none"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </div>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
 `;
