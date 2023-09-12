@@ -2,7 +2,9 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Routes } from 'react-router-dom';
-import { IntlProvider } from '@edx/frontend-platform/i18n';
+import { getLocale, IntlProvider } from '@edx/frontend-platform/i18n';
+import { configure as configureI18n } from '@edx/frontend-platform/i18n/lib';
+import { getLoggingService } from '@edx/frontend-platform/logging';
 import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
 import {
   APP_INIT_ERROR,
@@ -70,6 +72,15 @@ subscribe(APP_READY, () => {
 });
 
 subscribe(APP_INIT_ERROR, (error) => {
+  try {
+    getLocale('en');
+  } catch (e) {
+    configureI18n({
+      messages: {},
+      config: getConfig(),
+      loggingService: getLoggingService(),
+    });
+  }
   ReactDOM.render(
     <IntlProvider locale="en">
       <ErrorPage message={error.message} />
