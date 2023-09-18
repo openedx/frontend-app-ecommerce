@@ -9,6 +9,9 @@ function* handleFetchSubscriptions() {
   try {
     yield put(fetchSubscriptions.request());
     const result = yield call(getSubscriptions);
+    if (!result?.length) {
+      yield put(hideSubscriptionSection());
+    }
     yield put(fetchSubscriptions.success(result));
   } catch (error) {
     /**
