@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "fedx-scripts webpack",
-    "i18n_extract": "BABEL_ENV=i18n fedx-scripts babel src --quiet > /dev/null",
+    "i18n_extract": "fedx-scripts formatjs extract",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
     "start": "fedx-scripts webpack-dev-server --progress",
     "test": "fedx-scripts jest --coverage"
@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@edx/browserslist-config": "^1.2.0",
-    "@edx/frontend-build": "^12.7.0",
+    "@edx/frontend-build": "13.0.1",
     "@edx/reactifex": "^2.1.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.5",
