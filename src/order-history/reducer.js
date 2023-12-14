@@ -1,7 +1,7 @@
 import { fetchOrders } from './actions';
 
 export const initialState = {
-  loading: false,
+  loading: true,
   loadingError: false,
   orders: [],
   count: 0,
@@ -16,12 +16,12 @@ const orderHistoryPage = (state = initialState, action = {}) => {
     case fetchOrders.TRIGGER:
       return {
         ...state,
-        loading: true,
         loadingError: false,
       };
     case fetchOrders.SUCCESS:
       return {
         ...state,
+        loading: false,
         orders: action.payload.orders,
         count: action.payload.count,
         next: action.payload.next,
@@ -32,6 +32,7 @@ const orderHistoryPage = (state = initialState, action = {}) => {
     case fetchOrders.FAILURE:
       return {
         ...state,
+        loading: false,
         loadingError: true,
       };
     case fetchOrders.FULFILL:
