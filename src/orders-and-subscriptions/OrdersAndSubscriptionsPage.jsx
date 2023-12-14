@@ -9,6 +9,7 @@ import { BasicAlert, PageLoading } from '../components';
 import OrderHistory, { fetchOrders } from '../order-history';
 import Subscriptions, { fetchSubscriptions } from '../subscriptions';
 
+import { subscriptionsSelector } from '../subscriptions/selectors';
 import {
   errorSelector,
   loadingSelector,
@@ -21,6 +22,8 @@ const OrdersAndSubscriptionsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(loadingSelector);
   const hasError = useSelector(errorSelector);
+  const { subscriptions } = useSelector(subscriptionsSelector);
+
   /**
    * TODO: PON-299 - Remove this selector after the MVP.
    */
@@ -30,11 +33,17 @@ const OrdersAndSubscriptionsPage = () => {
     getConfig().ENABLE_B2C_SUBSCRIPTIONS?.toLowerCase() === 'true'
   );
 
+  const hasSubscriptions = subscriptions.length > 0;
+  const isSubscriptionDisabled = !isB2CSubsEnabled || !shouldShowSubscriptionSection;
+  const shouldShowOrderHistoryOnly = isSubscriptionDisabled || (!isLoading && !hasSubscriptions);
+
   useEffect(() => {
     if (isB2CSubsEnabled) {
+      dispatch(fetchSubscriptions());
+    }
+    if (!isSubscriptionDisabled && hasSubscriptions) {
       document.title = 'Orders and Subscriptions | edX';
       sendTrackEvent('edx.bi.user.subscription.order-page.viewed');
-      dispatch(fetchSubscriptions());
     }
     // TODO: We should fetch based on the route (ex: /orders/?orderPage=1)
     dispatch(fetchOrders(1));
@@ -48,24 +57,6 @@ const OrdersAndSubscriptionsPage = () => {
   );
 
   const renderOrdersandSubscriptions = () => (
-    <>
-      <Subscriptions />
-      <OrderHistory isB2CSubsEnabled />
-    </>
-  );
-
-  /**
-   * TODO: PON-299 - Remove the extra condition i.e. shouldShowSubscriptionSection after the MVP.
-   */
-  if (!isB2CSubsEnabled || !shouldShowSubscriptionSection) {
-    return (
-      <div className="page__orders-and-subscriptions container-fluid py-5">
-        <OrderHistory isB2CSubsEnabled={false} />
-      </div>
-    );
-  }
-
-  return (
     <div className="page__orders-and-subscriptions container-fluid py-4.5">
       <div className="section">
         <BasicAlert isVisible={hasError} />
@@ -84,9 +75,25 @@ const OrdersAndSubscriptionsPage = () => {
           {(text) => <span className="text-dark-900">{text}</span>}
         </FormattedMessage>
       </div>
-      {isLoading ? renderLoading() : renderOrdersandSubscriptions()}
+      <Subscriptions />
+      <OrderHistory isB2CSubsEnabled />
     </div>
   );
+
+  const renderOrderHistoryOnly = () => (
+    <div className="page__orders-and-subscriptions container-fluid py-5">
+      <BasicAlert isVisible={hasError} />
+      <OrderHistory isB2CSubsEnabled={false} />
+    </div>
+  );
+
+  if (isLoading) {
+    return renderLoading();
+  }
+  if (shouldShowOrderHistoryOnly) {
+    return renderOrderHistoryOnly();
+  }
+  return renderOrdersandSubscriptions();
 };
 
 export default OrdersAndSubscriptionsPage;
