@@ -15,12 +15,14 @@ import {
   loadingSelector,
   showSubscriptionSelector,
 } from './selectors';
+import { loadingOrderHistorySelector } from '../order-history/selectors';
 import messages from './OrdersAndSubscriptionsPage.messages';
 
 const OrdersAndSubscriptionsPage = () => {
   const { formatMessage } = useIntl();
   const dispatch = useDispatch();
   const isLoading = useSelector(loadingSelector);
+  const isLoadingOrderHistoryOnly = useSelector(loadingOrderHistorySelector);
   const hasError = useSelector(errorSelector);
   const { subscriptions } = useSelector(subscriptionsSelector);
 
@@ -87,9 +89,16 @@ const OrdersAndSubscriptionsPage = () => {
     </div>
   );
 
-  if (isLoading) {
+  // Now that loading initial state is true, if subscriptions is not enabled,
+  // it will never fetch subscriptions, want to prevent from local infinite loading
+  if (isSubscriptionDisabled) {
+    if (isLoadingOrderHistoryOnly) {
+      return renderLoading();
+    }
+  } else if (isLoading) {
     return renderLoading();
   }
+
   if (shouldShowOrderHistoryOnly) {
     return renderOrderHistoryOnly();
   }
