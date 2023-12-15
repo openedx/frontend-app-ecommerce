@@ -15,18 +15,17 @@ const subscriptionsReducer = (state = initialState, action = {}) => {
     case fetchSubscriptions.TRIGGER:
       return {
         ...state,
+        loading: true,
         loadingError: false,
       };
     case fetchSubscriptions.SUCCESS:
       return {
         ...state,
-        loading: false,
         subscriptions: action.payload,
       };
     case fetchSubscriptions.FAILURE:
       return {
         ...state,
-        loading: false,
         loadingError: true,
       };
     case fetchSubscriptions.FULFILL:
