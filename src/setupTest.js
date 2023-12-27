@@ -1,10 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import Enzyme from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { mergeConfig } from '@edx/frontend-platform';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 mergeConfig({
   COMMERCE_COORDINATOR_BASE_URL: process.env.COMMERCE_COORDINATOR_BASE_URL,
