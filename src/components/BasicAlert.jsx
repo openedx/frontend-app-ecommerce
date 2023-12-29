@@ -6,8 +6,8 @@ import {
   Alert,
   AlertModal,
   Button,
-} from '@edx/paragon';
-import { Info } from '@edx/paragon/icons';
+} from '@openedx/paragon';
+import { Info } from '@openedx/paragon/icons';
 
 import SupportLink from './SupportLink';
 import messages from './BasicAlert.messages';
