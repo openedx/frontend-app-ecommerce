@@ -1,7 +1,7 @@
 import { fetchOrders } from './actions';
 
 export const initialState = {
-  loading: false,
+  loading: true,
   loadingError: false,
   orders: [],
   count: 0,
