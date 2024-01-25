@@ -29,12 +29,10 @@ export async function getOrders(page = 1, pageSize = 20) {
   let callCC = false;
   if (data.count > 0) {
     callCC = data.results[0].enable_hoist_order_history;
-    console.log('REV-2577 LOG: ecommerce data.results', data.results);
   }
-  console.log('REV-2577 LOG: enable_hoist_order_history flag is: ', callCC);
 
   if (callCC) {
-    console.log('REV-2577 LOG: about to call commerce-coordinator');
+    // REV-2577: enable_hoist_order_history flag is on, about to call commerce-coordinator
     const newData = await httpClient.get(orderFetchingUrl, {
       params: {
         username,
@@ -43,7 +41,6 @@ export async function getOrders(page = 1, pageSize = 20) {
       },
     });
     data = newData.data;
-    console.log('REV-2577 LOG: CC response.data.results', data.results);
   }
   // [END] TEMPORARY CODE for rollout testing/confirmation===========
 

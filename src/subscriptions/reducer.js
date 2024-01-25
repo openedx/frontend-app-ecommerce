@@ -1,7 +1,7 @@
 import { fetchStripeCustomerPortalURL, fetchSubscriptions } from './actions';
 
 export const initialState = {
-  loading: false,
+  loading: true,
   loadingError: false,
   subscriptions: [],
   stripeCustomerPortalURL: null,

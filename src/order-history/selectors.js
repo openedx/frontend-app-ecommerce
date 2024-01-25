@@ -4,3 +4,7 @@ export const storeName = 'orderHistory';
 export const pageSelector = state => ({
   ...state[storeName],
 });
+
+export const loadingOrderHistorySelector = (state) => (
+  state[storeName].loading
+);
