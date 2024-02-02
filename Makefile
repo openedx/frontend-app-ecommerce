@@ -49,13 +49,14 @@ pull_translations:
 	rm -rf src/i18n/messages
 	mkdir src/i18n/messages
 	cd src/i18n/messages \
-	  && atlas pull --filter=$(transifex_langs) \
+	  && atlas pull $(ATLAS_OPTIONS) \
 	           translations/frontend-component-footer/src/i18n/messages:frontend-component-footer \
 	           translations/frontend-component-header/src/i18n/messages:frontend-component-header \
+	           translations/frontend-platform/src/i18n/messages:frontend-platform \
 	           translations/paragon/src/i18n/messages:paragon \
 	           translations/frontend-app-ecommerce/src/i18n/messages:frontend-app-ecommerce
 
-	$(intl_imports) frontend-component-header frontend-component-footer paragon frontend-app-ecommerce
+	$(intl_imports) frontend-component-header frontend-component-footer frontend-platform paragon frontend-app-ecommerce
 endif
 
 # This target is used by CI.
