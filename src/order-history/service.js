@@ -6,8 +6,17 @@ import { getConfig } from '@edx/frontend-platform';
 
 const { ECOMMERCE_BASE_URL } = getConfig();
 
-const ECOMMERCE_API_BASE_URL = `${ECOMMERCE_BASE_URL}/api/v2`;
 const ECOMMERCE_RECEIPT_BASE_URL = `${ECOMMERCE_BASE_URL}/checkout/receipt/`;
+
+const decimalishMatcher = /^([0-9]*[.,]*)+[0-9]*$/;
+
+function isNotDecimalish(num) {
+  if (Number.isNaN(num)) {
+    return true;
+  }
+
+  return !decimalishMatcher.test(num);
+}
 
 // eslint-disable-next-line import/prefer-default-export
 export async function getOrders(page = 1, pageSize = 20) {
@@ -42,7 +51,7 @@ export async function getOrders(page = 1, pageSize = 20) {
 
     return {
       datePlaced: date_placed, // eslint-disable-line camelcase
-      total: total_excl_tax, // eslint-disable-line camelcase
+      total: isNotDecimalish(total_excl_tax) ? total_excl_tax : `$${total_excl_tax}`, // eslint-disable-line camelcase
       orderId: number,
       currency,
       lineItems,
@@ -52,10 +61,10 @@ export async function getOrders(page = 1, pageSize = 20) {
 
   return {
     count: data.count,
-    pageCount: Math.ceil(data.count / pageSize),
-    currentPage: page,
-    next: data.next,
-    previous: data.previous,
+    pageCount: 0, // Math.ceil(data.count / pageSize),
+    currentPage: 1,
+    next: false,
+    previous: false,
     orders: transformedResults,
   };
 }
