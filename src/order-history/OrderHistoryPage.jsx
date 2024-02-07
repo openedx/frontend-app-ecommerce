@@ -6,7 +6,6 @@ import {
   injectIntl,
   intlShape,
   FormattedDate,
-  FormattedNumber,
 } from '@edx/frontend-platform/i18n';
 import { DataTable, Hyperlink, Pagination } from '@edx/paragon';
 import MediaQuery from 'react-responsive';
@@ -36,14 +35,13 @@ class OrderHistoryPage extends React.Component {
       lineItems,
       datePlaced,
       total,
-      currency,
       orderId,
       receiptUrl,
     }) => ({
       description: this.renderLineItems(lineItems),
       datePlaced: <FormattedDate value={new Date(datePlaced)} />,
       // eslint-disable-next-line react/style-prop-object
-      total: <FormattedNumber value={total} style="currency" currency={currency} />,
+      total,
       receiptUrl: (
         <Hyperlink destination={receiptUrl}>
           {this.props.intl.formatMessage(messages['ecommerce.order.history.view.order.detail'])}
