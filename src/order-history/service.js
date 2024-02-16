@@ -4,9 +4,7 @@
 import { getAuthenticatedHttpClient, getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { getConfig } from '@edx/frontend-platform';
 
-const { ECOMMERCE_BASE_URL } = getConfig();
-
-const ECOMMERCE_RECEIPT_BASE_URL = `${ECOMMERCE_BASE_URL}/checkout/receipt/`;
+const ECOMMERCE_RECEIPT_BASE_URL = `${process.env.RECEIPT_URL}`;
 
 const decimalishMatcher = /^([0-9]*[.,]*)+[0-9]*$/;
 
