@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getConfig } from '@edx/frontend-platform';
 import { useIntl } from '@edx/frontend-platform/i18n';
-import { Badge, Card, Hyperlink } from '@edx/paragon';
+import { Badge, Card, Hyperlink } from '@openedx/paragon';
 
 import messages from './SubscriptionCardsView.messages';
 

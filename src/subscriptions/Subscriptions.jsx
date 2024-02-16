@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { FormattedMessage, useIntl } from '@edx/frontend-platform/i18n';
-import { StatefulButton } from '@edx/paragon';
-import { Launch, SpinnerSimple } from '@edx/paragon/icons';
+import { StatefulButton } from '@openedx/paragon';
+import { Launch, SpinnerSimple } from '@openedx/paragon/icons';
 
 import { BasicAlert } from '../components';
 
