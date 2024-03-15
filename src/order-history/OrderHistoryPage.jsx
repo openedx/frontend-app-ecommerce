@@ -57,8 +57,8 @@ class OrderHistoryPage extends React.Component {
     }) => ({
       description: this.renderLineItems(lineItems),
       datePlaced: <FormattedDate value={new Date(datePlaced)} />,
-      // eslint-disable-next-line react/style-prop-object
       total: ENABLE_UNIFIED_ORDER_HISTORY
+        // eslint-disable-next-line react/style-prop-object
         ? total : <FormattedNumber value={total} style="currency" currency={currency} />,
       receiptUrl: (
         <Hyperlink destination={receiptUrl}>
