@@ -28,7 +28,6 @@ import { pageSelector } from './selectors';
  * After we add the keys to frontend-platform, this mergeConfig can go away
  */
 mergeConfig({
-  ENABLE_UNIFIED_ORDER_HISTORY: process.env.ENABLE_UNIFIED_ORDER_HISTORY.toLowerCase() === 'true',
   ORDER_HISTORY_URL: process.env.ORDER_HISTORY_URL,
   RECEIPT_URL: process.env.RECEIPT_URL,
 });
@@ -46,7 +45,6 @@ class OrderHistoryPage extends React.Component {
   }
 
   getTableData() {
-    const { ENABLE_UNIFIED_ORDER_HISTORY } = getConfig();
     return this.props.orders.map(({
       lineItems,
       datePlaced,
@@ -57,9 +55,8 @@ class OrderHistoryPage extends React.Component {
     }) => ({
       description: this.renderLineItems(lineItems),
       datePlaced: <FormattedDate value={new Date(datePlaced)} />,
-      total: ENABLE_UNIFIED_ORDER_HISTORY
-        // eslint-disable-next-line react/style-prop-object
-        ? total : <FormattedNumber value={total} style="currency" currency={currency} />,
+      // eslint-disable-next-line react/style-prop-object
+      total: <FormattedNumber value={total} style="currency" currency={currency} />,
       receiptUrl: (
         <Hyperlink destination={receiptUrl}>
           {this.props.intl.formatMessage(messages['ecommerce.order.history.view.order.detail'])}
