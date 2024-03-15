@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getConfig } from '@edx/frontend-platform';
+import { getConfig, mergeConfig } from '@edx/frontend-platform';
 import {
   injectIntl,
   intlShape,
   FormattedDate,
+  FormattedNumber,
 } from '@edx/frontend-platform/i18n';
 import { DataTable, Hyperlink, Pagination } from '@edx/paragon';
 import MediaQuery from 'react-responsive';
@@ -17,6 +18,20 @@ import messages from './OrderHistoryPage.messages';
 // Actions
 import { fetchOrders } from './actions';
 import { pageSelector } from './selectors';
+
+/**
+ * TEMPORARY
+ *
+ * Until we add the following keys in frontend-platform,
+ * use mergeConfig to join it with the rest of the config items
+ * (so we don't need to get it separately from process.env).
+ * After we add the keys to frontend-platform, this mergeConfig can go away
+ */
+mergeConfig({
+  ENABLE_UNIFIED_ORDER_HISTORY: process.env.ENABLE_UNIFIED_ORDER_HISTORY.toLowerCase() === 'true',
+  ORDER_HISTORY_URL: process.env.ORDER_HISTORY_URL,
+  RECEIPT_URL: process.env.RECEIPT_URL,
+});
 
 class OrderHistoryPage extends React.Component {
   constructor(props) {
@@ -31,17 +46,20 @@ class OrderHistoryPage extends React.Component {
   }
 
   getTableData() {
+    const { ENABLE_UNIFIED_ORDER_HISTORY } = getConfig();
     return this.props.orders.map(({
       lineItems,
       datePlaced,
       total,
+      currency,
       orderId,
       receiptUrl,
     }) => ({
       description: this.renderLineItems(lineItems),
       datePlaced: <FormattedDate value={new Date(datePlaced)} />,
       // eslint-disable-next-line react/style-prop-object
-      total,
+      total: ENABLE_UNIFIED_ORDER_HISTORY
+        ? total : <FormattedNumber value={total} style="currency" currency={currency} />,
       receiptUrl: (
         <Hyperlink destination={receiptUrl}>
           {this.props.intl.formatMessage(messages['ecommerce.order.history.view.order.detail'])}
