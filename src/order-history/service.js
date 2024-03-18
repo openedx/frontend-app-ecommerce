@@ -1,28 +1,20 @@
-/* eslint-disable no-console */
-// NOTE: console logs are intentionally added for REV-2577
-
 import { getAuthenticatedHttpClient, getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { getConfig } from '@edx/frontend-platform';
 
-const ECOMMERCE_RECEIPT_BASE_URL = `${process.env.RECEIPT_URL}`;
+const { ORDER_HISTORY_URL, RECEIPT_URL, ECOMMERCE_BASE_URL } = getConfig();
 
-const decimalishMatcher = /^([0-9]*[.,]*)+[0-9]*$/;
-
-function isNotDecimalish(num) {
-  if (Number.isNaN(num)) {
-    return true;
-  }
-
-  return !decimalishMatcher.test(num);
-}
+const ECOMMERCE_API_BASE_URL = `${ECOMMERCE_BASE_URL}/api/v2`;
+const ECOMMERCE_RECEIPT_BASE_URL = RECEIPT_URL
+  ? `${RECEIPT_URL}` : `${ECOMMERCE_BASE_URL}/checkout/receipt/`;
+const ECOMMERCE_ORDERS_URL = ORDER_HISTORY_URL
+  ? `${ORDER_HISTORY_URL}` : `${ECOMMERCE_API_BASE_URL}/orders/`;
 
 // eslint-disable-next-line import/prefer-default-export
 export async function getOrders(page = 1, pageSize = 20) {
   const httpClient = getAuthenticatedHttpClient();
   const { username } = getAuthenticatedUser();
-  const { ORDER_HISTORY_URL } = getConfig();
 
-  const { data } = await httpClient.get(`${ORDER_HISTORY_URL}`, {
+  const { data } = await httpClient.get(`${ECOMMERCE_ORDERS_URL}`, {
     params: {
       username,
       page,
@@ -30,7 +22,7 @@ export async function getOrders(page = 1, pageSize = 20) {
     },
   });
 
-  const transformedResults = data.map(({
+  const transformedResults = data.results.map(({
     total_excl_tax, // eslint-disable-line camelcase
     lines,
     number,
@@ -49,7 +41,7 @@ export async function getOrders(page = 1, pageSize = 20) {
 
     return {
       datePlaced: date_placed, // eslint-disable-line camelcase
-      total: isNotDecimalish(total_excl_tax) ? total_excl_tax : `$${total_excl_tax}`, // eslint-disable-line camelcase
+      total: total_excl_tax, // eslint-disable-line camelcase
       orderId: number,
       currency,
       lineItems,
@@ -59,10 +51,10 @@ export async function getOrders(page = 1, pageSize = 20) {
 
   return {
     count: data.count,
-    pageCount: 0, // Math.ceil(data.count / pageSize),
-    currentPage: 1,
-    next: false,
-    previous: false,
+    pageCount: Math.ceil(data.count / pageSize),
+    currentPage: page,
+    next: data.next,
+    previous: data.previous,
     orders: transformedResults,
   };
 }
