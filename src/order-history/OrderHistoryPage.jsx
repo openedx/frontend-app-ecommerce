@@ -8,7 +8,7 @@ import {
   FormattedDate,
   FormattedNumber,
 } from '@edx/frontend-platform/i18n';
-import { DataTable, Hyperlink, Pagination } from '@edx/paragon';
+import { DataTable, Hyperlink, Pagination } from '@openedx/paragon';
 import MediaQuery from 'react-responsive';
 
 import { PageLoading } from '../components';
