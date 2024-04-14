@@ -80,7 +80,7 @@
     "@edx/frontend-build": "13.0.14",
     "@edx/reactifex": "^2.1.0",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^15.0.0",
     "axios-mock-adapter": "1.21.5",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-imports": "2.0.0",
