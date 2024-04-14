@@ -79,7 +79,7 @@
     "@edx/browserslist-config": "^1.2.0",
     "@edx/frontend-build": "13.0.14",
     "@edx/reactifex": "^2.1.0",
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^12.1.5",
     "axios-mock-adapter": "1.21.5",
     "babel-plugin-transform-class-properties": "6.24.1",
