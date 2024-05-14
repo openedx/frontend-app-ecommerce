@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getConfig } from '@edx/frontend-platform';
+import { getConfig, mergeConfig } from '@edx/frontend-platform';
 import {
   injectIntl,
   intlShape,
@@ -18,6 +18,19 @@ import messages from './OrderHistoryPage.messages';
 // Actions
 import { fetchOrders } from './actions';
 import { pageSelector } from './selectors';
+
+/**
+ * TEMPORARY
+ *
+ * Until we add the following keys in frontend-platform,
+ * use mergeConfig to join it with the rest of the config items
+ * (so we don't need to get it separately from process.env).
+ * After we add the keys to frontend-platform, this mergeConfig can go away
+ */
+mergeConfig({
+  ORDER_HISTORY_URL: process.env.ORDER_HISTORY_URL,
+  RECEIPT_URL: process.env.RECEIPT_URL,
+});
 
 class OrderHistoryPage extends React.Component {
   constructor(props) {

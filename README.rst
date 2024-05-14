@@ -3,8 +3,6 @@
 frontend-app-ecommerce
 ======================
 
-Please tag **@edx/revenue-squad** on any PRs or issues.
-
 Introduction
 ------------
 
