@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import { getConfig } from '@edx/frontend-platform';
 import { FormattedMessage } from '@edx/frontend-platform/i18n';
-import { Alert, Badge, Button } from '@edx/paragon';
+import { Alert, Badge, Button } from '@openedx/paragon';
 
 const SubscriptionUpsell = () => (
   <Alert
