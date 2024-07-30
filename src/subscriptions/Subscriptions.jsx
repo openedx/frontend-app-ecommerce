@@ -10,7 +10,7 @@ import { BasicAlert } from '../components';
 import SubscriptionCardsView from './SubscriptionCardsView';
 import SubscriptionUpsell from './SubscriptionUpsell';
 
-import { clearStripeError, fetchStripeCustomerPortalURL } from './actions';
+import { clearStripeError } from './actions';
 import { subscriptionsSelector } from './selectors';
 
 import messages from './Subscriptions.messages';
@@ -20,7 +20,6 @@ const Subscriptions = () => {
   const dispatch = useDispatch();
   const {
     subscriptions,
-    stripeCustomerPortalURL,
     stripeError,
     stripeLoading,
   } = useSelector(subscriptionsSelector);
@@ -39,20 +38,9 @@ const Subscriptions = () => {
     messages['ecommerce.order.history.subscriptions.manage.button'],
   );
 
-  const handleManageSubscriptionsClick = () => {
-    sendTrackEvent('edx.bi.user.subscription.order-page.manage.clicked');
-    dispatch(fetchStripeCustomerPortalURL());
-  };
-
   const handeAlertClose = () => {
     dispatch(clearStripeError());
   };
-
-  useEffect(() => {
-    if (stripeCustomerPortalURL) {
-      window.open(stripeCustomerPortalURL, '_blank', 'noopener,noreferrer');
-    }
-  }, [stripeCustomerPortalURL]);
 
   const renderSpinner = () => (
     <div className="icon-spin">{SpinnerSimple()}</div>
@@ -80,15 +68,6 @@ const Subscriptions = () => {
             buttonLabel: <i>{buttonLabel}</i>,
           })}
         </span>
-        <StatefulButton
-          size="sm"
-          className="text-nowrap"
-          labels={{ default: buttonLabel }}
-          icons={{ default: undefined }}
-          iconAfter={stripeLoading ? renderSpinner : Launch}
-          state={stripeLoading ? 'pending' : 'default'}
-          onClick={handleManageSubscriptionsClick}
-        />
       </div>
       <SubscriptionCardsView subscriptions={subscriptions} />
       <BasicAlert isModal isVisible={stripeError} onClose={handeAlertClose} />
