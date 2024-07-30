@@ -1,5 +1,4 @@
 import Subscriptions from './Subscriptions';
-import ManageSubscriptionsPage from './ManageSubscriptionsPage';
 import { fetchSubscriptions } from './actions';
 import reducer from './reducer';
 import saga from './saga';
@@ -11,5 +10,4 @@ export {
   reducer,
   saga,
   storeName,
-  ManageSubscriptionsPage,
 };

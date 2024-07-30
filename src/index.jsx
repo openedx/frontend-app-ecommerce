@@ -9,7 +9,6 @@ import {
   APP_READY,
   initialize,
   subscribe,
-  getConfig,
   mergeConfig,
 } from '@edx/frontend-platform';
 
@@ -20,7 +19,6 @@ import messages from './i18n';
 import configureStore from './store';
 import { NotFoundPage } from './components';
 import { OrdersAndSubscriptionsPage } from './orders-and-subscriptions';
-import { ManageSubscriptionsPage } from './subscriptions';
 
 import './index.scss';
 
@@ -52,12 +50,6 @@ subscribe(APP_READY, () => {
       <Header />
       <main>
         <Routes>
-          {getConfig().ENABLE_B2C_SUBSCRIPTIONS?.toLowerCase() === 'true' ? (
-            <Route
-              path="/manage-subscriptions"
-              element={<ManageSubscriptionsPage />}
-            />
-          ) : null}
           <Route path="/orders" element={<OrdersAndSubscriptionsPage />} />
           <Route path="/notfound" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
