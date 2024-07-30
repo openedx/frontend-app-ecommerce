@@ -19,13 +19,3 @@ export async function getSubscriptions() {
         : subscription.subscription_state?.toLowerCase(),
   }));
 }
-
-export async function getStripeCustomerPortalURL() {
-  const httpClient = getAuthenticatedHttpClient();
-
-  const stripePortalURL = createURL('/stripe-portal/');
-
-  const { data } = await httpClient.post(stripePortalURL);
-
-  return data.portal_url;
-}

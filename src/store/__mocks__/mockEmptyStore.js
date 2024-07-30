@@ -13,7 +13,6 @@ module.exports = {
     loading: false,
     loadingError: false,
     subscriptions: [],
-    stripeCustomerPortalURL: null,
     stripeError: false,
     stripeLoading: false,
     shouldShowSubscriptionsSection: true,

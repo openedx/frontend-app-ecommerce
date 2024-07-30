@@ -1,9 +1,7 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 
-import { createFetchHandler } from '../utils';
-
-import { fetchSubscriptions, fetchStripeCustomerPortalURL, hideSubscriptionSection } from './actions';
-import { getSubscriptions, getStripeCustomerPortalURL } from './service';
+import { fetchSubscriptions, hideSubscriptionSection } from './actions';
+import { getSubscriptions } from './service';
 
 function* handleFetchSubscriptions() {
   try {
@@ -27,15 +25,6 @@ function* handleFetchSubscriptions() {
   }
 }
 
-const handleFetchStripeCustomerPortalURL = createFetchHandler(
-  fetchStripeCustomerPortalURL,
-  getStripeCustomerPortalURL,
-);
-
 export default function* subscriptionSaga() {
   yield takeLatest(fetchSubscriptions.TRIGGER, handleFetchSubscriptions);
-  yield takeLatest(
-    fetchStripeCustomerPortalURL.TRIGGER,
-    handleFetchStripeCustomerPortalURL,
-  );
 }

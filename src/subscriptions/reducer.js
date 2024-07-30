@@ -1,10 +1,9 @@
-import { fetchStripeCustomerPortalURL, fetchSubscriptions } from './actions';
+import { fetchSubscriptions } from './actions';
 
 export const initialState = {
   loading: true,
   loadingError: false,
   subscriptions: [],
-  stripeCustomerPortalURL: null,
   stripeError: false,
   stripeLoading: false,
   shouldShowSubscriptionsSection: true,
@@ -32,27 +31,6 @@ const subscriptionsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: false,
-      };
-    case fetchStripeCustomerPortalURL.TRIGGER:
-      return {
-        ...state,
-        stripeLoading: true,
-        stripeCustomerPortalURL: null,
-      };
-    case fetchStripeCustomerPortalURL.SUCCESS:
-      return {
-        ...state,
-        stripeCustomerPortalURL: action.payload,
-      };
-    case fetchStripeCustomerPortalURL.FAILURE:
-      return {
-        ...state,
-        stripeError: true,
-      };
-    case fetchStripeCustomerPortalURL.FULFILL:
-      return {
-        ...state,
-        stripeLoading: false,
       };
     case 'CLEAR_STRIPE_ERROR':
       return {
