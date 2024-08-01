@@ -48,7 +48,7 @@
     "font-awesome": "4.7.0",
     "form-urlencoded": "6.0.7",
     "glob": "8.0.3",
-    "history": "^4.10.1",
+    "history": "^5.0.0",
     "i": "^0.3.7",
     "i18n-iso-countries": "7.5.0",
     "iso-countries-languages": "0.3.0",
